@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_staffdata"
+            android:icon="@drawable/staffdata"
+            android:title="Staff Data" />
+        <item
+            android:id="@+id/nav_customerdata"
+            android:icon="@drawable/customerdata"
+            android:title="Customer Data" />
+        <item
+            android:id="@+id/nav_totalearning"
+            android:icon="@drawable/totalearning"
+            android:title="Total Earning" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/feedback"
+                android:title="Feedback" />
+            <item
+                android:id="@+id/nav_aboutus"
+                android:icon="@drawable/aboutus"
+                android:title="About us" />
+        </menu>
+    </item>
+
+</menu>

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.futsalrecord.futsalinfosystem.AdminDashboard;
 import com.futsalrecord.futsalinfosystem.R;
 
 /**
@@ -47,6 +48,8 @@ public class AdminLoginFragment extends Fragment {
                     etAdminLoginUsername.getText().clear();
                     etAdminLoginPassword.getText().clear();
 //                    Toast.makeText(getActivity(),"Login Success",Toast.LENGTH_LONG).show(); //For testing
+                    Intent intent = new Intent(getActivity(), AdminDashboard.class);
+                    startActivity(intent);
                 } else {
                     etAdminLoginUsername.setError("Invalid username");
                     etAdminLoginPassword.setError("Invalid password");
