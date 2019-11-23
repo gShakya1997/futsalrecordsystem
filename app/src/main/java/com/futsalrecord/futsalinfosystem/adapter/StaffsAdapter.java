@@ -40,6 +40,7 @@ public class StaffsAdapter extends RecyclerView.Adapter<StaffsAdapter.StaffsView
         holder.tvStaffEmail.setText(staffs.getStaffEmail());
         holder.tvStaffPhoneNo.setText(staffs.getStaffPhoneNo());
         holder.tvStaffGender.setText(staffs.getStaffGender());
+        holder.tvStaffAddress.setText(staffs.getStaffAddress());
     }
 
     @Override
@@ -49,7 +50,7 @@ public class StaffsAdapter extends RecyclerView.Adapter<StaffsAdapter.StaffsView
 
     public class StaffsViewHolder extends RecyclerView.ViewHolder {
         CircleImageView staffProfilePic;
-        TextView tvStaffFullName, tvStaffEmail, tvStaffPhoneNo, tvStaffGender;
+        TextView tvStaffFullName, tvStaffEmail, tvStaffPhoneNo, tvStaffGender, tvStaffAddress;
 
         public StaffsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,6 +59,7 @@ public class StaffsAdapter extends RecyclerView.Adapter<StaffsAdapter.StaffsView
             tvStaffEmail = itemView.findViewById(R.id.tvStaffEmail);
             tvStaffPhoneNo = itemView.findViewById(R.id.tvStaffPhoneNo);
             tvStaffGender = itemView.findViewById(R.id.tvStaffGender);
+            tvStaffAddress = itemView.findViewById(R.id.tvStaffAddress);
         }
     }
 }

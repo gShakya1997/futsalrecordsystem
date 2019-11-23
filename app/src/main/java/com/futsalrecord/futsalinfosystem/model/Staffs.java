@@ -1,14 +1,15 @@
 package com.futsalrecord.futsalinfosystem.model;
 
 public class Staffs {
-    private String staffFullName, staffEmail, staffPhoneNo, staffGender;
+    private String staffFullName, staffEmail, staffPhoneNo, staffGender, staffAddress;
     private int staffImageId;
 
-    public Staffs(String staffFullName, String staffEmail, String staffPhoneNo, String staffGender, int staffImageId) {
+    public Staffs(String staffFullName, String staffEmail, String staffPhoneNo, String staffGender, String staffAddress, int staffImageId) {
         this.staffFullName = staffFullName;
         this.staffEmail = staffEmail;
         this.staffPhoneNo = staffPhoneNo;
         this.staffGender = staffGender;
+        this.staffAddress = staffAddress;
         this.staffImageId = staffImageId;
     }
 
@@ -50,5 +51,13 @@ public class Staffs {
 
     public void setStaffImageId(int staffImageId) {
         this.staffImageId = staffImageId;
+    }
+
+    public String getStaffAddress() {
+        return staffAddress;
+    }
+
+    public void setStaffAddress(String staffAddress) {
+        this.staffAddress = staffAddress;
     }
 }

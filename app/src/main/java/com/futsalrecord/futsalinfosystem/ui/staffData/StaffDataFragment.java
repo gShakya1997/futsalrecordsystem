@@ -26,8 +26,8 @@ public class StaffDataFragment extends Fragment {
         staffRecyclerView = root.findViewById(R.id.staffRecyclerView);
 
         List<Staffs> staffsList = new ArrayList<>();
-        staffsList.add(new Staffs("Gunjan Shakya","gunjan.shakya3@gmail.com","9860915753","Male",R.drawable.noimage));
-        staffsList.add(new Staffs("Yunish Shakya","yunish.shakya3@gmail.com","9818086908","Male",R.drawable.noimage));
+        staffsList.add(new Staffs("Gunjan Shakya","gunjan.shakya3@gmail.com","9860915753","Male","Kathmandu",R.drawable.noimage));
+        staffsList.add(new Staffs("Yunish Shakya","yunish.shakya3@gmail.com","9818086908","Male","Patan",R.drawable.noimage));
         StaffsAdapter staffsAdapter = new StaffsAdapter(getActivity(),staffsList);
         staffRecyclerView.setAdapter(staffsAdapter);
         staffRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -65,6 +65,18 @@
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvStaffAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Address"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/imgBtnStaffDelete"
         android:layout_width="35dp"
