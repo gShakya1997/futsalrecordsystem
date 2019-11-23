@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
     android:background="#FFFFFF">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/staffProfilePic"
+        android:id="@+id/customerProfilePic"
         android:layout_width="99dp"
         android:layout_height="198dp"
         android:layout_marginStart="4dp"
@@ -17,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvStaffFullName"
+        android:id="@+id/tvCustomerFullName"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="36dp"
@@ -25,11 +26,11 @@
         android:layout_marginTop="20dp"
         android:text="Full Name"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
+        app:layout_constraintStart_toEndOf="@+id/customerProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvStaffEmail"
+        android:id="@+id/tvCustomerEmail"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="36dp"
@@ -38,11 +39,11 @@
         android:inputType="textEmailAddress"
         android:text="Email Address"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
+        app:layout_constraintStart_toEndOf="@+id/customerProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvStaffPhoneNo"
+        android:id="@+id/tvCustomerPhoneNo"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="36dp"
@@ -50,11 +51,11 @@
         android:layout_marginTop="100dp"
         android:text="Phone Number"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
+        app:layout_constraintStart_toEndOf="@+id/customerProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvStaffGender"
+        android:id="@+id/tvCustomerGender"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="36dp"
@@ -62,7 +63,19 @@
         android:layout_marginTop="140dp"
         android:text="Gender"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
+        app:layout_constraintStart_toEndOf="@+id/customerProfilePic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCustomerAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:text="Address"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -94,4 +107,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/edit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
