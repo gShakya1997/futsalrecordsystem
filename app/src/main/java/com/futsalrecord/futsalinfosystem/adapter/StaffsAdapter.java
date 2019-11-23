@@ -28,7 +28,7 @@ public class StaffsAdapter extends RecyclerView.Adapter<StaffsAdapter.StaffsView
     @NonNull
     @Override
     public StaffsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.staffview,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.staffview, parent, false);
         return new StaffsViewHolder(view);
     }
 

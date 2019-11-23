@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ADEFD1"
     android:orientation="vertical"
     tools:context=".fragments.AdminLoginFragment">
 
     <ImageView
-        android:layout_width="218dp"
-        android:layout_height="155dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/adminlogin" />
+        android:layout_width="wrap_content"
+        android:layout_height="169dp"
+        android:src="@drawable/adminlogin"/>
 
     <EditText
         android:id="@+id/etAdminLoginUsername"
@@ -19,7 +18,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Username"
-        android:padding="30dp" />
+        android:inputType="text"
+        android:padding="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etAdminLoginPassword"
@@ -28,7 +30,9 @@
         android:layout_marginTop="20dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="30dp" />
+        android:padding="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnAdminLogin"
@@ -36,8 +40,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@color/cardview_shadow_end_color"
-        android:padding="30dp"
-        android:text="LOGIN" />
+        android:background="#00203F"
+        android:text="LOGIN"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

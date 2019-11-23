@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayoutLogin.setSelectedTabIndicatorColor(Color.parseColor("#FFFFFF"));
         ViewPagerLoginAdapter viewPagerLoginAdapter = new ViewPagerLoginAdapter(getSupportFragmentManager());
-        viewPagerLoginAdapter.addFragment(new AdminLoginFragment(),"Admin Login");
-        viewPagerLoginAdapter.addFragment(new StaffLoginFragment(),"Staff Login");
+        viewPagerLoginAdapter.addFragment(new AdminLoginFragment(), "Admin Login");
+        viewPagerLoginAdapter.addFragment(new StaffLoginFragment(), "Staff Login");
         viewPagerLogin.setAdapter(viewPagerLoginAdapter);
         tabLayoutLogin.setupWithViewPager(viewPagerLogin);
     }
