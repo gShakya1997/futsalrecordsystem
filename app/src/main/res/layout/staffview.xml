@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="20dp"
-            android:text="Full Name"
+            android:text="@string/full_name"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,8 +40,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="60dp"
-            android:inputType="textEmailAddress"
-            android:text="Email Address"
+            android:text="@string/email_address"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +52,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="100dp"
-            android:text="Phone Number"
+            android:text="@string/phone_number"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +64,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="140dp"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
             app:layout_constraintTop_toTopOf="parent" />
@@ -77,7 +76,7 @@
             android:layout_marginTop="140dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:text="Address"
+            android:text="@string/address"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +90,7 @@
             android:layout_marginRight="16dp"
             android:adjustViewBounds="true"
             android:background="@drawable/btnround"
-            android:contentDescription="Delete"
+            android:contentDescription="@string/delete"
             android:scaleType="centerInside"
             android:src="@drawable/delete"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +105,7 @@
             android:layout_marginRight="16dp"
             android:adjustViewBounds="true"
             android:background="@drawable/btnround"
-            android:contentDescription="Edit"
+            android:contentDescription="@string/edit"
             android:scaleType="centerInside"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

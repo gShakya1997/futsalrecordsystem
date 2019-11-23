@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#ADEFD1"
         android:orientation="vertical"
         tools:context=".fragments.StaffLoginFragment">
@@ -15,6 +15,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="169dp"
+            android:layout_gravity="center"
             android:src="@drawable/stafflogin" />
 
         <EditText
@@ -22,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Username"
+            android:hint="@string/staff_username"
             android:inputType="text"
             android:padding="30dp"
             android:textSize="20sp"
@@ -33,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Password"
+            android:hint="@string/staff_password"
             android:inputType="textPassword"
             android:padding="30dp"
             android:textSize="20sp"
@@ -46,7 +47,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="#00203F"
-            android:text="LOGIN"
+            android:text="@string/staff_login"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />

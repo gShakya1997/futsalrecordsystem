@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#ADEFD1">
 
         <ImageView
             android:id="@+id/ivCover"
-            android:layout_width="414dp"
-            android:layout_height="212dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cover_admin_home"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintHorizontal_bias="0.605"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/futsal" />
@@ -28,7 +29,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="28dp"
-            android:text="Total numbers of staff:"
+            android:text="@string/total_numbers_of_staff"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +44,10 @@
             android:layout_marginTop="20dp"
             android:editable="false"
             android:ems="10"
+            android:hint="@string/_0"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvTotalStaff"
             app:layout_constraintTop_toBottomOf="@+id/ivCover" />
 
@@ -55,7 +58,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="104dp"
-            android:text="Total numbers of customer:"
+            android:text="@string/total_numbers_of_customer"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +73,10 @@
             android:layout_marginTop="104dp"
             android:editable="false"
             android:ems="10"
+            android:hint="@string/_0"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvTotalStaff"
             app:layout_constraintTop_toBottomOf="@+id/ivCover" />
 
@@ -82,7 +87,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="194dp"
-            android:text="Total Earning for today:"
+            android:text="@string/total_earning_for_today"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,8 +102,10 @@
             android:layout_marginTop="194dp"
             android:editable="false"
             android:ems="10"
+            android:hint="@string/_0"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvTotalStaff"
             app:layout_constraintTop_toBottomOf="@+id/ivCover" />
 
