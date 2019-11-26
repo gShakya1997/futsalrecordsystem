@@ -53,6 +53,8 @@ public class AdminLoginFragment extends Fragment {
                 } else {
                     etAdminLoginUsername.setError("Invalid username");
                     etAdminLoginPassword.setError("Invalid password");
+                    etAdminLoginUsername.getText().clear();
+                    etAdminLoginPassword.getText().clear();
                 }
 
             }

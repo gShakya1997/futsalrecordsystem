@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ADEFD1"
@@ -18,27 +17,37 @@
             android:layout_gravity="center"
             android:src="@drawable/adminlogin" />
 
-        <EditText
-            android:id="@+id/etAdminLoginUsername"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/admin_username"
-            android:inputType="text"
-            android:padding="30dp"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/etAdminLoginPassword"
+            <EditText
+                android:id="@+id/etAdminLoginUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/admin_username"
+                android:inputType="text"
+                android:padding="30dp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/admin_password"
-            android:inputType="textPassword"
-            android:padding="30dp"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etAdminLoginPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/admin_password"
+                android:inputType="textPassword"
+                android:padding="30dp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnAdminLogin"

@@ -44,4 +44,6 @@
     <string name="system_email">futsalsystem@gmail.com</string>
     <string name="cover_admin_home">Cover</string>
     <string name="_0">0</string>
+    <string name="admin_dashboard">Admin Dashboard</string>
+    <string name="logout">Logout</string>
 </resources>
