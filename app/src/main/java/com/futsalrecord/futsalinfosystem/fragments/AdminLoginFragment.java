@@ -1,7 +1,9 @@
 package com.futsalrecord.futsalinfosystem.fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -44,22 +46,27 @@ public class AdminLoginFragment extends Fragment {
                 adminUsername = etAdminLoginUsername.getText().toString().trim();
                 adminPassword = etAdminLoginPassword.getText().toString().trim();
 
-                if(adminUsername.equals("admin") && adminPassword.equals("admin")){
+                if (adminUsername.equals("admin") && adminPassword.equals("admin")) {
                     etAdminLoginUsername.getText().clear();
                     etAdminLoginPassword.getText().clear();
-//                    Toast.makeText(getActivity(),"Login Success",Toast.LENGTH_LONG).show(); //For testing
+                    saveSharedPreferences();
                     Intent intent = new Intent(getActivity(), AdminDashboard.class);
                     startActivity(intent);
                 } else {
                     etAdminLoginUsername.setError("Invalid username");
                     etAdminLoginPassword.setError("Invalid password");
-                    etAdminLoginUsername.getText().clear();
-                    etAdminLoginPassword.getText().clear();
                 }
-
             }
         });
         return view;
     }
 
+    private void saveSharedPreferences() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("username",adminUsername);
+        editor.putString("password",adminPassword);
+        editor.commit();
+        Toast.makeText(getActivity(), "Successful", Toast.LENGTH_LONG).show();
+    }
 }

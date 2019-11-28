@@ -26,7 +26,7 @@ import android.widget.Button;
 public class AdminDashboard extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private Button btnLogout;
+//    private Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +40,18 @@ public class AdminDashboard extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_staffdata, R.id.nav_customerdata,
-                R.id.nav_totalearning, R.id.nav_aboutus, R.id.nav_feedback)
+                R.id.nav_totalearning, R.id.nav_aboutus, R.id.nav_feedback,R.id.btnAdminLogin)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-//        btnLogout = findViewById(R.id.btnLogout);
+//          btnLogout = findViewById(R.id.btnLogout);
+//
 //        btnLogout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
+//
 //            }
 //        });
     }
