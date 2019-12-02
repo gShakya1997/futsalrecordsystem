@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ADEFD1"
@@ -16,40 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/admin_dashboard"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="40sp"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif-smallcaps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvTotalStaff"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/total_numbers_of_staff"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCover" />
-
-        <EditText
-            android:id="@+id/etTotalStaff"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:editable="false"
-            android:ems="10"
-            android:hint="@string/_0"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCover" />
 
         <TextView
             android:id="@+id/tvTotalCustomer"
@@ -57,7 +32,7 @@
             android:layout_height="25dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="104dp"
+            android:layout_marginTop="70dp"
             android:text="@string/total_numbers_of_customer"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -68,7 +43,7 @@
             android:id="@+id/etTotalCustomer"
             android:layout_width="90dp"
             android:layout_height="50dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="69dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:editable="false"
@@ -85,7 +60,7 @@
             android:layout_height="25dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="194dp"
+            android:layout_marginTop="160dp"
             android:text="@string/total_earning_for_today"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -96,7 +71,7 @@
             android:id="@+id/etTotalEarning"
             android:layout_width="90dp"
             android:layout_height="50dp"
-            android:layout_marginTop="192dp"
+            android:layout_marginTop="160dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:editable="false"
@@ -106,6 +81,42 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCover" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/customerRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="364dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvListOfCustomers"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="316dp"
+            android:text="@string/list_of_customers"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imgBtnCustomerAdd"
+            android:layout_width="36dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/btnround"
+            android:scaleType="centerInside"
+            android:src="@drawable/staffdata"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
