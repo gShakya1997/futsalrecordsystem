@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/app_background"
         android:orientation="vertical"
-        tools:context=".fragments.StaffLoginFragment">
+        tools:context=".fragments.UserLoginFragment">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
 
         <Button
             android:id="@+id/btnStaffLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
@@ -77,12 +77,20 @@
 
             <Button
                 android:id="@+id/btnRegisterUsers"
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btnround"
-                android:text="register" />
+                android:text="@string/register_here" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="30dp"
+            android:text="Swipe right for futsal owners -->"
+            android:textStyle="bold"/>
     </LinearLayout>
 </ScrollView>

@@ -3,13 +3,11 @@ package com.futsalrecord.futsalinfosystem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import com.futsalrecord.futsalinfosystem.adapter.ViewPagerLoginAdapter;
 import com.futsalrecord.futsalinfosystem.fragments.AdminLoginFragment;
-import com.futsalrecord.futsalinfosystem.fragments.StaffLoginFragment;
-import com.google.android.material.tabs.TabLayout;
+import com.futsalrecord.futsalinfosystem.fragments.UserLoginFragment;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPagerLogin;
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         viewPagerLogin = findViewById(R.id.viewPagerLogin);
 
         ViewPagerLoginAdapter viewPagerLoginAdapter = new ViewPagerLoginAdapter(getSupportFragmentManager());
-        viewPagerLoginAdapter.addFragment(new StaffLoginFragment(), "User Login");
+        viewPagerLoginAdapter.addFragment(new UserLoginFragment(), "User Login");
         viewPagerLoginAdapter.addFragment(new AdminLoginFragment(), "Admin Login");
         viewPagerLogin.setAdapter(viewPagerLoginAdapter);
     }

@@ -47,5 +47,7 @@
     <string name="admin_dashboard">Admin Dashboard</string>
     <string name="logout">Logout</string>
     <string name="welcome">Welcome</string>
-    <string name="new_member_click_here">New member? Click here</string>
+    <string name="new_member_click_here">New member?</string>
+    <string name="register_here">register here</string>
+    <string name="setting">Setting</string>
 </resources>

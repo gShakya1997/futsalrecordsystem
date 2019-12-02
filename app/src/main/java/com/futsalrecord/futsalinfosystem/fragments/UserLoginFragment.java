@@ -17,12 +17,12 @@ import com.futsalrecord.futsalinfosystem.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StaffLoginFragment extends Fragment {
+public class UserLoginFragment extends Fragment {
     private EditText etStaffLoginUsername, etStaffLoginPassword;
     private Button btnStaffLogin;
     private String staffUsername, staffPassword;
 
-    public StaffLoginFragment() {
+    public UserLoginFragment() {
         // Required empty public constructor
     }
 
@@ -31,7 +31,7 @@ public class StaffLoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_staff_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_user_login, container, false);
         etStaffLoginUsername = view.findViewById(R.id.etStaffLoginUsername);
         etStaffLoginPassword = view.findViewById(R.id.etStaffLoginPassword);
         btnStaffLogin = view.findViewById(R.id.btnStaffLogin);

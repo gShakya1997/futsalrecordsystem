@@ -51,15 +51,39 @@
 
         <Button
             android:id="@+id/btnAdminLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="#00203F"
-            android:text="@string/admin_login"
-            android:textColor="#FFFFFF"
+            android:background="@drawable/btnround"
+            android:text="@string/staff_login"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/new_member_click_here"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnRegisterAdmin"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btnround"
+                android:text="@string/register_here" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
