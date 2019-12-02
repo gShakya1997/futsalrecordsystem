@@ -7,7 +7,7 @@
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ADEFD1"
+        android:background="@drawable/app_background"
         android:orientation="vertical"
         tools:context=".fragments.AdminLoginFragment">
 
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="169dp"
             android:layout_gravity="center"
-            android:src="@drawable/adminlogin" />
+            android:src="@drawable/footballicon" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

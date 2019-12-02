@@ -4,21 +4,13 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/app_background"
         android:orientation="vertical"
         tools:context=".MainActivity">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayoutLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#1E88E5"
-            app:tabIndicatorHeight="2dp"
-            app:tabTextColor="#FFFFFF" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerLogin"

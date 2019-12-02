@@ -13,7 +13,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPagerLogin;
-    private TabLayout tabLayoutLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +20,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         viewPagerLogin = findViewById(R.id.viewPagerLogin);
-        tabLayoutLogin = findViewById(R.id.tabLayoutLogin);
 
-        tabLayoutLogin.setSelectedTabIndicatorColor(Color.parseColor("#FFFFFF"));
         ViewPagerLoginAdapter viewPagerLoginAdapter = new ViewPagerLoginAdapter(getSupportFragmentManager());
         viewPagerLoginAdapter.addFragment(new StaffLoginFragment(), "User Login");
         viewPagerLoginAdapter.addFragment(new AdminLoginFragment(), "Admin Login");
         viewPagerLogin.setAdapter(viewPagerLoginAdapter);
-        tabLayoutLogin.setupWithViewPager(viewPagerLogin);
     }
 }

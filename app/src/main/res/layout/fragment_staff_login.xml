@@ -7,7 +7,7 @@
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ADEFD1"
+        android:background="@drawable/app_background"
         android:orientation="vertical"
         tools:context=".fragments.StaffLoginFragment">
 
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="169dp"
             android:layout_gravity="center"
-            android:src="@drawable/stafflogin" />
+            android:src="@drawable/footballicon" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -55,11 +55,34 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="#00203F"
+            android:background="@drawable/btnround"
             android:text="@string/staff_login"
-            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/new_member_click_here"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnRegisterUsers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btnround"
+                android:text="register" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
