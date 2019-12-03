@@ -22,13 +22,13 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etStaffLoginUsername"
+                android:id="@+id/etUserLoginUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:drawableLeft="@drawable/ic_person_black_24dp"
                 android:drawablePadding="20dp"
-                android:hint="@string/staff_username"
+                android:hint="@string/username"
                 android:inputType="text"
                 android:padding="30dp"
                 android:textSize="20sp" />
@@ -39,13 +39,13 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/etStaffLoginPassword"
+                android:id="@+id/etUserLoginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:drawablePadding="20dp"
-                android:hint="@string/staff_password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="30dp"
                 android:textSize="20sp"
@@ -53,13 +53,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnStaffLogin"
+            android:id="@+id/btnUserLogin"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/btnround"
-            android:text="@string/staff_login"
+            android:text="@string/login"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnRegisterUsers"
+                android:id="@+id/btnUserRegister"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

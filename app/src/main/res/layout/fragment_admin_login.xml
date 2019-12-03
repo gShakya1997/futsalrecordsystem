@@ -28,7 +28,7 @@
                 android:layout_marginTop="20dp"
                 android:drawableLeft="@drawable/ic_person_black_24dp"
                 android:drawablePadding="20dp"
-                android:hint="@string/admin_username"
+                android:hint="@string/username"
                 android:inputType="text"
                 android:padding="30dp"
                 android:textSize="20sp" />
@@ -45,7 +45,7 @@
                 android:layout_marginTop="20dp"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:drawablePadding="20dp"
-                android:hint="@string/admin_password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="30dp"
                 android:textSize="20sp"
@@ -59,7 +59,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/btnround"
-            android:text="@string/staff_login"
+            android:text="@string/login"
             android:textSize="20sp"
             android:textStyle="bold" />
 

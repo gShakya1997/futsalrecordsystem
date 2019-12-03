@@ -24,22 +24,12 @@
     <string name="address">Address</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
-    <string name="staff_full_name">Full Name</string>
-    <string name="staff_email_address">Email Address</string>
-    <string name="staff_phone_number">Phone Number</string>
-    <string name="staff_gender">Gender</string>
-    <string name="staff_address">Address</string>
-    <string name="staff_delete">Delete</string>
-    <string name="staff_edit">Edit</string>
     <string name="total_numbers_of_staff">Total numbers of staff:</string>
     <string name="total_numbers_of_customer">Total numbers of customer:</string>
     <string name="total_earning_for_today">Total Earning for today:</string>
-    <string name="staff_username">Username</string>
-    <string name="staff_password">Password</string>
-    <string name="staff_login">LOGIN</string>
-    <string name="admin_username">Username</string>
-    <string name="admin_password">Password</string>
-    <string name="admin_login">LOGIN</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
     <string name="system_name">Futsal System</string>
     <string name="system_email">futsalsystem@gmail.com</string>
     <string name="cover_admin_home">Cover</string>
@@ -51,4 +41,10 @@
     <string name="register_here">register here</string>
     <string name="setting">Setting</string>
     <string name="list_of_customers">List Of Customers</string>
+    <string name="registration">Registration</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="others">Others</string>
+    <string name="register">Register</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.futsalrecord.futsalinfosystem.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,14 +14,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.registration.UserRegistration;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class UserLoginFragment extends Fragment {
-    private EditText etStaffLoginUsername, etStaffLoginPassword;
-    private Button btnStaffLogin;
-    private String staffUsername, staffPassword;
+    private EditText etUserLoginUsername, etUserLoginPassword;
+    private Button btnUserLogin, btnUserRegister;
+    private String userUsername, userPassword;
 
     public UserLoginFragment() {
         // Required empty public constructor
@@ -32,23 +34,32 @@ public class UserLoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_login, container, false);
-        etStaffLoginUsername = view.findViewById(R.id.etStaffLoginUsername);
-        etStaffLoginPassword = view.findViewById(R.id.etStaffLoginPassword);
-        btnStaffLogin = view.findViewById(R.id.btnStaffLogin);
-        btnStaffLogin.setOnClickListener(new View.OnClickListener() {
+        etUserLoginUsername = view.findViewById(R.id.etUserLoginUsername);
+        etUserLoginPassword = view.findViewById(R.id.etUserLoginPassword);
+        btnUserLogin = view.findViewById(R.id.btnUserLogin);
+        btnUserRegister = view.findViewById(R.id.btnUserRegister);
+        btnUserLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                staffUsername = etStaffLoginUsername.getText().toString().trim();
-                staffPassword = etStaffLoginPassword.getText().toString().trim();
+                userUsername = etUserLoginUsername.getText().toString().trim();
+                userPassword = etUserLoginPassword.getText().toString().trim();
 
-                if(staffUsername.equals("staff") && staffPassword.equals("staff")){
-                    etStaffLoginUsername.getText().clear();
-                    etStaffLoginPassword.getText().clear();
+                if(userUsername.equals("user") && userPassword.equals("user")){
+                    etUserLoginUsername.getText().clear();
+                    etUserLoginPassword.getText().clear();
                     Toast.makeText(getActivity(),"Login Success",Toast.LENGTH_LONG).show(); //For testing
                 } else {
-                    etStaffLoginUsername.setError("Invalid username");
-                    etStaffLoginPassword.setError("Invalid password");
+                    etUserLoginUsername.setError("Invalid username");
+                    etUserLoginPassword.setError("Invalid password");
                 }
+            }
+        });
+
+        btnUserRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UserRegistration.class);
+                startActivity(intent);
             }
         });
         return view;
