@@ -47,4 +47,8 @@
     <string name="female">Female</string>
     <string name="others">Others</string>
     <string name="register">Register</string>
+    <string name="futsal_name">Futsal Name</string>
+    <string name="opening_time">Opening Time</string>
+    <string name="closing_time">Closing Time</string>
+    <string name="price_hr">Price/hr</string>
 </resources>

@@ -17,13 +17,14 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.AdminDashboard;
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.registration.AdminRegistration;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AdminLoginFragment extends Fragment {
     private EditText etAdminLoginUsername, etAdminLoginPassword;
-    private Button btnAdminLogin;
+    private Button btnAdminLogin, btnAdminRegister;
     private String adminUsername, adminPassword;
 
 
@@ -40,6 +41,7 @@ public class AdminLoginFragment extends Fragment {
         etAdminLoginUsername = view.findViewById(R.id.etAdminLoginUsername);
         etAdminLoginPassword = view.findViewById(R.id.etAdminLoginPassword);
         btnAdminLogin = view.findViewById(R.id.btnAdminLogin);
+        btnAdminRegister = view.findViewById(R.id.btnAdminRegister);
         btnAdminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +58,13 @@ public class AdminLoginFragment extends Fragment {
                     etAdminLoginUsername.setError("Invalid username");
                     etAdminLoginPassword.setError("Invalid password");
                 }
+            }
+        });
+        btnAdminRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AdminRegistration.class);
+                startActivity(intent);
             }
         });
         return view;

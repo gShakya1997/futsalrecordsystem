@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/footballicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".registration.UserRegistration"></activity>
+        <activity android:name=".registration.AdminRegistration"></activity>
+        <activity android:name=".registration.UserRegistration" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +23,7 @@
         <activity
             android:name=".AdminDashboard"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

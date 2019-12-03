@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:drawableLeft="@drawable/ic_org_black_24dp"
                 android:drawablePadding="20dp"
                 android:hint="@string/username"
                 android:inputType="text"
@@ -79,7 +79,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnRegisterAdmin"
+                android:id="@+id/btnAdminRegister"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
