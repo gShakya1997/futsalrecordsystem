@@ -25,6 +25,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/full_name"
         android:textStyle="bold"
+        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +38,7 @@
         android:layout_marginTop="60dp"
         android:text="@string/email_address"
         android:textStyle="bold"
+        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,6 +51,7 @@
         android:layout_marginTop="100dp"
         android:text="@string/phone_number"
         android:textStyle="bold"
+        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,6 +64,7 @@
         android:layout_marginTop="140dp"
         android:text="@string/gender"
         android:textStyle="bold"
+        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,6 +77,7 @@
         android:layout_marginRight="16dp"
         android:text="@string/address"
         android:textStyle="bold"
+        android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
