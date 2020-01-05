@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/registration"
             android:textAlignment="center"
+            android:textColor="@color/textColor"
             android:textSize="40sp"
             android:textStyle="bold"
             app:fontFamily="@font/trade_winds" />
@@ -37,6 +38,7 @@
                 android:hint="@string/futsal_name"
                 android:inputType="text"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,6 +56,7 @@
                 android:hint="@string/address"
                 android:inputType="text"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,6 +74,7 @@
                 android:hint="@string/email_address"
                 android:inputType="textEmailAddress"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,6 +92,7 @@
                 android:hint="@string/phone_number"
                 android:inputType="phone"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,6 +110,7 @@
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,6 +128,7 @@
                 android:hint="@string/confirm_password"
                 android:inputType="textPassword"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -139,6 +146,7 @@
                 android:hint="@string/opening_time"
                 android:inputType="time"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,6 +164,7 @@
                 android:hint="@string/closing_time"
                 android:inputType="time"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -173,6 +182,7 @@
                 android:hint="@string/price_hr"
                 android:inputType="text"
                 android:padding="30dp"
+                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,6 +194,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/btnround"
             android:text="@string/register"
+            android:textColor="@color/textColor"
             android:textSize="20sp"
             android:textStyle="bold" />
 

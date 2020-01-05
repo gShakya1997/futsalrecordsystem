@@ -1,14 +1,11 @@
-package com.futsalrecord.futsalinfosystem;
+package com.futsalrecord.futsalinfosystem.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.futsalrecord.futsalinfosystem.R;
 
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -24,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.Button;
 import android.widget.Toast;
 
 public class AdminDashboard extends AppCompatActivity {
@@ -43,7 +39,7 @@ public class AdminDashboard extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_staffdata, R.id.nav_customerdata,
-                R.id.nav_totalearning, R.id.nav_aboutus, R.id.nav_feedback, R.id.btnAdminLogin, R.id.nav_appearance)
+                R.id.nav_totalearning, R.id.nav_aboutus, R.id.nav_feedback, R.id.btnAdminLogin)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -65,8 +61,9 @@ public class AdminDashboard extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.btnSetting:
-                Toast.makeText(this, "Setting", Toast.LENGTH_LONG).show();
+            case R.id.btnDarkMode:
+                Intent intent2 = new Intent(this, AppearanceActivity.class);
+                startActivity(intent2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

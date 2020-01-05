@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/app_background"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".activities.MainActivity">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPagerLogin"

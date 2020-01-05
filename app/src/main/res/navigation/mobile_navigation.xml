@@ -41,9 +41,4 @@
         android:label="About us"
         tools:layout="@layout/fragment_about_us" />
 
-    <fragment
-        android:id="@+id/nav_appearance"
-        android:name="com.futsalrecord.futsalinfosystem.ui.appearance.AppearanceFragment"
-        android:label="Appearance"
-        tools:layout="@layout/fragment_appearance" />
 </navigation>

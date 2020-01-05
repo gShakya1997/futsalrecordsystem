@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".ui.appearance.AppearanceFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:background="@color/colorPrimaryDark"
+    tools:context=".activities.AppearanceActivity">
 
     <Switch
-        android:id="@+id/switchAppearance"
+        android:id="@+id/switchDarkMode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="@string/mode"
-        android:textSize="30sp"
+        android:checked="false"
+        android:text="@string/dark_mode"
+        android:textSize="20sp"
         android:textColor="@color/textColor"/>
 
 </LinearLayout>

@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.futsalrecord.futsalinfosystem.AdminDashboard;
+import com.futsalrecord.futsalinfosystem.activities.AdminDashboard;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.registration.AdminRegistration;
 

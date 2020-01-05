@@ -4,13 +4,13 @@
     <color name="colorPrimaryDark">#6790BA</color>
     <color name="colorAccent">#000026</color>
     <color name="cardViewColor">#4B7BA3</color>
-    <color name="textColor">#000000</color>
 
-    //dark mode
+    <color name="colorPrimaryNight">#16202c</color>
+    <color name="colorPrimaryDarkNight">#141d26</color>
+    <color name="colorAccentNight">#ffffff</color>
+    <color name="cardViewColorNight">#000026</color>
 
-    <color name="colorPrimaryDarkMode">#0F0F0F</color>
-    <color name="colorPrimaryDarkDarkMode">#000000</color>
-    <color name="colorAccentDarkMode">#4B7BA3</color>
-    <color name="cardViewColorDarkMode">#000026</color>
-    <color name="textColorDarkMode">#FFFFFF</color>
+    <color name="textColor">#212121</color>
+    <color name="textColorNight">#fff</color>
+
 </resources>

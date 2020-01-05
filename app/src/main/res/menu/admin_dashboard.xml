@@ -7,7 +7,8 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/btnSetting"
-        android:title="@string/setting"
+        android:id="@+id/btnDarkMode"
+        android:title="@string/dark_mode"
         app:showAsAction="never" />
+
 </menu>

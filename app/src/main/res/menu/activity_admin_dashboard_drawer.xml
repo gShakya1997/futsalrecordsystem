@@ -36,13 +36,4 @@
         </menu>
     </item>
 
-    <item android:title="Settings">
-        <menu>
-            <item
-                android:id="@+id/nav_appearance"
-                android:icon="@drawable/ic_format_paint_black_24dp"
-                android:title="Appearance" />
-        </menu>
-    </item>
-
 </menu>

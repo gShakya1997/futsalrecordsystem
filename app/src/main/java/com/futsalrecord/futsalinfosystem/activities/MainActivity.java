@@ -1,10 +1,11 @@
-package com.futsalrecord.futsalinfosystem;
+package com.futsalrecord.futsalinfosystem.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.adapter.ViewPagerLoginAdapter;
 import com.futsalrecord.futsalinfosystem.fragments.AdminLoginFragment;
 import com.futsalrecord.futsalinfosystem.fragments.UserLoginFragment;
