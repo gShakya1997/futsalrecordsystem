@@ -1,11 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/design_default_color_primary</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimaryDarkDarkMode</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkMode</item>
+        <item name="colorAccent">@color/colorAccentDarkMode</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

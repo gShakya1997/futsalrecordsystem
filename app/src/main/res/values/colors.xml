@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#345bdb</color>
-    <color name="colorPrimaryDark">#0000A0</color>
-    <color name="colorAccent">#191919</color>
+    <color name="colorPrimaryDark">#6790BA</color>
+    <color name="colorAccent">#000026</color>
+    <color name="cardViewColor">#4B7BA3</color>
+    <color name="textColor">#000000</color>
+
+    //dark mode
+
+    <color name="colorPrimaryDarkMode">#0F0F0F</color>
+    <color name="colorPrimaryDarkDarkMode">#000000</color>
+    <color name="colorAccentDarkMode">#4B7BA3</color>
+    <color name="cardViewColorDarkMode">#000026</color>
+    <color name="textColorDarkMode">#FFFFFF</color>
 </resources>

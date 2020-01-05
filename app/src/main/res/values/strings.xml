@@ -51,4 +51,7 @@
     <string name="opening_time">Opening Time</string>
     <string name="closing_time">Closing Time</string>
     <string name="price_hr">Price/hr</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="mode">Light Mode</string>
 </resources>

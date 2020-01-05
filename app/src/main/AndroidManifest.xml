@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/footballicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".registration.AdminRegistration"></activity>
+        <activity android:name=".ui.appearance.AppearanceFragment"></activity>
+        <activity android:name=".registration.AdminRegistration" />
         <activity android:name=".registration.UserRegistration" />
         <activity android:name=".SplashActivity">
             <intent-filter>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
-    android:background="#6790BA">
+    android:background="@color/cardViewColor">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/customerProfilePic"
