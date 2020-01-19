@@ -5,12 +5,12 @@
     <color name="colorAccent">#000026</color>
     <color name="cardViewColor">#4B7BA3</color>
 
-    <color name="colorPrimaryNight">#16202c</color>
+    <color name="colorPrimaryNight">#4886C5</color>
     <color name="colorPrimaryDarkNight">#141d26</color>
     <color name="colorAccentNight">#ffffff</color>
     <color name="cardViewColorNight">#000026</color>
 
-    <color name="textColor">#212121</color>
-    <color name="textColorNight">#fff</color>
+    <color name="appBgColor">#7FB8C0</color>
+    <color name="appBgColorNight">#141d26</color>
 
 </resources>

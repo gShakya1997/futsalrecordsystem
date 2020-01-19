@@ -12,6 +12,7 @@
         android:layout_height="198dp"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
+        android:background="@color/cardViewColor"
         android:src="@drawable/noimage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,9 +24,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="20dp"
+        android:background="@color/cardViewColor"
         android:text="@string/full_name"
         android:textStyle="bold"
-        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,9 +37,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="60dp"
+        android:background="@color/cardViewColor"
         android:text="@string/email_address"
         android:textStyle="bold"
-        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,9 +50,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="100dp"
+        android:background="@color/cardViewColor"
         android:text="@string/phone_number"
         android:textStyle="bold"
-        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,9 +63,9 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="140dp"
+        android:background="@color/cardViewColor"
         android:text="@string/gender"
         android:textStyle="bold"
-        android:textColor="#000"
         app:layout_constraintStart_toEndOf="@+id/staffProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,9 +76,9 @@
         android:layout_marginTop="140dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:background="@color/cardViewColor"
         android:text="@string/address"
         android:textStyle="bold"
-        android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

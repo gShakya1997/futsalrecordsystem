@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
     tools:context=".activities.AppearanceActivity">
 
     <Switch
@@ -15,7 +14,6 @@
         android:layout_margin="20dp"
         android:checked="false"
         android:text="@string/dark_mode"
-        android:textSize="20sp"
-        android:textColor="@color/textColor"/>
+        android:textSize="20sp"/>
 
 </LinearLayout>
