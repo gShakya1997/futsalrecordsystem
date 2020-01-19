@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvCover"
@@ -17,7 +15,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/admin_dashboard"
             android:textAlignment="center"
-            android:textColor="@color/textColor"
             android:textSize="40sp"
             android:textStyle="bold"
             app:fontFamily="@font/trade_winds"
@@ -34,7 +31,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="44dp"
             android:text="@string/total_numbers_of_customer"
-            android:textColor="@color/textColor"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +46,6 @@
             android:editable="false"
             android:ems="10"
             android:hint="@string/_0"
-            android:textColor="@color/textColor"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +59,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="150dp"
             android:text="@string/total_earning_for_today"
-            android:textColor="@color/textColor"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +74,6 @@
             android:editable="false"
             android:ems="10"
             android:hint="@string/_0"
-            android:textColor="@color/textColor"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +84,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="364dp"
-            android:textColor="@color/textColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +96,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="316dp"
             android:text="@string/list_of_customers"
-            android:textColor="@color/textColor"
             android:textSize="32sp"
             android:textStyle="bold"
             app:fontFamily="@font/trade_winds"

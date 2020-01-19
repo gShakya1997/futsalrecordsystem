@@ -7,7 +7,6 @@
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/app_background"
         android:orientation="vertical"
         tools:context=".fragments.AdminLoginFragment">
 
@@ -31,7 +30,6 @@
                 android:hint="@string/username"
                 android:inputType="text"
                 android:padding="30dp"
-                android:textColor="@color/textColor"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,7 +47,6 @@
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="30dp"
-                android:textColor="@color/textColor"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -62,7 +59,6 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/btnround"
             android:text="@string/login"
-            android:textColor="@color/textColor"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -78,7 +74,6 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/new_member_click_here"
-                android:textColor="@color/textColor"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -89,8 +84,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btnround"
-                android:text="@string/register_here"
-                android:textColor="@color/textColor" />
+                android:text="@string/register_here" />
         </LinearLayout>
 
     </LinearLayout>
