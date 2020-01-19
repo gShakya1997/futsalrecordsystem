@@ -59,7 +59,6 @@ public class GettingStarted extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GettingStarted.this, AdminRegistration.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -68,7 +67,6 @@ public class GettingStarted extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GettingStarted.this, UserRegistration.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

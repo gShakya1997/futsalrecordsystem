@@ -9,6 +9,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Customer Detail"
+            android:background="@color/cardViewColor"
+            android:id="@+id/btnAddCustomer"
+            android:layout_marginBottom="30dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/customerRecyclerView"
             android:layout_width="match_parent"
