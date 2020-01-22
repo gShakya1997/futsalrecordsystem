@@ -6,9 +6,4 @@
         android:title="@string/logout"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/btnDarkMode"
-        android:title="@string/dark_mode"
-        app:showAsAction="never" />
-
 </menu>

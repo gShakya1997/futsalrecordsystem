@@ -75,7 +75,7 @@ public class AdminLoginFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username",adminUsername);
         editor.putString("password",adminPassword);
-        editor.commit();
+        editor.apply();
         Toast.makeText(getActivity(), "Successful", Toast.LENGTH_LONG).show();
     }
 }

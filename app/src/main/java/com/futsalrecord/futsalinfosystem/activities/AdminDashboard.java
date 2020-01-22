@@ -61,10 +61,6 @@ public class AdminDashboard extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.btnDarkMode:
-                Intent intent2 = new Intent(this, AppearanceActivity.class);
-                startActivity(intent2);
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
