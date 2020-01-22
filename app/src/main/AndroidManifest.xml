@@ -11,7 +11,12 @@
         android:roundIcon="@drawable/footballicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.FutsalDashboard"></activity>
+        <activity android:name=".activities.futsal.FutsalSettingActivity"></activity>
+        <activity android:name=".activities.futsal.FutsalEarningActivity" />
+        <activity android:name=".activities.futsal.FutsalStaffDataActivity" />
+        <activity android:name=".activities.futsal.FutsalCustomerDataActivity" />
+        <activity android:name=".activities.futsal.FutsalHomeActivity" />
+        <activity android:name=".activities.FutsalDashboard" />
         <activity android:name=".activities.GettingStarted" />
         <activity android:name=".registration.AdminRegistration" />
         <activity android:name=".registration.UserRegistration" />
