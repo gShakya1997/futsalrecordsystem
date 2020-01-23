@@ -20,7 +20,6 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.regex.Pattern;
 
-import okhttp3.MediaType;
 
 public class UserRegistration extends AppCompatActivity {
     private static final Pattern PASSWORD_PATTERN =
