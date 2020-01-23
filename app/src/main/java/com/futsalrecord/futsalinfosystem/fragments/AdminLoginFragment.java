@@ -15,8 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.futsalrecord.futsalinfosystem.activities.AdminDashboard;
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 import com.futsalrecord.futsalinfosystem.registration.AdminRegistration;
 
 /**
@@ -52,7 +52,7 @@ public class AdminLoginFragment extends Fragment {
                     etAdminLoginUsername.getText().clear();
                     etAdminLoginPassword.getText().clear();
                     saveSharedPreferences();
-                    Intent intent = new Intent(getActivity(), AdminDashboard.class);
+                    Intent intent = new Intent(getActivity(), FutsalDashboard.class);
                     startActivity(intent);
                 } else {
                     etAdminLoginUsername.setError("Invalid username");
