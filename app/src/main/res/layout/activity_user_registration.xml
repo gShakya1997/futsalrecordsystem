@@ -152,14 +152,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
-            android:id="@+id/rgRegUserGender"
+            android:id="@+id/rgRegGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="30dp">
 
             <RadioButton
-                android:id="@+id/rbRegUserMale"
+                android:id="@+id/rbRegMale"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/male" />
