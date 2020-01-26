@@ -12,10 +12,10 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface UsersAPI {
-    @POST ("users/register")
-    Call<RegisterResponse> registerUser (@Body Users users);
+    @POST("users/register")
+    Call<RegisterResponse> registerUser(@Body Users users);
 
     @Multipart
     @POST("upload")
-    Call<ImageResponse> uploadImg (@Part MultipartBody.Part image);
+    Call<ImageResponse> uploadImage(@Part MultipartBody.Part image);
 }

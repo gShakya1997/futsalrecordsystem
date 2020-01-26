@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Url {
     public static final String base_url = "http://10.0.2.2:3007/";
     public static String token = "Bearer ";
-    public static String imagePath = base_url + "uploads/" ;
+    public static String imagePath = base_url + "upload/";
 
     public static Retrofit getInstance() {
         Retrofit retrofit = new Retrofit.Builder()
