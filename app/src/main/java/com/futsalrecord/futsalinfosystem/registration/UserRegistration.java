@@ -107,7 +107,7 @@ public class UserRegistration extends AppCompatActivity {
         if (regName.isEmpty()) {
             userRegUsername.setError("Required");
             return false;
-        } else if (regName.length() > 50) {
+        } else if (regName.length() > 31) {
             userRegUsername.setError("Name too long");
             return false;
         } else {
