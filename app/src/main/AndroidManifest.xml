@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".registration.UserProfilePic"></activity>
+        <activity android:name=".registration.FutsalProfilePic"></activity>
+        <activity android:name=".registration.UserProfilePic" />
         <activity android:name=".activities.futsal.FutsalSettingActivity" />
         <activity android:name=".activities.futsal.FutsalEarningActivity" />
         <activity android:name=".activities.futsal.FutsalStaffDataActivity" />
@@ -25,7 +26,7 @@
         <activity android:name=".activities.futsal.FutsalHomeActivity" />
         <activity android:name=".activities.FutsalDashboard" />
         <activity android:name=".activities.GettingStarted" />
-        <activity android:name=".registration.AdminRegistration" />
+        <activity android:name=".registration.FutsalRegistration" />
         <activity android:name=".registration.UserRegistration" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>

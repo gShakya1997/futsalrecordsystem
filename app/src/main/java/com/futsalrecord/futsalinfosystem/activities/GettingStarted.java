@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.futsalrecord.futsalinfosystem.R;
-import com.futsalrecord.futsalinfosystem.registration.AdminRegistration;
+import com.futsalrecord.futsalinfosystem.registration.FutsalRegistration;
 import com.futsalrecord.futsalinfosystem.registration.UserRegistration;
 
 public class GettingStarted extends AppCompatActivity {
@@ -57,7 +57,7 @@ public class GettingStarted extends AppCompatActivity {
         btnRegFutsalOwner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GettingStarted.this, AdminRegistration.class);
+                Intent intent = new Intent(GettingStarted.this, FutsalRegistration.class);
                 startActivity(intent);
             }
         });
