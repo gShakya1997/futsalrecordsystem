@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.adapter.ViewPagerLoginAdapter;
-import com.futsalrecord.futsalinfosystem.fragments.AdminLoginFragment;
+import com.futsalrecord.futsalinfosystem.fragments.FutsalLoginFragment;
 import com.futsalrecord.futsalinfosystem.fragments.UserLoginFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPagerLoginAdapter viewPagerLoginAdapter = new ViewPagerLoginAdapter(getSupportFragmentManager());
         viewPagerLoginAdapter.addFragment(new UserLoginFragment(), "User Login");
-        viewPagerLoginAdapter.addFragment(new AdminLoginFragment(), "Admin Login");
+        viewPagerLoginAdapter.addFragment(new FutsalLoginFragment(), "Admin Login");
         viewPagerLogin.setAdapter(viewPagerLoginAdapter);
     }
 }

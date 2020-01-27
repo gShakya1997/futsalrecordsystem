@@ -1,4 +1,4 @@
-package com.futsalrecord.futsalinfosystem.registration;
+package com.futsalrecord.futsalinfosystem.activities.registration;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

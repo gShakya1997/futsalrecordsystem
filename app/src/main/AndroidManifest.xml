@@ -17,8 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".registration.FutsalProfilePic"></activity>
-        <activity android:name=".registration.UserProfilePic" />
+        <activity android:name=".activities.registration.FutsalProfilePic"></activity>
+        <activity android:name=".activities.registration.UserProfilePic" />
         <activity android:name=".activities.futsal.FutsalSettingActivity" />
         <activity android:name=".activities.futsal.FutsalEarningActivity" />
         <activity android:name=".activities.futsal.FutsalStaffDataActivity" />
@@ -26,8 +26,8 @@
         <activity android:name=".activities.futsal.FutsalHomeActivity" />
         <activity android:name=".activities.FutsalDashboard" />
         <activity android:name=".activities.GettingStarted" />
-        <activity android:name=".registration.FutsalRegistration" />
-        <activity android:name=".registration.UserRegistration" />
+        <activity android:name=".activities.registration.FutsalRegistration" />
+        <activity android:name=".activities.registration.UserRegistration" />
         <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,8 +16,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.futsalrecord.futsalinfosystem.R;
-import com.futsalrecord.futsalinfosystem.registration.FutsalRegistration;
-import com.futsalrecord.futsalinfosystem.registration.UserRegistration;
+import com.futsalrecord.futsalinfosystem.activities.registration.FutsalRegistration;
+import com.futsalrecord.futsalinfosystem.activities.registration.UserRegistration;
 
 public class GettingStarted extends AppCompatActivity {
     private Button btnRegFutsalOwner, btnRegUsers;

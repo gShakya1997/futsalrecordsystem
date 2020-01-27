@@ -1,4 +1,4 @@
-package com.futsalrecord.futsalinfosystem.registration;
+package com.futsalrecord.futsalinfosystem.activities.registration;
 
 import java.util.regex.Pattern;
 

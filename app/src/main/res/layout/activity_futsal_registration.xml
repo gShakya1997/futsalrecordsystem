@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".registration.FutsalRegistration">
+        tools:context=".activities.registration.FutsalRegistration">
 
         <TextView
             android:id="@+id/tvRegistration"
@@ -104,12 +104,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:errorEnabled="true">
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:drawablePadding="20dp"
                 android:hint="@string/password"
@@ -123,12 +125,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            app:errorEnabled="true">
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:drawablePadding="20dp"
                 android:hint="@string/confirm_password"

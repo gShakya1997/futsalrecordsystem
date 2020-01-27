@@ -1,4 +1,4 @@
-package com.futsalrecord.futsalinfosystem.registration;
+package com.futsalrecord.futsalinfosystem.activities.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
