@@ -17,18 +17,18 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
-import com.futsalrecord.futsalinfosystem.registration.FutsalRegistration;
+import com.futsalrecord.futsalinfosystem.activities.registration.FutsalRegistration;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdminLoginFragment extends Fragment {
+public class FutsalLoginFragment extends Fragment {
     private EditText etAdminLoginUsername, etAdminLoginPassword;
     private Button btnAdminLogin, btnAdminRegister;
     private String adminUsername, adminPassword;
 
 
-    public AdminLoginFragment() {
+    public FutsalLoginFragment() {
         // Required empty public constructor
     }
 
@@ -37,7 +37,7 @@ public class AdminLoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_admin_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_futsal_login, container, false);
         etAdminLoginUsername = view.findViewById(R.id.etAdminLoginUsername);
         etAdminLoginPassword = view.findViewById(R.id.etAdminLoginPassword);
         btnAdminLogin = view.findViewById(R.id.btnAdminLogin);

@@ -1,42 +1,17 @@
-package com.futsalrecord.futsalinfosystem.registration;
+package com.futsalrecord.futsalinfosystem.activities.registration;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.CursorLoader;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
-import com.futsalrecord.futsalinfosystem.activities.MainActivity;
-import com.futsalrecord.futsalinfosystem.api.UsersAPI;
-import com.futsalrecord.futsalinfosystem.model.Users;
-import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
-import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
-import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
-import com.futsalrecord.futsalinfosystem.url.Url;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.io.File;
-import java.io.IOException;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class UserRegistration extends AppCompatActivity {
