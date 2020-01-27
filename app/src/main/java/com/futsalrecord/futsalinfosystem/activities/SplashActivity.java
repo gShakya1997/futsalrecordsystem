@@ -27,13 +27,37 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void checkUserProfile() {
-        SharedPreferences sharedPreferences2 = getSharedPreferences("nightModePrefs", MODE_PRIVATE);
-        SharedPreferences sharedPreferences = getSharedPreferences("User", MODE_PRIVATE);
-        Boolean darkMode = sharedPreferences2.getBoolean("isNightMode", false);
-        String username = sharedPreferences.getString("username", "");
-        String password = sharedPreferences.getString("username", "");
-        if (username.equals("admin") && password.equals("admin")) {
-            if (sharedPreferences2.getBoolean("isNightMode", false)) {
+        //For user
+        SharedPreferences sharedPreferencesUser = getSharedPreferences("User", MODE_PRIVATE);
+        String username = sharedPreferencesUser.getString("username", "");
+        String password = sharedPreferencesUser.getString("username", "");
+
+        //For futsal
+        SharedPreferences sharedPreferencesFutsal = getSharedPreferences("Futsal", MODE_PRIVATE);
+        String futsalName = sharedPreferencesFutsal.getString("FutsalName", "");
+        String futsalPassword = sharedPreferencesFutsal.getString("FutsalPassword", "");
+
+        //Night mode
+        SharedPreferences sharedPreferencesMode = getSharedPreferences("nightModePrefs", MODE_PRIVATE);
+        Boolean darkMode = sharedPreferencesMode.getBoolean("isNightMode", false);
+
+
+        if (username.equals("admin") | password.equals("admin")) {
+            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
+                darkMode.equals(true);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
+                startActivity(intent);
+                finish();
+            } else {
+                darkMode.equals(false);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
+                startActivity(intent);
+                finish();
+            }
+        } else if (futsalName.equals("") | password.equals("")) {
+            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
                 darkMode.equals(true);
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);

@@ -80,9 +80,8 @@ public class FutsalLoginFragment extends Fragment {
     private void saveSharedPreferences() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Futsal", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("username", futsalname);
-        editor.putString("password", futsalPassword);
+        editor.putString("FutsalName", futsalname);
+        editor.putString("FutsalPassword", futsalPassword);
         editor.apply();
-        Toast.makeText(getActivity(), "Successful", Toast.LENGTH_LONG).show();
     }
 }
