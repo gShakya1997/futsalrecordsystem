@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +16,7 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalStaffDataActivity;
 
 public class FutsalDashboard extends AppCompatActivity {
-    CardView cardHome, cardCustomerDetail, cardStaff, cardEarning, cardSetting, cardLogout;
+    private CardView cardHome, cardCustomerDetail, cardStaff, cardEarning, cardSetting, cardLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,15 @@ public class FutsalDashboard extends AppCompatActivity {
         cardLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FutsalDashboard.this,MainActivity.class);
+                SharedPreferences sharedPreferencesMode = getSharedPreferences(FutsalSettingActivity.MyPreferences, MODE_PRIVATE);
+                SharedPreferences sharedPreferencesFutsal = getSharedPreferences("Futsal", MODE_PRIVATE);
+                SharedPreferences.Editor editorMode = sharedPreferencesMode.edit();
+                SharedPreferences.Editor editorFutsal = sharedPreferencesFutsal.edit();
+                editorMode.clear();
+                editorFutsal.clear();
+                editorMode.apply();
+                editorFutsal.apply();
+                Intent intent = new Intent(FutsalDashboard.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
