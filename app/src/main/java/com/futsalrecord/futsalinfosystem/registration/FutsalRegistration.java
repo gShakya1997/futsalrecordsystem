@@ -30,7 +30,7 @@ public class FutsalRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_futsal_registration);
-        binding();
+        initialize();
         actionButtons();
     }
 
@@ -43,7 +43,6 @@ public class FutsalRegistration extends AppCompatActivity {
                         !validateClosingTime() | !validatePrice()) {
                     return;
                 }
-                Intent intent = new Intent(getBaseContext(), FutsalRegistration.class);
                 String futsalName = etFutsalName.getEditText().getText().toString().trim();
                 String futsalAddress = etFutsalAddress.getEditText().getText().toString().trim();
                 String futsalEmail = etFutsalEmail.getEditText().getText().toString().trim();
@@ -53,17 +52,18 @@ public class FutsalRegistration extends AppCompatActivity {
                 String futsalOpeningTime = etFutsalOpeningTime.getEditText().getText().toString().trim();
                 String futsalClosingTime = etFutsalClosingTime.getEditText().getText().toString().trim();
                 String futsalPrice = etFutsalPrice.getEditText().getText().toString().trim();
-                intent.putExtra("futsalName", futsalName);
-                intent.putExtra("futsalAddress", futsalAddress);
-                intent.putExtra("futsalEmail", futsalEmail);
-                intent.putExtra("futsalPhone", futsalPhone);
-                intent.putExtra("futsalPassword", futsalPassword);
-                intent.putExtra("futsalCPassword", futsalCPassword);
-                intent.putExtra("futsalOpeningTime", futsalOpeningTime);
-                intent.putExtra("futsalClosingTime", futsalClosingTime);
-                intent.putExtra("futsalPrice", futsalPrice);
-                startActivity(intent);
+                Bundle futsalDataBundle = new Bundle();
+                futsalDataBundle.putString("futsalName", futsalName);
+                futsalDataBundle.putString("futsalAddress", futsalAddress);
+                futsalDataBundle.putString("futsalEmail", futsalEmail);
+                futsalDataBundle.putString("futsalPhone", futsalPhone);
+                futsalDataBundle.putString("futsalPassword", futsalPassword);
+                futsalDataBundle.putString("futsalCPassword", futsalCPassword);
+                futsalDataBundle.putString("futsalOpeningTime", futsalOpeningTime);
+                futsalDataBundle.putString("futsalClosingTime", futsalClosingTime);
+                futsalDataBundle.putString("futsalPrice", futsalPrice);
                 Intent intentActivity = new Intent(getApplicationContext(), FutsalProfilePic.class);
+                intentActivity.putExtras(futsalDataBundle);
                 startActivity(intentActivity);
             }
         });
@@ -231,7 +231,7 @@ public class FutsalRegistration extends AppCompatActivity {
     }
 
 
-    private void binding() {
+    private void initialize() {
         futsalOpeningTime = findViewById(R.id.futsalOpeningTime);
         futsalClosingTime = findViewById(R.id.futsalClosingTime);
         etFutsalName = findViewById(R.id.etFutsalName);

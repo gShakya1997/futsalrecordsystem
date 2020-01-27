@@ -43,7 +43,7 @@ public class FutsalProfilePic extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_futsal_profile_pic);
-        binding();
+        initialize();
         actionButtons();
     }
 
@@ -93,14 +93,17 @@ public class FutsalProfilePic extends AppCompatActivity {
     }
 
     private void register() {
-        String futsalName = getIntent().getStringExtra("futsalName");
-        String futsalAddress = getIntent().getStringExtra("futsalAddress");
-        String futsalEmail = getIntent().getStringExtra("futsalEmail");
-        String futsalPhone = getIntent().getStringExtra("futsalPhone");
-        String futsalPassword = getIntent().getStringExtra("futsalPassword");
-        String futsalOpeningTime = getIntent().getStringExtra("futsalOpeningTime");
-        String futsalClosingTime = getIntent().getStringExtra("futsalClosingTime");
-        String futsalPrice = getIntent().getStringExtra("futsalPrice");
+
+        Intent intent = getIntent();
+        Bundle futsalDataBundle = intent.getExtras();
+        String futsalName = futsalDataBundle.getString("futsalName");
+        String futsalAddress = futsalDataBundle.getString("futsalAddress");
+        String futsalEmail = futsalDataBundle.getString("futsalEmail");
+        String futsalPhone = futsalDataBundle.getString("futsalPhone");
+        String futsalPassword = futsalDataBundle.getString("futsalPassword");
+        String futsalOpeningTime = futsalDataBundle.getString("futsalOpeningTime");
+        String futsalClosingTime = futsalDataBundle.getString("futsalClosingTime");
+        String futsalPrice = futsalDataBundle.getString("futsalPrice");
 
         Futsal futsal = new Futsal(futsalName, futsalAddress, futsalEmail, futsalPhone, futsalPassword
                 , futsalOpeningTime, futsalClosingTime, futsalPrice, imgName);
@@ -150,7 +153,7 @@ public class FutsalProfilePic extends AppCompatActivity {
         startActivityForResult(intent, 0);
     }
 
-    private void binding() {
+    private void initialize() {
         imgBtnUploadFutsal = findViewById(R.id.imgBtnUploadFutsal);
         btnFutsalRegister = findViewById(R.id.btnFutsalRegister);
         btnFutsalBack = findViewById(R.id.btnFutsalBack);
