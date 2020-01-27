@@ -18,14 +18,17 @@ import android.widget.Toast;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 import com.futsalrecord.futsalinfosystem.activities.registration.FutsalRegistration;
+import com.futsalrecord.futsalinfosystem.bll.LoginBLL;
+import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FutsalLoginFragment extends Fragment {
-    private EditText etAdminLoginUsername, etAdminLoginPassword;
-    private Button btnAdminLogin, btnAdminRegister;
-    private String adminUsername, adminPassword;
+    private TextInputLayout futsalLoginUsername, futsalLoginPassword;
+    private Button btnFutsalLogin, btnFutsalRegister;
+    private String futsalname, futsalPassword;
 
 
     public FutsalLoginFragment() {
@@ -38,29 +41,17 @@ public class FutsalLoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_futsal_login, container, false);
-        etAdminLoginUsername = view.findViewById(R.id.etAdminLoginUsername);
-        etAdminLoginPassword = view.findViewById(R.id.etAdminLoginPassword);
-        btnAdminLogin = view.findViewById(R.id.btnAdminLogin);
-        btnAdminRegister = view.findViewById(R.id.btnAdminRegister);
-        btnAdminLogin.setOnClickListener(new View.OnClickListener() {
+        futsalLoginUsername = view.findViewById(R.id.futsalLoginUsername);
+        futsalLoginPassword = view.findViewById(R.id.futsalLoginPassword);
+        btnFutsalLogin = view.findViewById(R.id.btnFutsalLogin);
+        btnFutsalRegister = view.findViewById(R.id.btnFutsalRegister);
+        btnFutsalLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adminUsername = etAdminLoginUsername.getText().toString().trim();
-                adminPassword = etAdminLoginPassword.getText().toString().trim();
-
-                if (adminUsername.equals("admin") && adminPassword.equals("admin")) {
-                    etAdminLoginUsername.getText().clear();
-                    etAdminLoginPassword.getText().clear();
-                    saveSharedPreferences();
-                    Intent intent = new Intent(getActivity(), FutsalDashboard.class);
-                    startActivity(intent);
-                } else {
-                    etAdminLoginUsername.setError("Invalid username");
-                    etAdminLoginPassword.setError("Invalid password");
-                }
+                login();
             }
         });
-        btnAdminRegister.setOnClickListener(new View.OnClickListener() {
+        btnFutsalRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FutsalRegistration.class);
@@ -70,11 +61,27 @@ public class FutsalLoginFragment extends Fragment {
         return view;
     }
 
+    private void login() {
+        futsalname = futsalLoginUsername.getEditText().getText().toString().trim();
+        futsalPassword = futsalLoginPassword.getEditText().getText().toString().trim();
+
+        LoginBLL loginBLL = new LoginBLL();
+        StrictModeClass.StrictMode();
+        if (loginBLL.checkFutsal(futsalname, futsalPassword)) {
+            saveSharedPreferences();
+            Intent intent = new Intent(getActivity(), FutsalDashboard.class);
+            startActivity(intent);
+        } else {
+            futsalLoginUsername.setError("Enter correct username");
+            futsalLoginPassword.setError("Enter correct password");
+        }
+    }
+
     private void saveSharedPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Futsal", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("username",adminUsername);
-        editor.putString("password",adminPassword);
+        editor.putString("username", futsalname);
+        editor.putString("password", futsalPassword);
         editor.apply();
         Toast.makeText(getActivity(), "Successful", Toast.LENGTH_LONG).show();
     }
