@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
 
-public class AdminRegistration extends AppCompatActivity {
+public class FutsalRegistration extends AppCompatActivity {
     private TextInputLayout etFutsalName, etFutsalAddress, etFutsalEmail, etFutsalPhone,
             etFutsalPassword, etFutsalCPassword, etFutsalOpeningTime, etFutsalClosingTime,
             etFutsalPrice;
@@ -29,7 +29,7 @@ public class AdminRegistration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_registration);
+        setContentView(R.layout.activity_futsal_registration);
         binding();
         actionButtons();
     }
@@ -38,12 +38,12 @@ public class AdminRegistration extends AppCompatActivity {
         btnFutsalNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!validateFutsalName() | !validateAddress() | validateEmail() | validatePhone()
-                        | validatePassword() | validateConfirmPassword() | validateOpeningTime() |
-                        validateClosingTime() | validatePrice()) {
+                if (!validateFutsalName() | !validateAddress() | !validateEmail() | !validatePhone()
+                        | !validatePassword() | !validateConfirmPassword() | !validateOpeningTime() |
+                        !validateClosingTime() | !validatePrice()) {
                     return;
                 }
-                Intent intent = new Intent(getBaseContext(), AdminRegistration.class);
+                Intent intent = new Intent(getBaseContext(), FutsalRegistration.class);
                 String futsalName = etFutsalName.getEditText().getText().toString().trim();
                 String futsalAddress = etFutsalAddress.getEditText().getText().toString().trim();
                 String futsalEmail = etFutsalEmail.getEditText().getText().toString().trim();
@@ -63,7 +63,7 @@ public class AdminRegistration extends AppCompatActivity {
                 intent.putExtra("futsalClosingTime", futsalClosingTime);
                 intent.putExtra("futsalPrice", futsalPrice);
                 startActivity(intent);
-                Intent intentActivity = new Intent(getApplicationContext(), UserProfilePic.class);
+                Intent intentActivity = new Intent(getApplicationContext(), FutsalProfilePic.class);
                 startActivity(intentActivity);
             }
         });
@@ -74,7 +74,7 @@ public class AdminRegistration extends AppCompatActivity {
                 calendar = Calendar.getInstance();
                 int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
                 int currentMinute = calendar.get(Calendar.MINUTE);
-                timePickerDialog = new TimePickerDialog(AdminRegistration.this, new TimePickerDialog.OnTimeSetListener() {
+                timePickerDialog = new TimePickerDialog(FutsalRegistration.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         if (hourOfDay >= 12) {
@@ -95,7 +95,7 @@ public class AdminRegistration extends AppCompatActivity {
                 calendar = Calendar.getInstance();
                 int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
                 int currentMinute = calendar.get(Calendar.MINUTE);
-                timePickerDialog = new TimePickerDialog(AdminRegistration.this, new TimePickerDialog.OnTimeSetListener() {
+                timePickerDialog = new TimePickerDialog(FutsalRegistration.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         if (hourOfDay >= 12) {
@@ -154,7 +154,7 @@ public class AdminRegistration extends AppCompatActivity {
         if (regPhone.isEmpty()) {
             etFutsalPhone.setError("Required");
             return false;
-        } else if (regPhone.length() <= 10) {
+        } else if (regPhone.length() > 11) {
             etFutsalPhone.setError("Please enter a valid phone number");
             return false;
         } else {
@@ -221,7 +221,7 @@ public class AdminRegistration extends AppCompatActivity {
         if (regPrice.isEmpty()) {
             etFutsalPrice.setError("Required");
             return false;
-        } else if (regPrice.length() < 4) {
+        } else if (regPrice.length() > 4) {
             etFutsalPrice.setError("Too expensive");
             return false;
         } else {

@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
-import com.futsalrecord.futsalinfosystem.registration.AdminRegistration;
+import com.futsalrecord.futsalinfosystem.registration.FutsalRegistration;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,7 +63,7 @@ public class AdminLoginFragment extends Fragment {
         btnAdminRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AdminRegistration.class);
+                Intent intent = new Intent(getActivity(), FutsalRegistration.class);
                 startActivity(intent);
             }
         });

@@ -51,7 +51,7 @@ public class UserRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registration);
-        binding();
+        initialize();
         actionButtons();
     }
 
@@ -67,20 +67,20 @@ public class UserRegistration extends AppCompatActivity {
                 int selectGender = rgRegGender.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(selectGender);
                 gender = radioButton.getText().toString().trim();
-                Intent intent = new Intent(getBaseContext(), UserRegistration.class);
                 String username = userRegUsername.getEditText().getText().toString().trim();
                 String address = userRegAddress.getEditText().getText().toString().trim();
                 String email = userRegEmail.getEditText().getText().toString().trim();
                 String phone = userRegPhone.getEditText().getText().toString().trim();
                 String password = userRegPassword.getEditText().getText().toString().trim();
-                intent.putExtra("username", username);
-                intent.putExtra("address", address);
-                intent.putExtra("email", email);
-                intent.putExtra("phone", phone);
-                intent.putExtra("password", password);
-                intent.putExtra("gender", gender);
-                startActivity(intent);
+                Bundle userDataBundle = new Bundle();
+                userDataBundle.putString("username", username);
+                userDataBundle.putString("address", address);
+                userDataBundle.putString("email", email);
+                userDataBundle.putString("phone", phone);
+                userDataBundle.putString("password", password);
+                userDataBundle.putString("gender", gender);
                 Intent intentActivity = new Intent(getApplicationContext(), UserProfilePic.class);
+                intentActivity.putExtras(userDataBundle);
                 startActivity(intentActivity);
             }
         });
@@ -108,7 +108,10 @@ public class UserRegistration extends AppCompatActivity {
             userRegUsername.setError("Required");
             return false;
         } else if (regName.length() > 31) {
-            userRegUsername.setError("Name too long");
+            userRegUsername.setError("Username too long");
+            return false;
+        } else if (regName.length() < 7) {
+            userRegUsername.setError("Username too short (More than 6 characters)");
             return false;
         } else {
             userRegUsername.setError(null);
@@ -121,7 +124,7 @@ public class UserRegistration extends AppCompatActivity {
         if (regPhone.isEmpty()) {
             userRegPhone.setError("Required");
             return false;
-        } else if (regPhone.length() <= 10) {
+        } else if (regPhone.length() < 10) {
             userRegPhone.setError("Please enter a valid phone number");
             return false;
         } else {
@@ -169,7 +172,7 @@ public class UserRegistration extends AppCompatActivity {
         }
     }
 
-    private void binding() {
+    private void initialize() {
         userRegUsername = findViewById(R.id.userRegUsername);
         userRegAddress = findViewById(R.id.userRegAddress);
         userRegEmail = findViewById(R.id.userRegEmail);

@@ -130,12 +130,14 @@ public class UserProfilePic extends AppCompatActivity {
     }
 
     private void register() {
-        String username = getIntent().getStringExtra("username");
-        String address = getIntent().getStringExtra("address");
-        String email = getIntent().getStringExtra("email");
-        String phone = getIntent().getStringExtra("phone");
-        String password = getIntent().getStringExtra("password");
-        String gender = getIntent().getStringExtra("gender");
+        Intent intent = getIntent();
+        Bundle userDataBundle = intent.getExtras();
+        String username = userDataBundle.getString("username");
+        String address = userDataBundle.getString("address");
+        String email = userDataBundle.getString("email");
+        String phone = userDataBundle.getString("phone");
+        String password = userDataBundle.getString("password");
+        String gender = userDataBundle.getString("gender");
         Users users = new Users(username, address, email, phone, password, gender, imgName);
         UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
         Call<RegisterResponse> registerResponseCall = usersAPI.registerUser(users);
