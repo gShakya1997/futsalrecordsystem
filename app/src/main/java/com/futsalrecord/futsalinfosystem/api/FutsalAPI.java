@@ -9,6 +9,8 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -26,4 +28,8 @@ public interface FutsalAPI {
     @FormUrlEncoded
     @POST("futsal/login")
     Call<RegisterResponse> checkUser(@Field("futsalName") String futsalName, @Field("futsalPassword") String futsalPassword);
+
+    //get futsalname and profile pic
+    @GET("futsal/profile")
+    Call<Futsal> getFutsalDetails(@Header("Authorization") String token);
 }
