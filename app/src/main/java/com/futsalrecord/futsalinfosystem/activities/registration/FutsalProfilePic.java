@@ -36,7 +36,7 @@ import retrofit2.Response;
 public class FutsalProfilePic extends AppCompatActivity {
     private ImageButton imgBtnUploadFutsal;
     private Button btnFutsalRegister, btnFutsalBack;
-    String imgPath;
+    private String imgPath;
     private String imgName = "";
 
     @Override

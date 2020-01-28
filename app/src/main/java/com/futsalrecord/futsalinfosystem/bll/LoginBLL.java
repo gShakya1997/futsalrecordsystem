@@ -2,7 +2,6 @@ package com.futsalrecord.futsalinfosystem.bll;
 
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.api.UsersAPI;
-import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
 import com.futsalrecord.futsalinfosystem.url.Url;
 

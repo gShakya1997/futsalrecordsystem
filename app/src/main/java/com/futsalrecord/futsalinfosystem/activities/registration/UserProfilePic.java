@@ -36,7 +36,7 @@ import retrofit2.Response;
 public class UserProfilePic extends AppCompatActivity {
     private ImageButton imgBtnUpload;
     private Button btnUserRegister, btnBack;
-    String imgPath;
+    private String imgPath;
     private String imgName = "";
 
     @Override

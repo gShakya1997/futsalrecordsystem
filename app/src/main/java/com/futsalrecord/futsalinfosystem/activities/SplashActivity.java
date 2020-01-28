@@ -7,8 +7,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
+import com.futsalrecord.futsalinfosystem.model.Futsal;
+import com.futsalrecord.futsalinfosystem.url.Url;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,50 +35,19 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void checkUserProfile() {
-        //For user
-        SharedPreferences sharedPreferencesUser = getSharedPreferences("User", MODE_PRIVATE);
-        String username = sharedPreferencesUser.getString("username", "");
-        String password = sharedPreferencesUser.getString("username", "");
-
-        //For futsal
-        SharedPreferences sharedPreferencesFutsal = getSharedPreferences("Futsal", MODE_PRIVATE);
-        String futsalName = sharedPreferencesFutsal.getString("FutsalName", "");
-        String futsalPassword = sharedPreferencesFutsal.getString("FutsalPassword", "");
-
         //Night mode
         SharedPreferences sharedPreferencesMode = getSharedPreferences("nightModePrefs", MODE_PRIVATE);
         Boolean darkMode = sharedPreferencesMode.getBoolean("isNightMode", false);
 
-
-        if (username.equals("admin") | password.equals("admin")) {
-            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
-                darkMode.equals(true);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
-                startActivity(intent);
-                finish();
-            } else {
-                darkMode.equals(false);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
-                startActivity(intent);
-                finish();
-            }
-        } else if (futsalName.equals("") | password.equals("")) {
-            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
-                darkMode.equals(true);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
-                startActivity(intent);
-                finish();
-            } else {
-                darkMode.equals(false);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
-                startActivity(intent);
-                finish();
-            }
+        if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
+            darkMode.equals(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
+            startActivity(intent);
+            finish();
         } else {
+            darkMode.equals(false);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
             startActivity(intent);
             finish();

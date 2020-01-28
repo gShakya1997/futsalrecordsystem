@@ -41,7 +41,7 @@
             android:id="@+id/btnRegFutsalOwner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_margin="20dp"
             android:background="@color/colorPrimaryDark"
             android:text="For futsal owner" />
 
@@ -49,7 +49,7 @@
             android:id="@+id/btnRegUsers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_margin="20dp"
             android:background="@color/colorPrimaryDark"
             android:text="For user" />
 

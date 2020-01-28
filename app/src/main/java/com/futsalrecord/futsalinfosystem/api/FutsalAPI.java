@@ -1,5 +1,6 @@
 package com.futsalrecord.futsalinfosystem.api;
 
+import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
@@ -32,4 +33,9 @@ public interface FutsalAPI {
     //get futsalname and profile pic
     @GET("futsal/profile")
     Call<Futsal> getFutsalDetails(@Header("Authorization") String token);
+
+    //add customers
+    @POST("futsal/addcustomers")
+    Call<Void> addCustomers(@Body Customers customers);
+
 }

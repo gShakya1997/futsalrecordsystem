@@ -80,15 +80,10 @@ public class FutsalDashboard extends AppCompatActivity {
         cardLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferencesMode = getSharedPreferences
-                        (FutsalSettingActivity.MyPreferences, MODE_PRIVATE);
                 SharedPreferences sharedPreferencesFutsal = getSharedPreferences
                         ("Futsal", MODE_PRIVATE);
-                SharedPreferences.Editor editorMode = sharedPreferencesMode.edit();
                 SharedPreferences.Editor editorFutsal = sharedPreferencesFutsal.edit();
-                editorMode.clear();
                 editorFutsal.clear();
-                editorMode.apply();
                 editorFutsal.apply();
                 Intent intent = new Intent(FutsalDashboard.this, MainActivity.class);
                 startActivity(intent);

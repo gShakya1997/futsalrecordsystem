@@ -1,24 +1,23 @@
 package com.futsalrecord.futsalinfosystem.model;
 
 public class Customers {
-    private String customerFullName, customerEmail, customerPhoneNo, customerGender, customerAddress;
-    private int customerImageId;
+    private String customerFullname, customerEmail, customerPhoneNo, customerGender,
+            customerAddress;
 
-    public Customers(String customerFullName, String customerEmail, String customerPhoneNo, String customerGender, String customerAddress, int customerImageId) {
-        this.customerFullName = customerFullName;
+    public Customers(String customerFullname, String customerEmail, String customerPhoneNo, String customerGender, String customerAddress) {
+        this.customerFullname = customerFullname;
         this.customerEmail = customerEmail;
         this.customerPhoneNo = customerPhoneNo;
         this.customerGender = customerGender;
         this.customerAddress = customerAddress;
-        this.customerImageId = customerImageId;
     }
 
-    public String getCustomerFullName() {
-        return customerFullName;
+    public String getCustomerFullname() {
+        return customerFullname;
     }
 
-    public void setCustomerFullName(String customerFullName) {
-        this.customerFullName = customerFullName;
+    public void setCustomerFullname(String customerFullname) {
+        this.customerFullname = customerFullname;
     }
 
     public String getCustomerEmail() {
@@ -51,13 +50,5 @@ public class Customers {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
-    }
-
-    public int getCustomerImageId() {
-        return customerImageId;
-    }
-
-    public void setCustomerImageId(int customerImageId) {
-        this.customerImageId = customerImageId;
     }
 }

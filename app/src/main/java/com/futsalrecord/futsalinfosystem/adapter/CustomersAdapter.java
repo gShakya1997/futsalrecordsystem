@@ -36,8 +36,8 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
     @Override
     public void onBindViewHolder(@NonNull CustomersViewHolder holder, int position) {
         Customers customers = customersList.get(position);
-        holder.customerProfilePic.setImageResource(customers.getCustomerImageId());
-        holder.tvCustomerFullName.setText(customers.getCustomerFullName());
+//        holder.customerProfilePic.setImageResource(customers.getCustomerImageId());
+        holder.tvCustomerFullName.setText(customers.getCustomerFullname());
         holder.tvCustomerEmail.setText(customers.getCustomerEmail());
         holder.tvCustomerPhoneNo.setText(customers.getCustomerPhoneNo());
         holder.tvCustomerGender.setText(customers.getCustomerGender());
