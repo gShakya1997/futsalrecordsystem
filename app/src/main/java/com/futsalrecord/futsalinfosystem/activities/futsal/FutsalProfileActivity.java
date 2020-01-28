@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 
 public class FutsalProfileActivity extends AppCompatActivity {
     private ImageView ivProfilePic;
+    private TextView tvFutsal, tvFutsalEmail, tvFutsalPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,29 +43,39 @@ public class FutsalProfileActivity extends AppCompatActivity {
         futsalCall.enqueue(new Callback<Futsal>() {
             @Override
             public void onResponse(Call<Futsal> call, Response<Futsal> response) {
-                if (!response.isSuccessful()){
-                    Toast.makeText(FutsalProfileActivity.this, "Code "+response.code(), Toast.LENGTH_SHORT).show();
+                if (!response.isSuccessful()) {
+                    Toast.makeText(FutsalProfileActivity.this, "Code " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
-//                Picasso.get().load(imgPath).into(ivProfilePic);
                 StrictModeClass.StrictMode();
                 try {
+                    String futsalName = response.body().getFutsalName();
+                    String futsalEmail = response.body().getFutsalEmail();
+                    String futsalPhone = response.body().getFutsalPhone();
+
                     String imgPath = Url.imagePath + response.body().getFutsalImage();
                     URL url = new URL(imgPath);
                     ivProfilePic.setImageBitmap(BitmapFactory.decodeStream((InputStream) url.getContent()));
-                }catch (IOException e){
+
+                    tvFutsal.setText(futsalName);
+                    tvFutsalEmail.setText(futsalEmail);
+                    tvFutsalPhone.setText(futsalPhone);
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onFailure(Call<Futsal> call, Throwable t) {
-                Toast.makeText(FutsalProfileActivity.this, "Error "+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FutsalProfileActivity.this, "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void initialize() {
         ivProfilePic = findViewById(R.id.ivProfilePic);
+        tvFutsal = findViewById(R.id.tvFutsal);
+        tvFutsalEmail = findViewById(R.id.tvFutsalEmail);
+        tvFutsalPhone = findViewById(R.id.tvFutsalPhone);
     }
 }

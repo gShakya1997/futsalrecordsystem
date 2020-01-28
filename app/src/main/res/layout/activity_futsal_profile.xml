@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.futsal.FutsalProfileActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ivProfilePic"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:src="@drawable/noimage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.futsal.FutsalProfileActivity">
 
-    <TextView
-        android:id="@+id/tvFutsal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Futsal Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivProfilePic" />
+        <ImageView
+            android:id="@+id/ivProfilePic"
+            android:layout_width="438dp"
+            android:layout_height="410dp"
+            android:gravity="center"
+            android:src="@drawable/noimage" />
 
-    <TextView
-        android:id="@+id/tvCustomerCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="Total customer"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFutsal" />
+        <TextView
+            android:id="@+id/tvFutsal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivProfilePic"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Futsal Name"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tvStatffCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="Total staff"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCustomerCount" />
+        <TextView
+            android:id="@+id/tvFutsalEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFutsal"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:text="Email"
+            android:textSize="20sp" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvFutsalPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFutsalEmail"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:text="Phone"
+            android:textSize="20sp" />
+    </RelativeLayout>
+</ScrollView>
