@@ -39,8 +39,9 @@
             android:columnCount="2"
             android:columnOrderPreserved="false"
             android:padding="14dp"
-            android:rowCount="3">
+            android:rowCount="4">
 
+            <!--Home-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardHome"
                 android:layout_width="0dp"
@@ -79,6 +80,7 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--Add staff-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardCustomerDetail"
                 android:layout_width="0dp"
@@ -117,6 +119,85 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--Futsal profile-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProfile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/futsalprofile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Profile"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!--Add event-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardEvent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:focusable="true"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/event" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Event"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!--Add staff-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardStaff"
                 android:layout_width="0dp"
@@ -155,6 +236,7 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--Earning-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEarning"
                 android:layout_width="0dp"
@@ -193,6 +275,7 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--Setting-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSetting"
                 android:layout_width="0dp"
@@ -231,6 +314,7 @@
 
             </androidx.cardview.widget.CardView>
 
+            <!--Logout-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardLogout"
                 android:layout_width="0dp"
@@ -268,7 +352,6 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
         </GridLayout>
 

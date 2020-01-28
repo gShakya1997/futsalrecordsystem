@@ -16,7 +16,8 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalStaffDataActivity;
 
 public class FutsalDashboard extends AppCompatActivity {
-    private CardView cardHome, cardCustomerDetail, cardStaff, cardEarning, cardSetting, cardLogout;
+    private CardView cardHome, cardCustomerDetail, cardStaff, cardEarning, cardSetting, cardLogout,
+            cardEvent, cardProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +71,10 @@ public class FutsalDashboard extends AppCompatActivity {
         cardLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferencesMode = getSharedPreferences(FutsalSettingActivity.MyPreferences, MODE_PRIVATE);
-                SharedPreferences sharedPreferencesFutsal = getSharedPreferences("Futsal", MODE_PRIVATE);
+                SharedPreferences sharedPreferencesMode = getSharedPreferences
+                        (FutsalSettingActivity.MyPreferences, MODE_PRIVATE);
+                SharedPreferences sharedPreferencesFutsal = getSharedPreferences
+                        ("Futsal", MODE_PRIVATE);
                 SharedPreferences.Editor editorMode = sharedPreferencesMode.edit();
                 SharedPreferences.Editor editorFutsal = sharedPreferencesFutsal.edit();
                 editorMode.clear();
@@ -92,5 +95,7 @@ public class FutsalDashboard extends AppCompatActivity {
         cardEarning = findViewById(R.id.cardEarning);
         cardSetting = findViewById(R.id.cardSetting);
         cardLogout = findViewById(R.id.cardLogout);
+        cardProfile = findViewById(R.id.cardProfile);
+        cardEvent = findViewById(R.id.cardEvent);
     }
 }
