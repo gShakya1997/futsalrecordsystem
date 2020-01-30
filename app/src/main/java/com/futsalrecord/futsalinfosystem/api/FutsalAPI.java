@@ -5,6 +5,8 @@ import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
 
+import java.util.List;
+
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -34,8 +36,20 @@ public interface FutsalAPI {
     @GET("futsal/profile")
     Call<Futsal> getFutsalDetails(@Header("Authorization") String token);
 
-    //add customers
-    @POST("futsal/addcustomers")
-    Call<Void> addCustomers(@Body Customers customers);
+    //add customers data
+    @FormUrlEncoded
+    @POST("customers")
+    Call<Void> addCustomers(@Header("Authorization") String token,
+                            @Field("customerFullname") String customerFullname,
+                            @Field("customerEmail") String customerEmail,
+                            @Field("customerPhoneNo") String customerPhoneNo,
+                            @Field("customerGender") String customerGender,
+                            @Field("customerAddress") String customerAddress);
+
+    //get customers data
+    @GET("futsal/customers")
+    Call<List<Customers>> getCustomersDetails();
+
+
 
 }

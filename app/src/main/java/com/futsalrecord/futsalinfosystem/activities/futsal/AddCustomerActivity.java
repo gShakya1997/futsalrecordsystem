@@ -55,17 +55,16 @@ public class AddCustomerActivity extends AppCompatActivity {
     }
 
     private void addCustomers() {
-        String customerFullname = edCustomerFullname.getText().toString().trim();
-        String customerEmail = edCustomerEmail.getText().toString().trim();
-        String customerPhoneNo = edCustomerPhoneNo.getText().toString().trim();
-        String customerAddress = edCustomerAddress.getText().toString().trim();
         int selectGender = rgCustomerGender.getCheckedRadioButtonId();
         RadioButton radioButton = findViewById(selectGender);
-        customerGender = radioButton.getText().toString().trim();
-        Customers customers = new Customers(customerFullname, customerEmail, customerPhoneNo,
-                customerGender, customerAddress);
+        customerGender = radioButton.getText().toString();
         FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
-        Call<Void> futsalCall = futsalAPI.addCustomers(customers);
+        Call<Void> futsalCall = futsalAPI.addCustomers(Url.token,
+                edCustomerFullname.getText().toString(),
+                edCustomerEmail.getText().toString(),
+                edCustomerPhoneNo.getText().toString(),
+                customerGender,
+                edCustomerAddress.getText().toString());
 
         futsalCall.enqueue(new Callback<Void>() {
             @Override
@@ -75,8 +74,8 @@ public class AddCustomerActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(AddCustomerActivity.this, "Customer added successfully!"
-                        , Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddCustomerActivity.this, "Customer added",
+                        Toast.LENGTH_SHORT).show();
             }
 
             @Override
