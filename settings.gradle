@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':futsalwear'
 rootProject.name='Futsal Customer Information System'
