@@ -15,6 +15,7 @@ import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.adapter.CustomersAdapter;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.model.Customers;
+import com.futsalrecord.futsalinfosystem.model.CustomersUD;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
 import com.futsalrecord.futsalinfosystem.url.Url;
 
@@ -44,24 +45,23 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AddCustomerActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
 
     private void loadCustomerData() {
         FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
-        Call<List<Customers>> customerCall = futsalAPI.getCustomersDetails(Url.token);
+        Call<List<CustomersUD>> customerCall = futsalAPI.getCustomersDetails(Url.token);
 
-        customerCall.enqueue(new Callback<List<Customers>>() {
+        customerCall.enqueue(new Callback<List<CustomersUD>>() {
             @Override
-            public void onResponse(Call<List<Customers>> call, Response<List<Customers>> response) {
+            public void onResponse(Call<List<CustomersUD>> call, Response<List<CustomersUD>> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(FutsalCustomerDataActivity.this, "Code " + response.code(),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                List<Customers> customersList = response.body();
+                List<CustomersUD> customersList = response.body();
                 CustomersAdapter customersAdapter = new CustomersAdapter(FutsalCustomerDataActivity.this,
                         customersList);
                 customerRecyclerView.setAdapter(customersAdapter);
@@ -69,10 +69,9 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Customers>> call, Throwable t) {
+            public void onFailure(Call<List<CustomersUD>> call, Throwable t) {
                 Toast.makeText(FutsalCustomerDataActivity.this, "Error " + t.getLocalizedMessage(),
                         Toast.LENGTH_SHORT).show();
-
             }
         });
 

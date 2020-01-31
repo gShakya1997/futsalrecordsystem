@@ -1,16 +1,22 @@
 package com.futsalrecord.futsalinfosystem.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.futsal.CustomerDetailActivity;
+import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalCustomerDataActivity;
 import com.futsalrecord.futsalinfosystem.model.Customers;
+import com.futsalrecord.futsalinfosystem.model.CustomersUD;
 
 import java.util.List;
 import java.util.zip.Inflater;
@@ -19,9 +25,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.CustomersViewHolder> {
     private Context context;
-    private List<Customers> customersList;
+    private List<CustomersUD> customersList;
 
-    public CustomersAdapter(Context context, List<Customers> customersList) {
+    public CustomersAdapter(Context context, List<CustomersUD> customersList) {
         this.context = context;
         this.customersList = customersList;
     }
@@ -35,12 +41,26 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
 
     @Override
     public void onBindViewHolder(@NonNull CustomersViewHolder holder, int position) {
-        Customers customers = customersList.get(position);
+        final CustomersUD customers = customersList.get(position);
+        holder.tvCustomerId.setText(customers.get_id());
         holder.tvCustomerFullName.setText(customers.getCustomerFullname());
         holder.tvCustomerEmail.setText(customers.getCustomerEmail());
         holder.tvCustomerPhoneNo.setText(customers.getCustomerPhoneNo());
         holder.tvCustomerGender.setText(customers.getCustomerGender());
         holder.tvCustomerAddress.setText(customers.getCustomerAddress());
+        holder.imgBtnCustomerEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CustomerDetailActivity.class);
+                intent.putExtra("tvCustomerId",customers.get_id());
+                intent.putExtra("tvCustomerFullName",customers.getCustomerFullname());
+                intent.putExtra("tvCustomerEmail",customers.getCustomerEmail());
+                intent.putExtra("tvCustomerPhoneNo",customers.getCustomerPhoneNo());
+                intent.putExtra("tvCustomerGender",customers.getCustomerGender());
+                intent.putExtra("tvCustomerAddress",customers.getCustomerAddress());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -50,15 +70,20 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
 
     public class CustomersViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvCustomerFullName, tvCustomerEmail, tvCustomerPhoneNo, tvCustomerGender, tvCustomerAddress;
+        TextView tvCustomerFullName, tvCustomerEmail, tvCustomerPhoneNo, tvCustomerGender,
+                tvCustomerAddress, tvCustomerId;
+        ImageButton imgBtnCustomerDelete, imgBtnCustomerEdit;
 
         public CustomersViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvCustomerId = itemView.findViewById(R.id.tvCustomerId);
             tvCustomerFullName = itemView.findViewById(R.id.tvCustomerFullName);
             tvCustomerEmail = itemView.findViewById(R.id.tvCustomerEmail);
             tvCustomerPhoneNo = itemView.findViewById(R.id.tvCustomerPhoneNo);
             tvCustomerGender = itemView.findViewById(R.id.tvCustomerGender);
             tvCustomerAddress = itemView.findViewById(R.id.tvCustomerAddress);
+            imgBtnCustomerDelete = itemView.findViewById(R.id.imgBtnCustomerDelete);
+            imgBtnCustomerEdit = itemView.findViewById(R.id.imgBtnCustomerEdit);
         }
     }
 }

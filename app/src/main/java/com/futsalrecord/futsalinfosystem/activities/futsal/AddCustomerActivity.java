@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class AddCustomerActivity extends AppCompatActivity {
     private TextInputEditText edCustomerFullname, edCustomerEmail, edCustomerPhoneNo, edCustomerAddress;
     private RadioGroup rgCustomerGender;
-    private Button btnAddC, btnUpdateC, btnDeleteC;
+    private Button btnAddC;
     private String customerGender;
 
     @Override
@@ -93,7 +93,5 @@ public class AddCustomerActivity extends AppCompatActivity {
         edCustomerAddress = findViewById(R.id.customerAddress);
         rgCustomerGender = findViewById(R.id.customerGender);
         btnAddC = findViewById(R.id.btnAddC);
-        btnUpdateC = findViewById(R.id.btnUpdateC);
-        btnDeleteC = findViewById(R.id.btnDeleteC);
     }
 }

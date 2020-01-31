@@ -50,13 +50,13 @@
         android:id="@+id/tvCustomerGender"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:background="@color/cardViewColor"
         android:text="@string/gender"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -64,19 +64,32 @@
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginTop="140dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/address"
         android:textStyle="bold"
         android:background="@color/cardViewColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvCustomerId"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="140dp"
+        android:background="@color/cardViewColor"
+        android:text="Customer ID"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
-        android:id="@+id/imgBtnStaffDelete"
+        android:id="@+id/imgBtnCustomerDelete"
         android:layout_width="35dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="60dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:adjustViewBounds="true"
@@ -88,9 +101,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imgBtnStaffEdit"
-        android:layout_width="36dp"
-        android:layout_height="35dp"
+        android:id="@+id/imgBtnCustomerEdit"
+        android:layout_width="29dp"
+        android:layout_height="0dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
