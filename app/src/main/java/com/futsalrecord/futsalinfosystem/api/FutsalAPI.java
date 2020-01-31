@@ -2,6 +2,7 @@ package com.futsalrecord.futsalinfosystem.api;
 
 import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.model.CustomersUD;
+import com.futsalrecord.futsalinfosystem.model.Events;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
@@ -65,4 +66,13 @@ public interface FutsalAPI {
     @DELETE("customers/{id}")
     Call<Void> deleteCustomerDetail(@Header("Authorization") String token,
                                     @Path("id") String id);
+
+    //event registration
+    @FormUrlEncoded
+    @POST("events")
+    Call<Void> addEvent(@Header("Authorization") String token,
+                        @Field("eventName") String eventName,
+                        @Field("entryFee") String entryFee,
+                        @Field("eventDetail") String eventDetail,
+                        @Field("eventImage") String eventImage);
 }

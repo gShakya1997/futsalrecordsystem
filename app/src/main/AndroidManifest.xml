@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.futsal.CustomerDetailActivity"></activity>
+        <activity android:name=".activities.futsal.FutsalEventActivity"></activity>
+        <activity android:name=".activities.futsal.CustomerDetailActivity" />
         <activity android:name=".activities.futsal.AddCustomerActivity" />
         <activity android:name=".activities.futsal.FutsalProfileActivity" />
         <activity android:name=".activities.registration.FutsalProfilePic" />
