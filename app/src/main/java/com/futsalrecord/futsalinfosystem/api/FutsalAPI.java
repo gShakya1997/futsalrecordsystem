@@ -11,6 +11,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -59,4 +60,9 @@ public interface FutsalAPI {
     Call<Void> updateCustomerDetail(@Header("Authorization") String token,
                                     @Path("id") String id,
                                     @Body CustomersUD customersUD);
+
+    //delete customers data
+    @DELETE("customers/{id}")
+    Call<Void> deleteCustomerDetail(@Header("Authorization") String token,
+                                    @Path("id") String id);
 }

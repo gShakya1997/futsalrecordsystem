@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,13 +16,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.futsal.CustomerDetailActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalCustomerDataActivity;
+import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.model.CustomersUD;
+import com.futsalrecord.futsalinfosystem.url.Url;
 
 import java.util.List;
 import java.util.zip.Inflater;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.CustomersViewHolder> {
     private Context context;
@@ -35,7 +41,7 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
     @NonNull
     @Override
     public CustomersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customerview,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.customerview, parent, false);
         return new CustomersViewHolder(view);
     }
 
@@ -52,16 +58,44 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CustomerDetailActivity.class);
-                intent.putExtra("tvCustomerId",customers.get_id());
-                intent.putExtra("tvCustomerFullName",customers.getCustomerFullname());
-                intent.putExtra("tvCustomerEmail",customers.getCustomerEmail());
-                intent.putExtra("tvCustomerPhoneNo",customers.getCustomerPhoneNo());
-                intent.putExtra("tvCustomerGender",customers.getCustomerGender());
-                intent.putExtra("tvCustomerAddress",customers.getCustomerAddress());
+                intent.putExtra("tvCustomerId", customers.get_id());
+                intent.putExtra("tvCustomerFullName", customers.getCustomerFullname());
+                intent.putExtra("tvCustomerEmail", customers.getCustomerEmail());
+                intent.putExtra("tvCustomerPhoneNo", customers.getCustomerPhoneNo());
+                intent.putExtra("tvCustomerGender", customers.getCustomerGender());
+                intent.putExtra("tvCustomerAddress", customers.getCustomerAddress());
                 context.startActivity(intent);
             }
         });
+        holder.imgBtnCustomerDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
+                Call<Void> customerCall = futsalAPI.deleteCustomerDetail(
+                        Url.token,
+                        customers.get_id()
+                );
+
+                customerCall.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(context, "Code " + response.code(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        Toast.makeText(context, "Customer Deleted", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(context, "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
