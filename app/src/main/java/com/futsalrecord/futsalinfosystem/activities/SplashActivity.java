@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
+import com.futsalrecord.futsalinfosystem.bll.LoginBLL;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.url.Url;
 
@@ -35,19 +36,33 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void checkUserProfile() {
+        SharedPreferences sharedPreferencesUser = this.getSharedPreferences("Futsal", MODE_PRIVATE);
+        String username = sharedPreferencesUser.getString("FutsalName", null);
+        String password = sharedPreferencesUser.getString("FutsalPassword", null);
+
         //Night mode
         SharedPreferences sharedPreferencesMode = getSharedPreferences("nightModePrefs", MODE_PRIVATE);
         Boolean darkMode = sharedPreferencesMode.getBoolean("isNightMode", false);
 
-        if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
-            darkMode.equals(true);
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
+        if (username != null && password != null) {
+            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
+                darkMode.equals(true);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
+                startActivity(intent);
+                finish();
+            }
+            Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
             startActivity(intent);
             finish();
         } else {
-            darkMode.equals(false);
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
+                darkMode.equals(true);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
+                startActivity(intent);
+                finish();
+            }
             Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
             startActivity(intent);
             finish();
