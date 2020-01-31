@@ -11,6 +11,7 @@ import android.view.View;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalCustomerDataActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalEarningActivity;
+import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalEventActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalHomeActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalProfileActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity;
@@ -24,7 +25,7 @@ public class FutsalDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_futsal_dashboard);
-        binding();
+        initialize();
         cardActions();
     }
 
@@ -90,9 +91,17 @@ public class FutsalDashboard extends AppCompatActivity {
                 finish();
             }
         });
+
+        cardEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FutsalDashboard.this,FutsalEventActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void binding() {
+    private void initialize() {
         cardHome = findViewById(R.id.cardHome);
         cardCustomerDetail = findViewById(R.id.cardCustomerDetail);
         cardStaff = findViewById(R.id.cardStaff);
