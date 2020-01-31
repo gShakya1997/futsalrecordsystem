@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.FocusFinder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,6 +17,9 @@ import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
 import com.futsalrecord.futsalinfosystem.url.Url;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,26 +51,36 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
 
     private void loadCustomerData() {
         FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
-        final Call<List<Customers>> customerCall = futsalAPI.getCustomersDetails();
+        Call<List<Customers>> customerCall = futsalAPI.getCustomersDetails(Url.token);
+
         customerCall.enqueue(new Callback<List<Customers>>() {
             @Override
             public void onResponse(Call<List<Customers>> call, Response<List<Customers>> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(FutsalCustomerDataActivity.this, "Code " + response.code(),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 List<Customers> customersList = response.body();
-                customerRecyclerView.setAdapter(new CustomersAdapter(getApplicationContext(),customersList));
-                customerRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                CustomersAdapter customersAdapter = new CustomersAdapter(FutsalCustomerDataActivity.this,
+                        customersList);
+                customerRecyclerView.setAdapter(customersAdapter);
+                customerRecyclerView.setLayoutManager(new LinearLayoutManager(FutsalCustomerDataActivity.this));
             }
 
             @Override
             public void onFailure(Call<List<Customers>> call, Throwable t) {
+                Toast.makeText(FutsalCustomerDataActivity.this, "Error " + t.getLocalizedMessage(),
+                        Toast.LENGTH_SHORT).show();
 
             }
         });
+
     }
+
 
     private void initialize() {
         customerRecyclerView = findViewById(R.id.customerRecyclerView);
-        LinearLayoutManager lm = new LinearLayoutManager(this);
-        lm.setOrientation(LinearLayoutManager.VERTICAL);
         btnAddCustomer = findViewById(R.id.btnAddCustomer);
     }
 

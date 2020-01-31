@@ -30,7 +30,8 @@ public interface FutsalAPI {
     //login
     @FormUrlEncoded
     @POST("futsal/login")
-    Call<RegisterResponse> checkUser(@Field("futsalName") String futsalName, @Field("futsalPassword") String futsalPassword);
+    Call<RegisterResponse> checkUser(@Field("futsalName") String futsalName,
+                                     @Field("futsalPassword") String futsalPassword);
 
     //get futsalname and profile pic
     @GET("futsal/profile")
@@ -47,9 +48,6 @@ public interface FutsalAPI {
                             @Field("customerAddress") String customerAddress);
 
     //get customers data
-    @GET("futsal/customers")
-    Call<List<Customers>> getCustomersDetails();
-
-
-
+    @GET("customers")
+    Call<List<Customers>> getCustomersDetails(@Header("Authorization") String token);
 }
