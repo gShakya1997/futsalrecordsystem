@@ -2,6 +2,7 @@ package com.futsalrecord.futsalinfosystem.activities.futsal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -86,6 +87,13 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,FutsalCustomerDataActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 
     private void initialize() {

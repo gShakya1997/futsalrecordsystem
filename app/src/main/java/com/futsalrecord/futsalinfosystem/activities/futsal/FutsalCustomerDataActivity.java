@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.FocusFinder;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
@@ -33,6 +34,7 @@ import retrofit2.Response;
 public class FutsalCustomerDataActivity extends AppCompatActivity {
     private RecyclerView customerRecyclerView;
     private Button btnAddCustomer;
+    private ImageButton imgBtnRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,13 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AddCustomerActivity.class);
                 startActivity(intent);
+            }
+        });
+        imgBtnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
             }
         });
     }
@@ -64,6 +73,7 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
                 List<CustomersUD> customersList = response.body();
                 CustomersAdapter customersAdapter = new CustomersAdapter(FutsalCustomerDataActivity.this,
                         customersList);
+                customersAdapter.notifyDataSetChanged();
                 customerRecyclerView.setAdapter(customersAdapter);
                 customerRecyclerView.setLayoutManager(new LinearLayoutManager(FutsalCustomerDataActivity.this));
             }
@@ -81,6 +91,7 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
     private void initialize() {
         customerRecyclerView = findViewById(R.id.customerRecyclerView);
         btnAddCustomer = findViewById(R.id.btnAddCustomer);
+        imgBtnRefresh = findViewById(R.id.imgBtnRefresh);
     }
 
 }

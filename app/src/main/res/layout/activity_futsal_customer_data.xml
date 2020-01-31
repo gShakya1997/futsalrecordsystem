@@ -38,11 +38,30 @@
             android:alignmentMode="alignMargins"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnAddCustomer"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add customer data" />
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnAddCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add customer data" />
+
+                <Button
+                    android:id="@+id/btnSearchCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Search customer data" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_refresh_black_24dp" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/customerRecyclerView"
