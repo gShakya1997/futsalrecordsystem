@@ -1,6 +1,7 @@
 package com.futsalrecord.futsalinfosystem.api;
 
 import com.futsalrecord.futsalinfosystem.model.Customers;
+import com.futsalrecord.futsalinfosystem.model.CustomersUD;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
@@ -16,7 +17,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface FutsalAPI {
     //register
@@ -30,7 +33,8 @@ public interface FutsalAPI {
     //login
     @FormUrlEncoded
     @POST("futsal/login")
-    Call<RegisterResponse> checkUser(@Field("futsalName") String futsalName, @Field("futsalPassword") String futsalPassword);
+    Call<RegisterResponse> checkUser(@Field("futsalName") String futsalName,
+                                     @Field("futsalPassword") String futsalPassword);
 
     //get futsalname and profile pic
     @GET("futsal/profile")
@@ -47,9 +51,12 @@ public interface FutsalAPI {
                             @Field("customerAddress") String customerAddress);
 
     //get customers data
-    @GET("futsal/customers")
-    Call<List<Customers>> getCustomersDetails();
+    @GET("customers")
+    Call<List<CustomersUD>> getCustomersDetails(@Header("Authorization") String token);
 
-
-
+    //update customers data
+    @PUT("customers/{id}")
+    Call<Void> updateCustomerDetail(@Header("Authorization") String token,
+                                    @Path("id") String id,
+                                    @Body CustomersUD customersUD);
 }
