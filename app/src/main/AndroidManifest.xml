@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.futsal.FutsalEventActivity"></activity>
+        <activity android:name=".activities.futsal.FutsalAboutUsActivity"></activity>
+        <activity android:name=".activities.futsal.FutsalEventActivity" />
         <activity android:name=".activities.futsal.CustomerDetailActivity" />
         <activity android:name=".activities.futsal.AddCustomerActivity" />
         <activity android:name=".activities.futsal.FutsalProfileActivity" />
@@ -26,10 +27,11 @@
         <activity android:name=".activities.registration.UserProfilePic" />
         <activity android:name=".activities.futsal.FutsalSettingActivity" />
         <activity android:name=".activities.futsal.FutsalEarningActivity" />
-        <activity android:name=".activities.futsal.FutsalStaffDataActivity" />
         <activity android:name=".activities.futsal.FutsalCustomerDataActivity" />
-        <activity android:name=".activities.futsal.FutsalHomeActivity" />
-        <activity android:name=".activities.FutsalDashboard" />
+        <activity android:name=".activities.futsal.FutsalFeedbackActivity" />
+        <activity
+            android:name=".activities.FutsalDashboard"
+            android:screenOrientation="portrait" />
         <activity android:name=".activities.GettingStarted" />
         <activity android:name=".activities.registration.FutsalRegistration" />
         <activity android:name=".activities.registration.UserRegistration" />

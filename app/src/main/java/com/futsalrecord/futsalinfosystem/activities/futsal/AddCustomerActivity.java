@@ -2,8 +2,11 @@ package com.futsalrecord.futsalinfosystem.activities.futsal;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.loader.content.CursorLoader;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
+import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.url.Url;
 import com.google.android.material.textfield.TextInputEditText;
@@ -32,13 +36,29 @@ public class AddCustomerActivity extends AppCompatActivity {
     private RadioGroup rgCustomerGender;
     private Button btnAddC;
     private String customerGender;
+    private NotificationManagerCompat notificationManagerCompat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_customer);
         initialize();
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        CreateNotificationChannel createNotificationChannel = new CreateNotificationChannel(this);
+        createNotificationChannel.createChannel();
         actionButtons();
+    }
+
+    private void displayNotification() {
+        Notification notification = new NotificationCompat.Builder
+                (this, CreateNotificationChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_insert_comment_black_24dp)
+                .setContentTitle("Customer added")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManagerCompat.notify(1, notification);
     }
 
     private void actionButtons() {
@@ -74,8 +94,7 @@ public class AddCustomerActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(AddCustomerActivity.this, "Customer added",
-                        Toast.LENGTH_SHORT).show();
+                displayNotification();
             }
 
             @Override
@@ -84,6 +103,13 @@ public class AddCustomerActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, FutsalCustomerDataActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 
     private void initialize() {

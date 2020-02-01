@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".activities.futsal.FutsalHomeActivity">
+    tools:context=".activities.futsal.FutsalAboutUsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@color/colorPrimaryDark"
-                android:text="Home"
+                android:text="About us"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/trade_winds" />

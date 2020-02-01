@@ -1,7 +1,10 @@
 package com.futsalrecord.futsalinfosystem.activities.futsal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
+import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.model.CustomersUD;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
@@ -30,15 +34,19 @@ public class CustomerDetailActivity extends AppCompatActivity {
     private RadioGroup customerGender;
     private Button btnUpdateC;
     private String gender;
+    private NotificationManagerCompat notificationManagerCompat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_detail);
         initialize();
-        int selectGender = customerGender.getCheckedRadioButtonId();
-        RadioButton radioButton = findViewById(selectGender);
-        gender = radioButton.getText().toString().trim();
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        CreateNotificationChannel createNotificationChannel = new CreateNotificationChannel(this);
+        createNotificationChannel.createChannel();
+
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             edcustomerID.setText(bundle.getString("tvCustomerId"));
@@ -46,6 +54,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
             edCustomerEmail.setText(bundle.getString("tvCustomerEmail"));
             edCustomerPhoneNo.setText(bundle.getString("tvCustomerPhoneNo"));
             edCustomerAddress.setText(bundle.getString("tvCustomerAddress"));
+            customerGender.clearCheck();
         }
         btnUpdateC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +66,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
     private void updateCustomerData() {
         FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
+        int selectGender = customerGender.getCheckedRadioButtonId();
+        RadioButton radioButton = findViewById(selectGender);
+        gender = radioButton.getText().toString().trim();
         CustomersUD customersUD = new CustomersUD(
                 edcustomerID.getText().toString(),
                 edCustomerFullname.getText().toString(),
@@ -77,7 +89,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(CustomerDetailActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                displayNotification();
             }
 
             @Override
@@ -91,9 +103,20 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this,FutsalCustomerDataActivity.class);
+        Intent intent = new Intent(this, FutsalCustomerDataActivity.class);
         startActivity(intent);
         super.onBackPressed();
+    }
+
+    private void displayNotification() {
+        Notification notification = new NotificationCompat.Builder
+                (this, CreateNotificationChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_insert_comment_black_24dp)
+                .setContentTitle("Customer data updated")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManagerCompat.notify(1, notification);
     }
 
     private void initialize() {

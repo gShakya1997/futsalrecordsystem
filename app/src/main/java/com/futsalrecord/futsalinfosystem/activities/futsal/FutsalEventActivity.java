@@ -2,8 +2,11 @@ package com.futsalrecord.futsalinfosystem.activities.futsal;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.loader.content.CursorLoader;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
+import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.model.Events;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
@@ -38,13 +42,40 @@ public class FutsalEventActivity extends AppCompatActivity {
     private Button btnEventRegister;
     private String imgPath;
     private String imgName = "";
+    private NotificationManagerCompat notificationManagerCompat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_futsal_event);
         initialize();
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        CreateNotificationChannel createNotificationChannel = new CreateNotificationChannel(this);
+        createNotificationChannel.createChannel();
         actionButtons();
+    }
+
+    private void displayNotification() {
+        Notification notification = new NotificationCompat.Builder
+                (this, CreateNotificationChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_insert_comment_black_24dp)
+                .setContentTitle("Event registered")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManagerCompat.notify(1, notification);
+    }
+
+    private void displayNotificationImage() {
+        Notification notification = new NotificationCompat.Builder
+                (this, CreateNotificationChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_insert_comment_black_24dp)
+                .setContentTitle("Please select an image")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManagerCompat.notify(1, notification);
     }
 
     @Override
@@ -52,7 +83,7 @@ public class FutsalEventActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (data == null) {
-                Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show();
+                displayNotificationImage();
             }
         }
         Uri uri = data.getData();
@@ -111,7 +142,7 @@ public class FutsalEventActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(FutsalEventActivity.this, "Event added", Toast.LENGTH_SHORT).show();
+                displayNotification();
             }
 
             @Override
@@ -132,7 +163,6 @@ public class FutsalEventActivity extends AppCompatActivity {
         try {
             Response<ImageResponse> imageResponseResponse = responseCall.execute();
             imgName = imageResponseResponse.body().getFilename();
-            Toast.makeText(this, "Image inserted " + imgName, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Toast.makeText(this, "Error " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();

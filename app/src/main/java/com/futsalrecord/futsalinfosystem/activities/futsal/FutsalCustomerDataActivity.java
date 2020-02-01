@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 import com.futsalrecord.futsalinfosystem.adapter.CustomersAdapter;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.model.Customers;
@@ -47,6 +48,7 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AddCustomerActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         imgBtnRefresh.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +89,12 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, FutsalDashboard.class);
+        startActivity(intent);
+        super.onBackPressed();
+    }
 
     private void initialize() {
         customerRecyclerView = findViewById(R.id.customerRecyclerView);

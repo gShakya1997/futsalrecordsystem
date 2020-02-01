@@ -1,11 +1,14 @@
 package com.futsalrecord.futsalinfosystem.fragments;
 
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,7 +22,9 @@ import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 import com.futsalrecord.futsalinfosystem.activities.registration.FutsalRegistration;
 import com.futsalrecord.futsalinfosystem.bll.LoginBLL;
+import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
+import com.futsalrecord.futsalinfosystem.url.Url;
 import com.google.android.material.textfield.TextInputLayout;
 
 /**
@@ -29,7 +34,7 @@ public class FutsalLoginFragment extends Fragment {
     private TextInputLayout futsalLoginUsername, futsalLoginPassword;
     private Button btnFutsalLogin, btnFutsalRegister;
     private String futsalname, futsalPassword;
-
+    private NotificationManagerCompat notificationManagerCompat;
 
     public FutsalLoginFragment() {
         // Required empty public constructor
@@ -45,6 +50,9 @@ public class FutsalLoginFragment extends Fragment {
         futsalLoginPassword = view.findViewById(R.id.futsalLoginPassword);
         btnFutsalLogin = view.findViewById(R.id.btnFutsalLogin);
         btnFutsalRegister = view.findViewById(R.id.btnFutsalRegister);
+        notificationManagerCompat = NotificationManagerCompat.from(getContext());
+        CreateNotificationChannel createNotificationChannel = new CreateNotificationChannel(getContext());
+        createNotificationChannel.createChannel();
         btnFutsalLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +69,19 @@ public class FutsalLoginFragment extends Fragment {
         return view;
     }
 
+    private void displayNotification() {
+        Notification notification = new NotificationCompat.Builder
+                (getContext(), CreateNotificationChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_lock_open_black_24dp)
+                .setContentTitle("Login Successful")
+                .setContentText("Welcome")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManagerCompat.notify(1,notification);
+    }
+
+
     private void login() {
         futsalname = futsalLoginUsername.getEditText().getText().toString().trim();
         futsalPassword = futsalLoginPassword.getEditText().getText().toString().trim();
@@ -69,6 +90,7 @@ public class FutsalLoginFragment extends Fragment {
         StrictModeClass.StrictMode();
         if (loginBLL.checkFutsal(futsalname, futsalPassword)) {
             saveSharedPreferences();
+            displayNotification();
             Intent intent = new Intent(getActivity(), FutsalDashboard.class);
             startActivity(intent);
         } else {

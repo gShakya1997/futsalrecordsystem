@@ -1,5 +1,6 @@
 package com.futsalrecord.futsalinfosystem.adapter;
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,16 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.futsal.CustomerDetailActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalCustomerDataActivity;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
+import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.model.CustomersUD;
 import com.futsalrecord.futsalinfosystem.url.Url;
@@ -32,6 +37,7 @@ import retrofit2.Response;
 public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.CustomersViewHolder> {
     private Context context;
     private List<CustomersUD> customersList;
+    private NotificationManagerCompat notificationManagerCompat;
 
     public CustomersAdapter(Context context, List<CustomersUD> customersList) {
         this.context = context;
@@ -47,6 +53,11 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
 
     @Override
     public void onBindViewHolder(@NonNull CustomersViewHolder holder, int position) {
+        notificationManagerCompat = NotificationManagerCompat.from(context);
+        CreateNotificationChannel createNotificationChannel = new CreateNotificationChannel(context);
+        createNotificationChannel.createChannel();
+
+
         final CustomersUD customers = customersList.get(position);
         holder.tvCustomerId.setText(customers.get_id());
         holder.tvCustomerFullName.setText(customers.getCustomerFullname());
@@ -83,7 +94,7 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
                             Toast.makeText(context, "Code " + response.code(), Toast.LENGTH_SHORT).show();
                             return;
                         }
-                        Toast.makeText(context, "Customer Deleted", Toast.LENGTH_SHORT).show();
+                        displayNotification();
                     }
 
                     @Override
@@ -100,6 +111,18 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
     @Override
     public int getItemCount() {
         return customersList.size();
+    }
+
+    private void displayNotification() {
+        Notification notification = new NotificationCompat.Builder
+                (context, CreateNotificationChannel.CHANNEL_1)
+                .setSmallIcon(R.drawable.ic_insert_comment_black_24dp)
+                .setContentTitle("Customer data deleted")
+                .setContentText("Click refresh bottom on top right")
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+
+        notificationManagerCompat.notify(1, notification);
     }
 
     public class CustomersViewHolder extends RecyclerView.ViewHolder {

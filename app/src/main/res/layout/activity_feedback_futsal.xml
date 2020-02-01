@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".activities.futsal.FutsalStaffDataActivity">
+    tools:context=".activities.futsal.FutsalFeedbackActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,31 +25,12 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:background="@color/colorPrimaryDark"
-                android:text="Staff data"
+                android:text="Feedbacks"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/trade_winds" />
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="9"
-            android:alignmentMode="alignMargins"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btnAddCustomer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Add staff data" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/staffRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
