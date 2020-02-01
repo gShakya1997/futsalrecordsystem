@@ -71,4 +71,8 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="total_earning">Earning</string>
     <string name="setting">Setting</string>
+    <string name="title_activity_user_dashboard">UserDashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

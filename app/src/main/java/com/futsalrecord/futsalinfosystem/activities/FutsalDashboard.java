@@ -14,11 +14,11 @@ import android.view.View;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalAboutUsActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalCustomerDataActivity;
-import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalEarningActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalEventActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalFeedbackActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalProfileActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity;
+import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 
 public class FutsalDashboard extends AppCompatActivity {
@@ -77,7 +77,7 @@ public class FutsalDashboard extends AppCompatActivity {
         cardEarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FutsalDashboard.this, FutsalEarningActivity.class);
+                Intent intent = new Intent(FutsalDashboard.this, GameActivity.class);
                 startActivity(intent);
             }
         });

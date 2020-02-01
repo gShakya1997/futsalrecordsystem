@@ -96,12 +96,12 @@
                 android:text="@string/register_here" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="30dp"
-            android:text="Swipe right for futsal owners -->"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:text="Swipe right for futsal owners &ndash;&gt;"-->
+<!--            android:textStyle="bold" />-->
     </LinearLayout>
 </ScrollView>
