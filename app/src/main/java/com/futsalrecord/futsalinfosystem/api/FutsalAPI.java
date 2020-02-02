@@ -1,8 +1,6 @@
 package com.futsalrecord.futsalinfosystem.api;
 
-import com.futsalrecord.futsalinfosystem.model.Customers;
 import com.futsalrecord.futsalinfosystem.model.CustomersUD;
-import com.futsalrecord.futsalinfosystem.model.Events;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
@@ -80,6 +78,11 @@ public interface FutsalAPI {
     @FormUrlEncoded
     @POST("feedbacks")
     Call<Void> addFeedback(@Header("Authorization") String token,
-                            @Field("rating") String rating,
-                            @Field("feedback") String feedback);
+                           @Field("rating") String rating,
+                           @Field("feedback") String feedback);
+
+    //search by customer name
+    @GET("customers/{customerFullname}")
+    Call<List<CustomersUD>> getCustomerByName(@Header("Authorization") String token,
+                                            @Path("customerFullname") String customerFullname);
 }

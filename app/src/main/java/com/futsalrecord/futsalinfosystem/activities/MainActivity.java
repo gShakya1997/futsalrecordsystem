@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         viewPagerLogin = findViewById(R.id.viewPagerLogin);
 
         ViewPagerLoginAdapter viewPagerLoginAdapter = new ViewPagerLoginAdapter(getSupportFragmentManager());
-        viewPagerLoginAdapter.addFragment(new FutsalLoginFragment(), "Admin Login");
         viewPagerLoginAdapter.addFragment(new UserLoginFragment(), "User Login");
+        viewPagerLoginAdapter.addFragment(new FutsalLoginFragment(), "Admin Login");
         viewPagerLogin.setAdapter(viewPagerLoginAdapter);
     }
 }

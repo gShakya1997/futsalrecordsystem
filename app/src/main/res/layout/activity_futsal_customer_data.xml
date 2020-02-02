@@ -50,17 +50,18 @@
                     android:layout_height="wrap_content"
                     android:text="Add customer data" />
 
-                <Button
-                    android:id="@+id/btnSearchCustomer"
+                <ImageButton
+                    android:id="@+id/imgBtnGoTo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Search customer data" />
+                    app:srcCompat="@drawable/ic_search_black_24dp" />
 
                 <ImageButton
                     android:id="@+id/imgBtnRefresh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_refresh_black_24dp" />
+                    app:srcCompat="@drawable/ic_refresh_black_24dp" />
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
