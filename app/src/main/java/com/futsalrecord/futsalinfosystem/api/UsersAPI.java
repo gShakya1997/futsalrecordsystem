@@ -1,6 +1,7 @@
 package com.futsalrecord.futsalinfosystem.api;
 
 import com.futsalrecord.futsalinfosystem.model.CustomersUD;
+import com.futsalrecord.futsalinfosystem.model.Events;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.model.FutsalDetails;
 import com.futsalrecord.futsalinfosystem.model.Users;
@@ -37,4 +38,8 @@ public interface UsersAPI {
     //Show futsal detail
     @GET("users/futsalList")
     Call<List<FutsalDetails>> getFutsalDetails(@Header("Authorization") String token);
+
+    //Show futsal event
+    @GET("users/eventList")
+    Call<List<Events>> getEventDetail(@Header("Authorization") String token);
 }

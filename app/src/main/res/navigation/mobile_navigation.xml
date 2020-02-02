@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.futsalrecord.futsalinfosystem.activities.user.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.futsalrecord.futsalinfosystem.activities.user.ui.event.EventFragment"
+        android:label="Events"
+        tools:layout="@layout/fragment_event" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.futsalrecord.futsalinfosystem.activities.user.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="com.futsalrecord.futsalinfosystem.activities.user.ui.aboutus.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_aboutus" />
 </navigation>

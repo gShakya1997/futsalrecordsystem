@@ -14,10 +14,9 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/futsalRecyclerView"
+            android:id="@+id/eventRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </LinearLayout>
-
 </ScrollView>

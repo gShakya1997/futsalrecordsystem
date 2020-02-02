@@ -15,7 +15,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:background="@color/cardViewColor"
-        android:text="Futsal Name"
+        android:drawableStart="@drawable/ic_org_black_24dp"
+        android:drawableLeft="@drawable/ic_org_black_24dp"
+        android:text=" Futsal Name"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +30,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="60dp"
         android:background="@color/cardViewColor"
-        android:text="Location"
+        android:drawableStart="@drawable/ic_my_location_black_24dp"
+        android:drawableLeft="@drawable/ic_my_location_black_24dp"
+        android:text=" Location"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +45,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="100dp"
         android:background="@color/cardViewColor"
-        android:text="@string/phone_number"
+        android:drawableStart="@drawable/ic_smartphone_black_24dp"
+        android:drawableLeft="@drawable/ic_smartphone_black_24dp"
+        android:text=" Phone Number"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +60,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/cardViewColor"
-        android:text="Opening Time"
+        android:drawableStart="@drawable/ic_opening_time_black_24dp"
+        android:drawableLeft="@drawable/ic_opening_time_black_24dp"
+        android:text=" Opening Time"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -66,9 +74,11 @@
         android:layout_marginTop="140dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:text="Closing Time"
-        android:textStyle="bold"
         android:background="@color/cardViewColor"
+        android:drawableStart="@drawable/ic_timer_black_24dp"
+        android:drawableLeft="@drawable/ic_timer_black_24dp"
+        android:text=" Closing Time"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,8 +90,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="140dp"
         android:background="@color/cardViewColor"
-        android:text="Price"
+        android:text=" Price"
         android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_attach_money_black_24dp"
+        android:drawableStart="@drawable/ic_attach_money_black_24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

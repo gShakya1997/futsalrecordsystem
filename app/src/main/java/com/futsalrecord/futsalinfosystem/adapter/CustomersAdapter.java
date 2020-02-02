@@ -65,6 +65,8 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
         holder.tvCustomerPhoneNo.setText(customers.getCustomerPhoneNo());
         holder.tvCustomerGender.setText(customers.getCustomerGender());
         holder.tvCustomerAddress.setText(customers.getCustomerAddress());
+
+
         holder.imgBtnCustomerEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
