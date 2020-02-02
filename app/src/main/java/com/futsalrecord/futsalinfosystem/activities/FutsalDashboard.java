@@ -15,7 +15,7 @@ import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalAboutUsActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalCustomerDataActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalEventActivity;
-import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalFeedbackActivity;
+import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalFeedback;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalProfileActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
@@ -53,7 +53,7 @@ public class FutsalDashboard extends AppCompatActivity {
         cardFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FutsalDashboard.this, FutsalFeedbackActivity.class);
+                Intent intent = new Intent(FutsalDashboard.this, FutsalFeedback.class);
                 startActivity(intent);
             }
         });

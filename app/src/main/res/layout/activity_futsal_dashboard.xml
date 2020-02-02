@@ -80,7 +80,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!--Add staff-->
+            <!--Add customers-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardCustomerDetail"
                 android:layout_width="0dp"
@@ -158,7 +158,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!--Earning-->
+            <!--Game-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEarning"
                 android:layout_width="0dp"
@@ -236,7 +236,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!--Home-->
+            <!--Feedbacks-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardFeedback"
                 android:layout_width="0dp"

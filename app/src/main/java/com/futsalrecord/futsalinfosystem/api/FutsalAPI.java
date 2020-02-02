@@ -75,4 +75,11 @@ public interface FutsalAPI {
                         @Field("entryFee") String entryFee,
                         @Field("eventDetail") String eventDetail,
                         @Field("eventImage") String eventImage);
+
+    //feedback
+    @FormUrlEncoded
+    @POST("feedbacks")
+    Call<Void> addFeedback(@Header("Authorization") String token,
+                            @Field("rating") String rating,
+                            @Field("feedback") String feedback);
 }
