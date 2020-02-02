@@ -63,7 +63,6 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
         imgBtnGoTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                loadCustomerByName();
                 Intent intent = new Intent(FutsalCustomerDataActivity.this,CustomerSearchActivity.class);
                 startActivity(intent);
                 finish();

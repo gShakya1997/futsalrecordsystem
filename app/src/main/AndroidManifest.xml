@@ -18,7 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.futsal.CustomerSearchActivity"></activity>
+        <activity
+            android:name=".activities.user.UserDashboard"
+            android:label="@string/title_activity_user_dashboard"
+            android:theme="@style/AppThemeUser"></activity>
+        <activity android:name=".activities.futsal.CustomerSearchActivity" />
         <activity android:name=".activities.futsal.FutsalFeedback" />
         <activity android:name=".activities.futsal.GameActivity" />
         <activity android:name=".activities.futsal.FutsalAboutUsActivity" />

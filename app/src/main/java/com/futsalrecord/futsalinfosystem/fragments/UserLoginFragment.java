@@ -16,6 +16,7 @@ import android.widget.Button;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.GettingStarted;
 import com.futsalrecord.futsalinfosystem.activities.registration.UserRegistration;
+import com.futsalrecord.futsalinfosystem.activities.user.UserDashboard;
 import com.futsalrecord.futsalinfosystem.bll.LoginBLL;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
 import com.google.android.material.textfield.TextInputLayout;
@@ -72,7 +73,7 @@ public class UserLoginFragment extends Fragment {
         StrictModeClass.StrictMode();
         if (loginBLL.checkUser(username,password)){
             saveSharedPreferences();
-            Intent intent = new Intent(getActivity(), GettingStarted.class);
+            Intent intent = new Intent(getActivity(), UserDashboard.class);
             startActivity(intent);
         } else {
             userLoginUsername.setError("Enter correct username");
