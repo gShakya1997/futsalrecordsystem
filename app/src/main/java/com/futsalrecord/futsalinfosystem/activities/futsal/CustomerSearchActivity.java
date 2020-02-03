@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -72,5 +73,13 @@ public class CustomerSearchActivity extends AppCompatActivity {
         etSearchCustomer = findViewById(R.id.etSearchCustomer);
         imgBtnSearch = findViewById(R.id.imgBtnSearch);
         customerRecyclerView = findViewById(R.id.customerRecyclerView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(CustomerSearchActivity.this, CustomerDetailActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

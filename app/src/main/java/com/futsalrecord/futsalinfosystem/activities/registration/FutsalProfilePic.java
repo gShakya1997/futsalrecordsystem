@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
-import com.futsalrecord.futsalinfosystem.activities.MainActivity;
+import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
@@ -85,7 +85,7 @@ public class FutsalProfilePic extends AppCompatActivity {
             public void onClick(View v) {
                 saveImgOnly();
                 register();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), FutsalLogin.class);
                 startActivity(intent);
                 finish();
             }
@@ -157,5 +157,13 @@ public class FutsalProfilePic extends AppCompatActivity {
         imgBtnUploadFutsal = findViewById(R.id.imgBtnUploadFutsal);
         btnFutsalRegister = findViewById(R.id.btnFutsalRegister);
         btnFutsalBack = findViewById(R.id.btnFutsalBack);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FutsalProfilePic.this,FutsalRegistration.class);
+        startActivity(intent);
+        finish();
     }
 }

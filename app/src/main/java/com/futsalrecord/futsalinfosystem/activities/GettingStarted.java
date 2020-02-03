@@ -16,11 +16,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
+import com.futsalrecord.futsalinfosystem.activities.login.UserLogin;
 import com.futsalrecord.futsalinfosystem.activities.registration.FutsalRegistration;
 import com.futsalrecord.futsalinfosystem.activities.registration.UserRegistration;
 
 public class GettingStarted extends AppCompatActivity {
-    private Button btnRegFutsalOwner, btnRegUsers;
+    private Button btnRegFutsalOwner, btnRegUsers, btnFutsalLogin, btnUserLogin;
     private TextView textLogIn;
 
     @Override
@@ -32,27 +34,6 @@ public class GettingStarted extends AppCompatActivity {
     }
 
     private void actionButtons() {
-        String text = "Have an account already? Log in";
-        SpannableString ss = new SpannableString(text);
-        ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                Intent intent = new Intent(GettingStarted.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setUnderlineText(false);
-                ds.setColor(Color.BLUE);
-            }
-        };
-
-        ss.setSpan(clickableSpan,26,31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textLogIn.setText(ss);
-        textLogIn.setMovementMethod(LinkMovementMethod.getInstance());
 
         btnRegFutsalOwner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,11 +50,29 @@ public class GettingStarted extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnFutsalLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GettingStarted.this, FutsalLogin.class);
+                startActivity(intent);
+            }
+        });
+
+        btnUserLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GettingStarted.this, UserLogin.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void binding(){
+    private void binding() {
         btnRegFutsalOwner = findViewById(R.id.btnRegFutsalOwner);
         btnRegUsers = findViewById(R.id.btnRegUsers);
         textLogIn = findViewById(R.id.textLogIn);
+        btnUserLogin = findViewById(R.id.btnUserLogin);
+        btnFutsalLogin = findViewById(R.id.btnFutsalLogin);
     }
 }

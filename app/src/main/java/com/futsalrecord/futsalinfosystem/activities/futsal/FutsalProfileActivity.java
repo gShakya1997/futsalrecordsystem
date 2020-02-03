@@ -2,6 +2,7 @@ package com.futsalrecord.futsalinfosystem.activities.futsal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
@@ -77,5 +79,13 @@ public class FutsalProfileActivity extends AppCompatActivity {
         tvFutsal = findViewById(R.id.tvFutsal);
         tvFutsalEmail = findViewById(R.id.tvFutsalEmail);
         tvFutsalPhone = findViewById(R.id.tvFutsalPhone);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FutsalProfileActivity.this, FutsalDashboard.class);
+        startActivity(intent);
+        finish();
     }
 }

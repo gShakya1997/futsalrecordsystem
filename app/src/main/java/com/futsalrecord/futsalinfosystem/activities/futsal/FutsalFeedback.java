@@ -104,4 +104,12 @@ public class FutsalFeedback extends AppCompatActivity {
         btnSubmitFeedback = findViewById(R.id.btnSubmitFeedback);
         tvRating = findViewById(R.id.tvRating);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FutsalFeedback.this,FutsalDashboard.class);
+        startActivity(intent);
+        finish();
+    }
 }

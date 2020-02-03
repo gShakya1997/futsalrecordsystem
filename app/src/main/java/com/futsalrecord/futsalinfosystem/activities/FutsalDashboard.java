@@ -19,6 +19,7 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalFeedback;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalProfileActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
+import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.url.Url;
 
@@ -100,9 +101,9 @@ public class FutsalDashboard extends AppCompatActivity {
                 editorFutsal.clear();
                 editorFutsal.apply();
                 displayNotification();
-                Intent intent = new Intent(FutsalDashboard.this, MainActivity.class);
+                Intent intent = new Intent(FutsalDashboard.this, FutsalLogin.class);
                 startActivity(intent);
-                onDestroy();
+                finish();
             }
         });
 

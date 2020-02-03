@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 
 public class FutsalSettingActivity extends AppCompatActivity {
     private Switch switchDarkMode;
@@ -63,5 +65,13 @@ public class FutsalSettingActivity extends AppCompatActivity {
             switchDarkMode.setChecked(false);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FutsalSettingActivity.this, FutsalDashboard.class);
+        startActivity(intent);
+        finish();
     }
 }

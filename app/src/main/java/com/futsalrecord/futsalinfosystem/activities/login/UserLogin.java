@@ -1,16 +1,12 @@
-package com.futsalrecord.futsalinfosystem.fragments;
+package com.futsalrecord.futsalinfosystem.activities.login;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.futsalrecord.futsalinfosystem.R;
@@ -21,59 +17,51 @@ import com.futsalrecord.futsalinfosystem.bll.LoginBLL;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
 import com.google.android.material.textfield.TextInputLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class UserLoginFragment extends Fragment {
+public class UserLogin extends AppCompatActivity {
     private TextInputLayout userLoginUsername, userLoginPassword;
     private Button btnUserLogin, btnUserRegister;
     private String username, password;
 
-    public UserLoginFragment() {
-        // Required empty public constructor
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_login);
+        initialize();
+        actionButtons();
     }
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_user_login, container, false);
-
-        //initialize
-        userLoginUsername = view.findViewById(R.id.userLoginUsername);
-        userLoginPassword = view.findViewById(R.id.userLoginPassword);
-        btnUserLogin = view.findViewById(R.id.btnUserLogin);
-        btnUserRegister = view.findViewById(R.id.btnUserRegister);
-
-        //action buttons
+    private void actionButtons() {
         btnUserLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login();
             }
         });
-
         btnUserRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UserRegistration.class);
+                Intent intent = new Intent(UserLogin.this, UserRegistration.class);
                 startActivity(intent);
             }
         });
-
-        return view;
     }
 
-    private void login(){
+    private void initialize() {
+        userLoginUsername = findViewById(R.id.userLoginUsername);
+        userLoginPassword = findViewById(R.id.userLoginPassword);
+        btnUserLogin = findViewById(R.id.btnUserLogin);
+        btnUserRegister = findViewById(R.id.btnUserRegister);
+    }
+
+    private void login() {
         username = userLoginUsername.getEditText().getText().toString().trim();
         password = userLoginPassword.getEditText().getText().toString().trim();
 
         LoginBLL loginBLL = new LoginBLL();
         StrictModeClass.StrictMode();
-        if (loginBLL.checkUser(username,password)){
+        if (loginBLL.checkUser(username, password)) {
             saveSharedPreferences();
-            Intent intent = new Intent(getActivity(), UserDashboard.class);
+            Intent intent = new Intent(this, UserDashboard.class);
             startActivity(intent);
         } else {
             userLoginUsername.setError("Enter correct username");
@@ -81,11 +69,20 @@ public class UserLoginFragment extends Fragment {
         }
     }
 
+
     private void saveSharedPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("User", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("username",username);
-        editor.putString("password",password);
+        editor.putString("username", username);
+        editor.putString("password", password);
         editor.apply();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, GettingStarted.class);
+        startActivity(intent);
+        finish();
     }
 }

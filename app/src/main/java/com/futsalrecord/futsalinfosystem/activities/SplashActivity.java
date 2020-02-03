@@ -37,7 +37,6 @@ public class SplashActivity extends AppCompatActivity {
         SharedPreferences sharedPreferencesUser = this.getSharedPreferences("Futsal", MODE_PRIVATE);
         futsalName = sharedPreferencesUser.getString("FutsalName", null);
         futsalPassword = sharedPreferencesUser.getString("FutsalPassword", null);
-//        String futsalToken = sharedPreferencesUser.getString("FutsalToken", null);
 
         //Night mode
         SharedPreferences sharedPreferencesMode = getSharedPreferences("nightModePrefs", MODE_PRIVATE);
@@ -79,7 +78,7 @@ public class SplashActivity extends AppCompatActivity {
             Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Username or password incorrect", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Token expired", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
             startActivity(intent);
         }

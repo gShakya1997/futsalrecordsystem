@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
     private Button[][] buttons = new Button[3][3];
@@ -161,5 +163,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         player1Points= savedInstanceState.getInt("player1Points");
         player2Points = savedInstanceState.getInt("player2Points");
         player1Turn = savedInstanceState.getBoolean("player1Turn");
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(GameActivity.this, FutsalDashboard.class);
+        startActivity(intent);
+        finish();
     }
 }

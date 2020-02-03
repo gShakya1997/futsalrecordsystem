@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
-import com.futsalrecord.futsalinfosystem.activities.MainActivity;
+import com.futsalrecord.futsalinfosystem.activities.login.UserLogin;
 import com.futsalrecord.futsalinfosystem.api.UsersAPI;
 import com.futsalrecord.futsalinfosystem.model.Users;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
@@ -123,10 +123,18 @@ public class UserProfilePic extends AppCompatActivity {
             public void onClick(View v) {
                 saveImgOnly();
                 register();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), UserLogin.class);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this,UserProfilePic.class);
+        startActivity(intent);
+        finish();
     }
 
     private void register() {
@@ -157,5 +165,7 @@ public class UserProfilePic extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 }

@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.model.Events;
@@ -175,5 +176,13 @@ public class FutsalEventActivity extends AppCompatActivity {
         eventPrice = findViewById(R.id.eventPrice);
         eventDetail = findViewById(R.id.eventDetail);
         btnEventRegister = findViewById(R.id.btnEventRegister);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FutsalEventActivity.this, FutsalDashboard.class);
+        startActivity(intent);
+        finish();
     }
 }
