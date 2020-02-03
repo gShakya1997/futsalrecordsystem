@@ -78,7 +78,7 @@ public class FutsalLoginFragment extends Fragment {
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
 
-        notificationManagerCompat.notify(1,notification);
+        notificationManagerCompat.notify(1, notification);
     }
 
 
@@ -104,6 +104,7 @@ public class FutsalLoginFragment extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("FutsalName", futsalname);
         editor.putString("FutsalPassword", futsalPassword);
+//        editor.putString("FutsalToken", Url.token);
         editor.apply();
     }
 }

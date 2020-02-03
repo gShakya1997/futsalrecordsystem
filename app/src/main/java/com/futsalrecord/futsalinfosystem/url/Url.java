@@ -9,6 +9,7 @@ public class Url {
     public static final String base_url = "http://10.0.2.2:3007/"; //Emulator
 //    public static final String base_url = "http://127.0.0.1:3007/"; //laptop IP
     public static String token = "Bearer ";
+    public static String tokenUser = "Bearer ";
     public static String imagePath = base_url + "upload/";
 
     public static Retrofit getInstance() {

@@ -36,7 +36,7 @@ public class EventFragment extends Fragment {
 
     private void loadEventData() {
         UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
-        Call<List<Events>> eventCall = usersAPI.getEventDetail(Url.token);
+        Call<List<Events>> eventCall = usersAPI.getEventDetail(Url.tokenUser);
 
         eventCall.enqueue(new Callback<List<Events>>() {
             @Override
@@ -53,7 +53,7 @@ public class EventFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Events>> call, Throwable t) {
-
+                Toast.makeText(getActivity(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

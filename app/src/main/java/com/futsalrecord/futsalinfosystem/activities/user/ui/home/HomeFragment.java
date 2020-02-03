@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
 
     private void loadFutsalData() {
         UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
-        Call<List<FutsalDetails>> futsalCall = usersAPI.getFutsalDetails(Url.token);
+        Call<List<FutsalDetails>> futsalCall = usersAPI.getFutsalDetails(Url.tokenUser);
 
         futsalCall.enqueue(new Callback<List<FutsalDetails>>() {
             @Override

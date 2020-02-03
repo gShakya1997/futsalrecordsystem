@@ -1,5 +1,8 @@
 package com.futsalrecord.futsalinfosystem.bll;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.api.UsersAPI;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
@@ -20,7 +23,7 @@ public class LoginBLL {
             Response<RegisterResponse> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful() && loginResponse.body().getStatus()
                     .equals("Login successful")) {
-                Url.token += loginResponse.body().getToken();
+                Url.tokenUser += loginResponse.body().getToken();
                 isSuccess = true;
             }
         } catch (IOException e) {

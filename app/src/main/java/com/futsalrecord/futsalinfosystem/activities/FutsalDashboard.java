@@ -20,6 +20,7 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalProfileActivity
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
+import com.futsalrecord.futsalinfosystem.url.Url;
 
 public class FutsalDashboard extends AppCompatActivity {
     private CardView cardFeedback, cardCustomerDetail, cardAboutUs, cardEarning, cardSetting, cardLogout,
@@ -46,7 +47,7 @@ public class FutsalDashboard extends AppCompatActivity {
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
 
-        notificationManagerCompat.notify(1,notification);
+        notificationManagerCompat.notify(1, notification);
     }
 
     private void cardActions() {
@@ -101,7 +102,7 @@ public class FutsalDashboard extends AppCompatActivity {
                 displayNotification();
                 Intent intent = new Intent(FutsalDashboard.this, MainActivity.class);
                 startActivity(intent);
-                finish();
+                onDestroy();
             }
         });
 
