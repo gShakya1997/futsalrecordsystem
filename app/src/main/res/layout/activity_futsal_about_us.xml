@@ -31,6 +31,29 @@
                 app:fontFamily="@font/trade_winds" />
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <fragment
+                android:id="@+id/officeMap"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="300dp"
+                android:layout_height="300dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Thank you for using this application!! Futsal record android application will help you store your customer data and add events. If you get bored you can play tic tac toe with your friend. If you have any problem. You are welcome to visit our office."
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

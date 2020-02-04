@@ -21,7 +21,6 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity
 import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
 import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
-import com.futsalrecord.futsalinfosystem.url.Url;
 
 public class FutsalDashboard extends AppCompatActivity {
     private CardView cardFeedback, cardCustomerDetail, cardAboutUs, cardEarning, cardSetting, cardLogout,

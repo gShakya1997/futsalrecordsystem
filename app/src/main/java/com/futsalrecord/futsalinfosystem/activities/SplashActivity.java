@@ -27,44 +27,47 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                SplashActivity.this.finish();
-                checkUserProfile();
+                if (checkUserProfile()){
+                    Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }, 2000);
     }
 
-    private void checkUserProfile() {
+    private Boolean checkUserProfile() {
         SharedPreferences sharedPreferencesUser = this.getSharedPreferences("Futsal", MODE_PRIVATE);
         futsalName = sharedPreferencesUser.getString("FutsalName", null);
         futsalPassword = sharedPreferencesUser.getString("FutsalPassword", null);
 
         //Night mode
-        SharedPreferences sharedPreferencesMode = getSharedPreferences("nightModePrefs", MODE_PRIVATE);
-        Boolean darkMode = sharedPreferencesMode.getBoolean("isNightMode", false);
+//        SharedPreferences sharedPreferencesMode = getSharedPreferences("nightModePrefs", MODE_PRIVATE);
+//        Boolean darkMode = sharedPreferencesMode.getBoolean("isNightMode", false);
 
         if (futsalName != null && futsalPassword != null) {
             login();
-            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
-                darkMode.equals(true);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
-                startActivity(intent);
-                finish();
-            }
-            Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
-            startActivity(intent);
-            finish();
+//            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
+//                darkMode.equals(true);
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//            } else {
+//                darkMode.equals(false);
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//            }
+            return true;
         } else {
-            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
-                darkMode.equals(true);
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
-                startActivity(intent);
-                finish();
-            }
-            Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
-            startActivity(intent);
-            finish();
+//            if (sharedPreferencesMode.getBoolean("isNightMode", false)) {
+//                darkMode.equals(true);
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//            } else {
+//                darkMode.equals(false);
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//            }
+            return false;
         }
     }
 
@@ -75,12 +78,9 @@ public class SplashActivity extends AppCompatActivity {
         LoginBLL loginBLL = new LoginBLL();
         StrictModeClass.StrictMode();
         if (loginBLL.checkFutsal(futsalNameLogin, futsalPasswordLogin)) {
-            Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
-            startActivity(intent);
+            Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Token expired", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(SplashActivity.this, GettingStarted.class);
-            startActivity(intent);
         }
     }
 }
