@@ -42,4 +42,8 @@ public interface UsersAPI {
     //Show futsal event
     @GET("users/eventList")
     Call<List<Events>> getEventDetail(@Header("Authorization") String token);
+
+    //get user profile
+    @GET("users/profile")
+    Call<Users> getUserDetails(@Header("Authorization") String token);
 }
