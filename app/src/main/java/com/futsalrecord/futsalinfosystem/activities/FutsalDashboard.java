@@ -8,8 +8,13 @@ import androidx.core.app.NotificationManagerCompat;
 import android.app.Notification;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalAboutUsActivity;
@@ -94,15 +99,7 @@ public class FutsalDashboard extends AppCompatActivity {
         cardLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferencesFutsal = getSharedPreferences
-                        ("Futsal", MODE_PRIVATE);
-                SharedPreferences.Editor editorFutsal = sharedPreferencesFutsal.edit();
-                editorFutsal.clear();
-                editorFutsal.apply();
-                displayNotification();
-                Intent intent = new Intent(FutsalDashboard.this, FutsalLogin.class);
-                startActivity(intent);
-                finish();
+                logout();
             }
         });
 
@@ -121,6 +118,18 @@ public class FutsalDashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void logout() {
+        SharedPreferences sharedPreferencesFutsal = getSharedPreferences
+                ("Futsal", MODE_PRIVATE);
+        SharedPreferences.Editor editorFutsal = sharedPreferencesFutsal.edit();
+        editorFutsal.clear();
+        editorFutsal.apply();
+        displayNotification();
+        Intent intent = new Intent(FutsalDashboard.this, FutsalLogin.class);
+        startActivity(intent);
+        finish();
     }
 
     private void initialize() {
