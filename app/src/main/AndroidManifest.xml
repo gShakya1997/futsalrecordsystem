@@ -45,7 +45,7 @@
         <activity
             android:name=".activities.user.UserDashboard"
             android:label="@string/title_activity_user_dashboard"
-            android:theme="@style/AppThemeUser" />
+            android:theme="@style/AppThemeUser"/>
         <activity android:name=".activities.futsal.CustomerSearchActivity" />
         <activity android:name=".activities.futsal.FutsalFeedback" />
         <activity android:name=".activities.futsal.GameActivity" />
@@ -60,7 +60,8 @@
         <activity android:name=".activities.futsal.FutsalCustomerDataActivity" />
         <activity
             android:name=".activities.FutsalDashboard"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"/>
         <activity android:name=".activities.GettingStarted" />
         <activity android:name=".activities.registration.FutsalRegistration" />
         <activity android:name=".activities.registration.UserRegistration" />

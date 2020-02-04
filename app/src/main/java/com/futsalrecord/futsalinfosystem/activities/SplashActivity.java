@@ -23,7 +23,6 @@ public class SplashActivity extends AppCompatActivity {
     private String futsalName, futsalPassword;
     private SensorManager sensorManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (checkUserProfile()){
+                if (checkUserProfile()) {
                     proxForCloseApp();
                     Intent intent = new Intent(SplashActivity.this, FutsalDashboard.class);
                     startActivity(intent);
@@ -79,14 +78,14 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    private void proxForCloseApp(){
+    private void proxForCloseApp() {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
 
         SensorEventListener proxListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                if (event.values[0] <= 2){
+                if (event.values[0] <= 1) {
                     Intent homeIntent = new Intent(Intent.ACTION_MAIN);
                     homeIntent.addCategory(Intent.CATEGORY_HOME);
                     homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -99,8 +98,8 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         };
-        if (sensor !=null){
-            sensorManager.registerListener(proxListener,sensor,SensorManager.SENSOR_DELAY_NORMAL);
+        if (sensor != null) {
+            sensorManager.registerListener(proxListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else {
             Toast.makeText(this, "No sensor found", Toast.LENGTH_SHORT).show();
         }

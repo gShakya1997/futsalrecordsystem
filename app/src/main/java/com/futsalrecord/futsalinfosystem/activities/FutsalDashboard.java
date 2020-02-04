@@ -1,6 +1,7 @@
 package com.futsalrecord.futsalinfosystem.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -31,12 +32,14 @@ public class FutsalDashboard extends AppCompatActivity {
     private CardView cardFeedback, cardCustomerDetail, cardAboutUs, cardEarning, cardSetting, cardLogout,
             cardEvent, cardProfile;
     private NotificationManagerCompat notificationManagerCompat;
+    private SensorManager sensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_futsal_dashboard);
         initialize();
+        lightSensorForDarkMode();
         notificationManagerCompat = NotificationManagerCompat.from(this);
         CreateNotificationChannel createNotificationChannel = new CreateNotificationChannel(this);
         createNotificationChannel.createChannel();
@@ -130,6 +133,32 @@ public class FutsalDashboard extends AppCompatActivity {
         Intent intent = new Intent(FutsalDashboard.this, FutsalLogin.class);
         startActivity(intent);
         finish();
+    }
+
+    private void lightSensorForDarkMode() {
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        final Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        SensorEventListener lightListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                if (event.values[0] <= 1.08) { //1.08 = deep twilight
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        };
+        if (sensor != null) {
+            sensorManager.registerListener(lightListener, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        } else {
+            Toast.makeText(this, "No sensor found", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void initialize() {

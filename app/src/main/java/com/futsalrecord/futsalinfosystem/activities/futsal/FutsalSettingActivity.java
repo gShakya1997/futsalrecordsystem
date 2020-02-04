@@ -26,25 +26,25 @@ public class FutsalSettingActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
         binding();
-        checkNightModeActivated();
+//        checkNightModeActivated();
         actionListeners();
     }
 
     private void actionListeners() {
-        switchDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    saveNightModeState(true);
-                    recreate();
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    saveNightModeState(false);
-                    recreate();
-                }
-            }
-        });
+//        switchDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//                        saveNightModeState(true);
+//                        recreate();
+//                } else {
+//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//                    saveNightModeState(false);
+//                    recreate();
+//                }
+//            }
+//        });
     }
 
     private void binding() {
