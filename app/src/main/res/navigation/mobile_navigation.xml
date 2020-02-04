@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.futsalrecord.futsalinfosystem.activities.user.ui.aboutus.AboutUsFragment"
-        android:label="About Us"
-        tools:layout="@layout/fragment_aboutus" />
+        android:name="com.futsalrecord.futsalinfosystem.activities.user.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

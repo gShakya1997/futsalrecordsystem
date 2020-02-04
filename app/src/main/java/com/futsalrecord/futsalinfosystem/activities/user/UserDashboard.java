@@ -1,5 +1,7 @@
 package com.futsalrecord.futsalinfosystem.activities.user;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -7,6 +9,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
+import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalAboutUsActivity;
+import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
+import com.futsalrecord.futsalinfosystem.activities.login.UserLogin;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -44,14 +50,27 @@ public class UserDashboard extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.aboutUs:
-                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UserDashboard.this, FutsalAboutUsActivity.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.logout:
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+                logout();
                 break;
             default:
                 break;
         }
         return true;
+    }
+
+    private void logout() {
+        SharedPreferences sharedPreferencesFutsal = getSharedPreferences
+                ("User", MODE_PRIVATE);
+        SharedPreferences.Editor editorUser = sharedPreferencesFutsal.edit();
+        editorUser.clear();
+        editorUser.apply();
+        Intent intent = new Intent(UserDashboard.this, UserLogin.class);
+        startActivity(intent);
+        finish();
     }
 }

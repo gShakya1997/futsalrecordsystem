@@ -26,7 +26,9 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalProfileActivity
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
 import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
+import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
+import com.futsalrecord.futsalinfosystem.url.Url;
 
 public class FutsalDashboard extends AppCompatActivity {
     private CardView cardFeedback, cardCustomerDetail, cardAboutUs, cardEarning, cardSetting, cardLogout,
@@ -39,11 +41,11 @@ public class FutsalDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_futsal_dashboard);
         initialize();
-        lightSensorForDarkMode();
         notificationManagerCompat = NotificationManagerCompat.from(this);
         CreateNotificationChannel createNotificationChannel = new CreateNotificationChannel(this);
         createNotificationChannel.createChannel();
         cardActions();
+        lightSensorForDarkMode();
     }
 
     private void displayNotification() {

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:paddingBottom="?attr/actionBarSize">
 
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        tools:context=".activities.futsal.FutsalProfileActivity">
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/ivProfilePic"
@@ -19,7 +20,7 @@
             android:src="@drawable/noimage" />
 
         <TextView
-            android:id="@+id/tvFutsal"
+            android:id="@+id/tvUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -27,12 +28,12 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:gravity="center"
-            android:text="Futsal Name"
+            android:text="Username"
             android:textSize="40sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvFutsalEmail"
+            android:id="@+id/tvUserEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -43,7 +44,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tvFutsalPhone"
+            android:id="@+id/tvUserPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -51,6 +52,17 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:text="Phone"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvUserAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:text="Address"
             android:textSize="20sp" />
     </LinearLayout>
 </ScrollView>
