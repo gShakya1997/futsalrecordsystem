@@ -45,7 +45,7 @@ public class FutsalAboutUsActivity extends AppCompatActivity implements OnMapRea
 
         CameraUpdate center, zoom;
         center = CameraUpdateFactory.newLatLng(new LatLng(27.706264, 85.30513));
-        zoom = CameraUpdateFactory.zoomTo(18);
+        zoom = CameraUpdateFactory.zoomTo(10);
 
         officeMap.addMarker(new MarkerOptions().position(new LatLng(27.706264, 85.30513)).title("Our Office"));
         officeMap.moveCamera(center);

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.FutsalDashboard;
+import com.futsalrecord.futsalinfosystem.activities.MapsActivityUser;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalAboutUsActivity;
 import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
 import com.futsalrecord.futsalinfosystem.activities.login.UserLogin;
@@ -50,7 +51,7 @@ public class UserDashboard extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.aboutUs:
-                Intent intent = new Intent(UserDashboard.this, FutsalAboutUsActivity.class);
+                Intent intent = new Intent(UserDashboard.this, MapsActivityUser.class);
                 startActivity(intent);
                 finish();
                 break;
