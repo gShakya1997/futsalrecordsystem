@@ -7,6 +7,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
@@ -28,6 +29,7 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
 import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
+import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.url.Url;
 
 public class FutsalDashboard extends AppCompatActivity {
@@ -128,11 +130,19 @@ public class FutsalDashboard extends AppCompatActivity {
     private void logout() {
         SharedPreferences sharedPreferencesFutsal = getSharedPreferences
                 ("Futsal", MODE_PRIVATE);
-        SharedPreferences.Editor editorFutsal = sharedPreferencesFutsal.edit();
-        editorFutsal.clear();
-        editorFutsal.apply();
+        sharedPreferencesFutsal.edit().clear().commit();
         displayNotification();
         Intent intent = new Intent(FutsalDashboard.this, FutsalLogin.class);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        System.exit(0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FutsalDashboard.this, FutsalDashboard.class);
         startActivity(intent);
         finish();
     }

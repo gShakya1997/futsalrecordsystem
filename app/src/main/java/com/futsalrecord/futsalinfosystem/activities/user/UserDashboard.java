@@ -65,13 +65,13 @@ public class UserDashboard extends AppCompatActivity {
     }
 
     private void logout() {
-        SharedPreferences sharedPreferencesFutsal = getSharedPreferences
+        SharedPreferences sharedPreferencesUser = getSharedPreferences
                 ("User", MODE_PRIVATE);
-        SharedPreferences.Editor editorUser = sharedPreferencesFutsal.edit();
-        editorUser.clear();
-        editorUser.apply();
+        sharedPreferencesUser.edit().clear().commit();
         Intent intent = new Intent(UserDashboard.this, UserLogin.class);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-        finish();
+        System.exit(0);
     }
 }
