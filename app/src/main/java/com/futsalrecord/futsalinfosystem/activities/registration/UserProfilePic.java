@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.login.UserLogin;
 import com.futsalrecord.futsalinfosystem.api.UsersAPI;
+import com.futsalrecord.futsalinfosystem.bll.RegistrationBLL;
 import com.futsalrecord.futsalinfosystem.model.Users;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
@@ -105,7 +106,7 @@ public class UserProfilePic extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),UserRegistration.class);
+                Intent intent = new Intent(getApplicationContext(), UserRegistration.class);
                 startActivity(intent);
                 finish();
             }
@@ -134,7 +135,7 @@ public class UserProfilePic extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(this,UserProfilePic.class);
+        Intent intent = new Intent(this, UserProfilePic.class);
         startActivity(intent);
         finish();
     }
@@ -148,26 +149,15 @@ public class UserProfilePic extends AppCompatActivity {
         String phone = userDataBundle.getString("phone");
         String password = userDataBundle.getString("password");
         String gender = userDataBundle.getString("gender");
-        Users users = new Users(username, address, email, phone, password, gender, imgName);
-        UsersAPI usersAPI = Url.getInstance().create(UsersAPI.class);
-        Call<RegisterResponse> registerResponseCall = usersAPI.registerUser(users);
 
-        registerResponseCall.enqueue(new Callback<RegisterResponse>() {
-            @Override
-            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                if (!response.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Code " + response.code(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Toast.makeText(getApplicationContext(), "Registered Successfully!", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
+        RegistrationBLL registrationBLL = new RegistrationBLL();
+        StrictModeClass.StrictMode();
+        if (registrationBLL.registerUser(username, address, email, phone, password, gender, imgName)) {
+            Intent intent1 = new Intent(this, UserLogin.class);
+            startActivity(intent1);
+            finish();
+        } else {
+            Toast.makeText(this, "Error ", Toast.LENGTH_SHORT).show();
+        }
     }
 }
