@@ -1,5 +1,6 @@
 package com.futsalrecord.futsalinfosystem.api;
 
+import com.futsalrecord.futsalinfosystem.model.Booking;
 import com.futsalrecord.futsalinfosystem.model.CustomersUD;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
@@ -84,5 +85,34 @@ public interface FutsalAPI {
     //search by customer name
     @GET("customers/{customerFullname}")
     Call<List<CustomersUD>> getCustomerByName(@Header("Authorization") String token,
-                                            @Path("customerFullname") String customerFullname);
+                                              @Path("customerFullname") String customerFullname);
+
+
+    @GET("booking")
+    Call<List<Booking>> getBooking(@Header("Authorization") String token);
+
+    //booking by id
+    @PUT("booking/{id}")
+    Call<Void> updateBooking(@Header("Authorization") String token,
+                             @Path("id") String id,
+                             @Body Booking booking);
+
+    //post book
+    @FormUrlEncoded
+    @POST("booking")
+    Call<Void> addBooking(@Header("Authorization") String token,
+                          @Field("available1") String available1,
+                          @Field("available2") String available2,
+                          @Field("available3") String available3,
+                          @Field("available4") String available4,
+                          @Field("available5") String available5,
+                          @Field("available6") String available6,
+                          @Field("available7") String available7,
+                          @Field("available8") String available8,
+                          @Field("available9") String available9,
+                          @Field("available10") String available10,
+                          @Field("available11") String available11,
+                          @Field("available12") String available12,
+                          @Field("available13") String available13,
+                          @Field("available14") String available14);
 }

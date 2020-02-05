@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TimePicker;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.GettingStarted;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -230,6 +231,13 @@ public class FutsalRegistration extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FutsalRegistration.this, GettingStarted.class);
+        startActivity(intent);
+        finish();
+    }
 
     private void initialize() {
         futsalOpeningTime = findViewById(R.id.futsalOpeningTime);

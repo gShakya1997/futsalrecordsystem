@@ -56,7 +56,7 @@
         <activity android:name=".activities.futsal.FutsalProfileActivity" />
         <activity android:name=".activities.registration.FutsalProfilePic" />
         <activity android:name=".activities.registration.UserProfilePic" />
-        <activity android:name=".activities.futsal.FutsalSettingActivity" />
+        <activity android:name=".activities.futsal.FutsalBookingActivity" />
         <activity android:name=".activities.futsal.FutsalCustomerDataActivity" />
         <activity
             android:name=".activities.FutsalDashboard"

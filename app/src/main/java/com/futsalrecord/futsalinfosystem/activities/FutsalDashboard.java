@@ -7,7 +7,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
@@ -24,13 +23,10 @@ import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalCustomerDataAct
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalEventActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalFeedback;
 import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalProfileActivity;
-import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalSettingActivity;
+import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalBookingActivity;
 import com.futsalrecord.futsalinfosystem.activities.futsal.GameActivity;
 import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
-import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
-import com.futsalrecord.futsalinfosystem.model.Futsal;
-import com.futsalrecord.futsalinfosystem.url.Url;
 
 public class FutsalDashboard extends AppCompatActivity {
     private CardView cardFeedback, cardCustomerDetail, cardAboutUs, cardEarning, cardSetting, cardLogout,
@@ -98,7 +94,7 @@ public class FutsalDashboard extends AppCompatActivity {
         cardSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FutsalDashboard.this, FutsalSettingActivity.class);
+                Intent intent = new Intent(FutsalDashboard.this, FutsalBookingActivity.class);
                 startActivity(intent);
             }
         });

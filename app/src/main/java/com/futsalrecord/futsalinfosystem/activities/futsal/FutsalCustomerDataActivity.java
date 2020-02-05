@@ -104,6 +104,7 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this, FutsalDashboard.class);
         startActivity(intent);
+        finish();
         super.onBackPressed();
     }
 

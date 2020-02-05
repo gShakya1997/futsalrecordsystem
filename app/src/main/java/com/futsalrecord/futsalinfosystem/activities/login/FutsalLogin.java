@@ -51,6 +51,7 @@ public class FutsalLogin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FutsalLogin.this, FutsalRegistration.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -78,6 +79,7 @@ public class FutsalLogin extends AppCompatActivity {
             displayNotification();
             Intent intent = new Intent(this, FutsalDashboard.class);
             startActivity(intent);
+            finish();
         } else {
             futsalLoginUsername.setError("Enter correct username");
             futsalLoginPassword.setError("Enter correct password");

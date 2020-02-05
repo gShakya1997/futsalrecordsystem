@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.GettingStarted;
 import com.google.android.material.textfield.TextInputLayout;
 
 
@@ -159,5 +160,13 @@ public class UserRegistration extends AppCompatActivity {
         rbRegMale = findViewById(R.id.rbRegMale);
         rbRegFemale = findViewById(R.id.rbRegFemale);
         rbRegOthers = findViewById(R.id.rbRegOthers);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(UserRegistration.this, GettingStarted.class);
+        startActivity(intent);
+        finish();
     }
 }
