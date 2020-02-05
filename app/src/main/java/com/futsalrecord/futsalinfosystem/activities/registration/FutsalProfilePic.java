@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.login.FutsalLogin;
 import com.futsalrecord.futsalinfosystem.api.FutsalAPI;
+import com.futsalrecord.futsalinfosystem.bll.RegistrationBLL;
 import com.futsalrecord.futsalinfosystem.model.Futsal;
 import com.futsalrecord.futsalinfosystem.serverResponse.ImageResponse;
 import com.futsalrecord.futsalinfosystem.serverResponse.RegisterResponse;
@@ -85,9 +86,6 @@ public class FutsalProfilePic extends AppCompatActivity {
             public void onClick(View v) {
                 saveImgOnly();
                 register();
-                Intent intent = new Intent(getApplicationContext(), FutsalLogin.class);
-                startActivity(intent);
-                finish();
             }
         });
     }
@@ -105,29 +103,15 @@ public class FutsalProfilePic extends AppCompatActivity {
         String futsalClosingTime = futsalDataBundle.getString("futsalClosingTime");
         String futsalPrice = futsalDataBundle.getString("futsalPrice");
 
-        Futsal futsal = new Futsal(futsalName, futsalAddress, futsalEmail, futsalPhone, futsalPassword
-                , futsalOpeningTime, futsalClosingTime, futsalPrice, imgName);
-        FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
-        Call<RegisterResponse> registerResponseCall = futsalAPI.registerFutsal(futsal);
-
-        registerResponseCall.enqueue(new Callback<RegisterResponse>() {
-            @Override
-            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                if (!response.isSuccessful()) {
-                    Toast.makeText(FutsalProfilePic.this, "Code " + response.code(),
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Toast.makeText(FutsalProfilePic.this, "Successfully registered",
-                        Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                Toast.makeText(FutsalProfilePic.this, "Error " + t.getLocalizedMessage(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+        RegistrationBLL registrationBLL = new RegistrationBLL();
+        StrictModeClass.StrictMode();
+        if (registrationBLL.registerFutsal(futsalName,futsalAddress,futsalEmail,futsalPhone,futsalPassword,futsalOpeningTime,futsalClosingTime,futsalPrice,imgName)){
+            Intent intent1 = new Intent(this,FutsalLogin.class);
+            startActivity(intent1);
+            finish();
+        } else {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void saveImgOnly() {

@@ -14,4 +14,11 @@ public class LoginTest {
         boolean result = loginBLL.checkFutsal("test123","test<3");
         assertEquals(true,result);
     }
+
+    @Test
+    public void testLoginUser(){
+        LoginBLL loginBLL = new LoginBLL();
+        boolean result = loginBLL.checkUser("test123","test<3");
+        assertEquals(true,result);
+    }
 }
