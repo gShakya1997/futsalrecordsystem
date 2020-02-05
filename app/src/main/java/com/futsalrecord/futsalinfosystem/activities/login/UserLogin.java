@@ -63,6 +63,7 @@ public class UserLogin extends AppCompatActivity {
             saveSharedPreferences();
             Intent intent = new Intent(this, UserDashboard.class);
             startActivity(intent);
+            finish();
         } else {
             userLoginUsername.setError("Enter correct username");
             userLoginPassword.setError("Enter correct password");

@@ -125,9 +125,11 @@ public class UserProfilePic extends AppCompatActivity {
                 register();
                 Intent intent = new Intent(getApplicationContext(), UserLogin.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
+
 
     @Override
     public void onBackPressed() {
