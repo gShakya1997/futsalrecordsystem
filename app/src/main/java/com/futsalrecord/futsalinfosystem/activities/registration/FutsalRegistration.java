@@ -12,6 +12,7 @@ import android.widget.TimePicker;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.GettingStarted;
+import com.futsalrecord.futsalinfosystem.bll.Validation;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -26,6 +27,18 @@ public class FutsalRegistration extends AppCompatActivity {
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
     private String amPm;
+    private Bundle futsalDataBundle = new Bundle();
+    private Validation validation = new Validation();
+    private String regName;
+    private String regAddress;
+    private String regEmail;
+    private String regPhone;
+    private String regPassword;
+    private String regCpassword;
+    private String regOpeningTime;
+    private String regClosingTime;
+    private String regPrice;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,25 +57,6 @@ public class FutsalRegistration extends AppCompatActivity {
                         !validateClosingTime() | !validatePrice()) {
                     return;
                 }
-                String futsalName = etFutsalName.getEditText().getText().toString().trim();
-                String futsalAddress = etFutsalAddress.getEditText().getText().toString().trim();
-                String futsalEmail = etFutsalEmail.getEditText().getText().toString().trim();
-                String futsalPhone = etFutsalPhone.getEditText().getText().toString().trim();
-                String futsalPassword = etFutsalPassword.getEditText().getText().toString().trim();
-                String futsalCPassword = etFutsalCPassword.getEditText().getText().toString().trim();
-                String futsalOpeningTime = etFutsalOpeningTime.getEditText().getText().toString().trim();
-                String futsalClosingTime = etFutsalClosingTime.getEditText().getText().toString().trim();
-                String futsalPrice = etFutsalPrice.getEditText().getText().toString().trim();
-                Bundle futsalDataBundle = new Bundle();
-                futsalDataBundle.putString("futsalName", futsalName);
-                futsalDataBundle.putString("futsalAddress", futsalAddress);
-                futsalDataBundle.putString("futsalEmail", futsalEmail);
-                futsalDataBundle.putString("futsalPhone", futsalPhone);
-                futsalDataBundle.putString("futsalPassword", futsalPassword);
-                futsalDataBundle.putString("futsalCPassword", futsalCPassword);
-                futsalDataBundle.putString("futsalOpeningTime", futsalOpeningTime);
-                futsalDataBundle.putString("futsalClosingTime", futsalClosingTime);
-                futsalDataBundle.putString("futsalPrice", futsalPrice);
                 Intent intentActivity = new Intent(getApplicationContext(), FutsalProfilePic.class);
                 intentActivity.putExtras(futsalDataBundle);
                 startActivity(intentActivity);
@@ -112,121 +106,125 @@ public class FutsalRegistration extends AppCompatActivity {
         });
     }
 
-    //validation
     private boolean validateFutsalName() {
-        String regName = etFutsalName.getEditText().getText().toString().trim();
-
-        if (regName.isEmpty()) {
+        regName = etFutsalName.getEditText().getText().toString().trim();
+        if (!validation.validateFutsalName(regName)) {
             etFutsalName.setError("Required");
             return false;
         } else {
             etFutsalName.setError(null);
+            futsalDataBundle.putString("futsalName", regName);
             return true;
         }
     }
 
     private boolean validateAddress() {
-        String regAddress = etFutsalAddress.getEditText().getText().toString().trim();
-        if (regAddress.isEmpty()) {
+        regAddress = etFutsalAddress.getEditText().getText().toString().trim();
+        if (!validation.validateAddress(regAddress)) {
             etFutsalAddress.setError("Required");
             return false;
         } else {
             etFutsalAddress.setError(null);
+            futsalDataBundle.putString("futsalAddress", regAddress);
             return true;
         }
     }
 
     private boolean validateEmail() {
-        String regEmail = etFutsalEmail.getEditText().getText().toString().trim();
-        if (regEmail.isEmpty()) {
+        regEmail = etFutsalEmail.getEditText().getText().toString().trim();
+        if (validation.validateEmail(regEmail).equals("required")) {
             etFutsalEmail.setError("Required");
             return false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(regEmail).matches()) {
+        } else if (validation.validateEmail(regEmail).equals("invalidEmail")) {
             etFutsalEmail.setError("Please enter a valid email");
             return false;
         } else {
             etFutsalEmail.setError(null);
+            futsalDataBundle.putString("futsalEmail", regEmail);
             return true;
         }
     }
 
     private boolean validatePhone() {
-        String regPhone = etFutsalPhone.getEditText().getText().toString().trim();
-        if (regPhone.isEmpty()) {
+        regPhone = etFutsalPhone.getEditText().getText().toString().trim();
+        if (validation.validatePhone(regPhone).equals("required")) {
             etFutsalPhone.setError("Required");
             return false;
-        } else if (regPhone.length() > 11) {
+        } else if (validation.validatePhone(regPhone).equals("invalidPhone")) {
             etFutsalPhone.setError("Please enter a valid phone number");
             return false;
         } else {
             etFutsalPhone.setError(null);
+            futsalDataBundle.putString("futsalPhone", regPhone);
             return true;
         }
     }
 
     private boolean validatePassword() {
-        String regPassword = etFutsalPassword.getEditText().getText().toString().trim();
-        if (regPassword.isEmpty()) {
+        regPassword = etFutsalPassword.getEditText().getText().toString().trim();
+        if (validation.validatePassword(regPassword).equals("required")) {
             etFutsalPassword.setError("Required");
             return false;
-        } else if (!RegistrationLogic.PASSWORD_PATTERN.matcher(regPassword).matches()) {
+        } else if (validation.validatePassword(regPassword).equals("weakPassword")) {
             etFutsalPassword.setError("Password is too weak");
             return false;
         } else {
             etFutsalPassword.setError(null);
+            futsalDataBundle.putString("futsalPassword", regPassword);
             return true;
         }
     }
 
     private boolean validateConfirmPassword() {
-        String regCpassword = etFutsalCPassword.getEditText().getText().toString().trim();
-        if (!regCpassword.equals(etFutsalPassword.getEditText().getText().toString().trim())) {
-            etFutsalCPassword.setError("Password does not match");
+        regCpassword = etFutsalCPassword.getEditText().getText().toString().trim();
+        if (validation.validateConfirmPassword(regPassword, regCpassword).equals("!Password")) {
+            etFutsalCPassword.setError("Password does not pass");
             return false;
-        } else if (regCpassword.isEmpty()) {
+        } else if (validation.validateConfirmPassword(regPassword, regCpassword).equals("required")) {
             etFutsalCPassword.setError("Required");
             return false;
         } else {
             etFutsalCPassword.setError(null);
+            futsalDataBundle.putString("futsalCPassword", regCpassword);
             return true;
         }
     }
 
     private boolean validateOpeningTime() {
-        String regOpeningTime = etFutsalOpeningTime.getEditText().getText().toString().trim();
-
-        if (regOpeningTime.isEmpty()) {
+        regOpeningTime = etFutsalOpeningTime.getEditText().getText().toString().trim();
+        if (!validation.validateOpeningTime(regOpeningTime)) {
             etFutsalOpeningTime.setError("Required");
             return false;
         } else {
             etFutsalOpeningTime.setError(null);
+            futsalDataBundle.putString("futsalOpeningTime", regOpeningTime);
             return true;
         }
     }
 
     private boolean validateClosingTime() {
-        String regClosingTime = etFutsalClosingTime.getEditText().getText().toString().trim();
-
-        if (regClosingTime.isEmpty()) {
+        regClosingTime = etFutsalClosingTime.getEditText().getText().toString().trim();
+        if (!validation.validateClosingTime(regClosingTime)) {
             etFutsalClosingTime.setError("Required");
             return false;
         } else {
             etFutsalClosingTime.setError(null);
+            futsalDataBundle.putString("futsalClosingTime", regClosingTime);
             return true;
         }
     }
 
     private boolean validatePrice() {
-        String regPrice = etFutsalPrice.getEditText().getText().toString().trim();
-
-        if (regPrice.isEmpty()) {
+        regPrice = etFutsalPrice.getEditText().getText().toString().trim();
+        if (validation.validatePrice(regPrice).equals("required")) {
             etFutsalPrice.setError("Required");
             return false;
-        } else if (regPrice.length() > 4) {
+        } else if (validation.validatePrice(regPrice).equals("overPriced")) {
             etFutsalPrice.setError("Too expensive");
             return false;
         } else {
             etFutsalPrice.setError(null);
+            futsalDataBundle.putString("futsalPrice", regPrice);
             return true;
         }
     }

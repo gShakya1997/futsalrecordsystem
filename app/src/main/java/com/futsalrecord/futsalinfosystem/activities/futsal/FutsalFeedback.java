@@ -53,7 +53,7 @@ public class FutsalFeedback extends AppCompatActivity {
         btnSubmitFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                futsalfeedback();
+                futsalFeedback();
                 Intent intent = new Intent(FutsalFeedback.this, FutsalDashboard.class);
                 startActivity(intent);
                 finish();
@@ -61,7 +61,7 @@ public class FutsalFeedback extends AppCompatActivity {
         });
     }
 
-    private void futsalfeedback() {
+    private void futsalFeedback() {
         String feedback = etFeedback.getText().toString();
         String rating = Float.toString(ratingFeedback);
 
@@ -85,7 +85,7 @@ public class FutsalFeedback extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
-    }
+}
 
     private void displayNotification() {
         Notification notification = new NotificationCompat.Builder
@@ -98,6 +98,7 @@ public class FutsalFeedback extends AppCompatActivity {
 
         notificationManagerCompat.notify(1, notification);
     }
+
     private void initialize() {
         ratingBar = findViewById(R.id.ratingbar);
         etFeedback = findViewById(R.id.etFeedback);
@@ -108,7 +109,7 @@ public class FutsalFeedback extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(FutsalFeedback.this,FutsalDashboard.class);
+        Intent intent = new Intent(FutsalFeedback.this, FutsalDashboard.class);
         startActivity(intent);
         finish();
     }
