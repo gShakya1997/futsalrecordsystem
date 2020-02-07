@@ -62,6 +62,7 @@ public class FutsalEventActivity extends AppCompatActivity {
                 (this, CreateNotificationChannel.CHANNEL_1)
                 .setSmallIcon(R.drawable.ic_insert_comment_black_24dp)
                 .setContentTitle("Event registered")
+                .setContentText("You will get a call for confirmation")
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 .build();
 
@@ -123,6 +124,9 @@ public class FutsalEventActivity extends AppCompatActivity {
             public void onClick(View v) {
                 saveImgOnly();
                 registerEvent();
+                Intent intent = new Intent(FutsalEventActivity.this, FutsalDashboard.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

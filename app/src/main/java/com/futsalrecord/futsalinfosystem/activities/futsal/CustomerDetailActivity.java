@@ -60,6 +60,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateCustomerData();
+                Intent intent = new Intent(CustomerDetailActivity.this, FutsalCustomerDataActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

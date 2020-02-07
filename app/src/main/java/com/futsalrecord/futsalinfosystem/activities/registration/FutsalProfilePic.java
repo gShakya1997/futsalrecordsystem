@@ -88,6 +88,15 @@ public class FutsalProfilePic extends AppCompatActivity {
                 register();
             }
         });
+
+        btnFutsalBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FutsalProfilePic.this, FutsalRegistration.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void register() {
@@ -105,8 +114,8 @@ public class FutsalProfilePic extends AppCompatActivity {
 
         RegistrationBLL registrationBLL = new RegistrationBLL();
         StrictModeClass.StrictMode();
-        if (registrationBLL.registerFutsal(futsalName,futsalAddress,futsalEmail,futsalPhone,futsalPassword,futsalOpeningTime,futsalClosingTime,futsalPrice,imgName)){
-            Intent intent1 = new Intent(this,FutsalLogin.class);
+        if (registrationBLL.registerFutsal(futsalName, futsalAddress, futsalEmail, futsalPhone, futsalPassword, futsalOpeningTime, futsalClosingTime, futsalPrice, imgName)) {
+            Intent intent1 = new Intent(this, FutsalLogin.class);
             startActivity(intent1);
             finish();
         } else {
@@ -146,7 +155,7 @@ public class FutsalProfilePic extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(FutsalProfilePic.this,FutsalRegistration.class);
+        Intent intent = new Intent(FutsalProfilePic.this, FutsalRegistration.class);
         startActivity(intent);
         finish();
     }

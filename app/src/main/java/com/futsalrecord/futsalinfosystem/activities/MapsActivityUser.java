@@ -2,9 +2,11 @@ package com.futsalrecord.futsalinfosystem.activities;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.user.UserDashboard;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -49,5 +51,13 @@ public class MapsActivityUser extends FragmentActivity implements OnMapReadyCall
         mMap.moveCamera(center);
         mMap.animateCamera(zoom);
         mMap.getUiSettings().setZoomControlsEnabled(true);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(MapsActivityUser.this, UserDashboard.class);
+        startActivity(intent);
+        finish();
     }
 }

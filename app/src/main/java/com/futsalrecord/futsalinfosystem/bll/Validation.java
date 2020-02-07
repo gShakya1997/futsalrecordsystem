@@ -2,9 +2,20 @@ package com.futsalrecord.futsalinfosystem.bll;
 
 import android.util.Patterns;
 
-import com.futsalrecord.futsalinfosystem.activities.registration.RegistrationLogic;
+import java.util.regex.Pattern;
 
-public class Validation{
+public class Validation {
+
+    public static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    //"(?=.*[0-9])" +         //at least 1 digit
+                    //"(?=.*[a-z])" +         //at least 1 lower case letter
+                    //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                    "(?=.*[a-zA-Z])" +      //any letter
+                    "(?=.*[@#$%^&+=<>_!*().,])" +    //at least 1 special character
+                    ".{6,}" +               //at least 6 characters
+                    "$");
+
     private String throwError;
 
     public boolean validateFutsalName(String regName) {
@@ -66,7 +77,7 @@ public class Validation{
         if (regPassword.isEmpty()) {
             throwError = "required";
             return throwError;
-        } else if (!RegistrationLogic.PASSWORD_PATTERN.matcher(regPassword).matches()) {
+        } else if (!PASSWORD_PATTERN.matcher(regPassword).matches()) {
             throwError = "weakPassword";
             return throwError;
         } else {
@@ -81,6 +92,22 @@ public class Validation{
             return throwError;
         } else if (regCpassword.isEmpty()) {
             throwError = "required";
+            return throwError;
+        } else {
+            throwError = "noError";
+            return throwError;
+        }
+    }
+
+    public String validateUsername(String regName) {
+        if (regName.isEmpty()) {
+            throwError = "required";
+            return throwError;
+        } else if (regName.length() > 31) {
+            throwError = "usernameTooLong";
+            return throwError;
+        } else if (regName.length() < 7) {
+            throwError = "usernameTooShort";
             return throwError;
         } else {
             throwError = "noError";

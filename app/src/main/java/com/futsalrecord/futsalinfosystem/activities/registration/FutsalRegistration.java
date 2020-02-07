@@ -106,6 +106,8 @@ public class FutsalRegistration extends AppCompatActivity {
         });
     }
 
+
+    //validation
     private boolean validateFutsalName() {
         regName = etFutsalName.getEditText().getText().toString().trim();
         if (!validation.validateFutsalName(regName)) {
@@ -178,7 +180,7 @@ public class FutsalRegistration extends AppCompatActivity {
     private boolean validateConfirmPassword() {
         regCpassword = etFutsalCPassword.getEditText().getText().toString().trim();
         if (validation.validateConfirmPassword(regPassword, regCpassword).equals("!Password")) {
-            etFutsalCPassword.setError("Password does not pass");
+            etFutsalCPassword.setError("Password does not match");
             return false;
         } else if (validation.validateConfirmPassword(regPassword, regCpassword).equals("required")) {
             etFutsalCPassword.setError("Required");

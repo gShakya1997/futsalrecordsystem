@@ -52,6 +52,12 @@
                 android:text="Thank you for using this application!! Futsal record android application will help you store your customer data and add events. If you get bored you can play tic tac toe with your friend. If you have any problem. You are welcome to visit our office."
                 android:textSize="20sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Contact us: +9779860915753" />
+
         </LinearLayout>
 
     </LinearLayout>

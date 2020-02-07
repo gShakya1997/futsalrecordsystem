@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 
 import com.futsalrecord.futsalinfosystem.R;
 import com.futsalrecord.futsalinfosystem.activities.GettingStarted;
+import com.futsalrecord.futsalinfosystem.bll.Validation;
 import com.google.android.material.textfield.TextInputLayout;
 
 
@@ -21,7 +22,15 @@ public class UserRegistration extends AppCompatActivity {
     private Button btnUserNext;
     private RadioGroup rgRegGender;
     private RadioButton rbRegMale, rbRegFemale, rbRegOthers;
+    private Bundle userDataBundle = new Bundle();
+    private Validation validation = new Validation();
     private String gender;
+    private String regEmail;
+    private String regName;
+    private String regPhone;
+    private String regPassword;
+    private String regCpassword;
+    private String regAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +52,6 @@ public class UserRegistration extends AppCompatActivity {
                 int selectGender = rgRegGender.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(selectGender);
                 gender = radioButton.getText().toString().trim();
-                String username = userRegUsername.getEditText().getText().toString().trim();
-                String address = userRegAddress.getEditText().getText().toString().trim();
-                String email = userRegEmail.getEditText().getText().toString().trim();
-                String phone = userRegPhone.getEditText().getText().toString().trim();
-                String password = userRegPassword.getEditText().getText().toString().trim();
-                Bundle userDataBundle = new Bundle();
-                userDataBundle.putString("username", username);
-                userDataBundle.putString("address", address);
-                userDataBundle.putString("email", email);
-                userDataBundle.putString("phone", phone);
-                userDataBundle.putString("password", password);
                 userDataBundle.putString("gender", gender);
                 Intent intentActivity = new Intent(getApplicationContext(), UserProfilePic.class);
                 intentActivity.putExtras(userDataBundle);
@@ -64,71 +62,74 @@ public class UserRegistration extends AppCompatActivity {
 
     //Validation
     private boolean validateEmail() {
-        String regEmail = userRegEmail.getEditText().getText().toString().trim();
-        if (regEmail.isEmpty()) {
+        regEmail = userRegEmail.getEditText().getText().toString().trim();
+        if (validation.validateEmail(regEmail).equals("required")) {
             userRegEmail.setError("Required");
             return false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(regEmail).matches()) {
+        } else if (validation.validateEmail(regEmail).equals("Please enter a valid email")) {
             userRegEmail.setError("Please enter a valid email");
             return false;
         } else {
             userRegEmail.setError(null);
+            userDataBundle.putString("email", regEmail);
             return true;
         }
     }
 
     private boolean validateUsername() {
-        String regName = userRegUsername.getEditText().getText().toString().trim();
-
-        if (regName.isEmpty()) {
+        regName = userRegUsername.getEditText().getText().toString().trim();
+        if (validation.validateUsername(regName).equals("required")) {
             userRegUsername.setError("Required");
             return false;
-        } else if (regName.length() > 31) {
+        } else if (validation.validateUsername(regName).equals("usernameTooLong")) {
             userRegUsername.setError("Username too long");
             return false;
-        } else if (regName.length() < 7) {
+        } else if (validation.validateUsername(regName).equals("usernameTooShort")) {
             userRegUsername.setError("Username too short (More than 6 characters)");
             return false;
         } else {
             userRegUsername.setError(null);
+            userDataBundle.putString("username", regName);
             return true;
         }
     }
 
     private boolean validatePhone() {
-        String regPhone = userRegPhone.getEditText().getText().toString().trim();
-        if (regPhone.isEmpty()) {
+        regPhone = userRegPhone.getEditText().getText().toString().trim();
+        if (validation.validatePhone(regPhone).equals("required")) {
             userRegPhone.setError("Required");
             return false;
-        } else if (regPhone.length() < 10) {
+        } else if (validation.validatePhone(regPhone).equals("invalidPhone")) {
             userRegPhone.setError("Please enter a valid phone number");
             return false;
         } else {
             userRegPhone.setError(null);
+            userDataBundle.putString("phone", regPhone);
             return true;
         }
     }
 
     private boolean validatePassword() {
-        String regPassword = userRegPassword.getEditText().getText().toString().trim();
-        if (regPassword.isEmpty()) {
+        regPassword = userRegPassword.getEditText().getText().toString().trim();
+        if (validation.validatePassword(regPassword).equals("required")) {
             userRegPassword.setError("Required");
             return false;
-        } else if (!RegistrationLogic.PASSWORD_PATTERN.matcher(regPassword).matches()) {
+        } else if (validation.validatePassword(regPassword).equals("weakPassword")) {
             userRegPassword.setError("Password is too weak");
             return false;
         } else {
             userRegPassword.setError(null);
+            userDataBundle.putString("password", regPassword);
             return true;
         }
     }
 
     private boolean validateConfirmPassword() {
-        String regCpassword = userRegCPassword.getEditText().getText().toString().trim();
-        if (!regCpassword.equals(userRegPassword.getEditText().getText().toString().trim())) {
+        regCpassword = userRegCPassword.getEditText().getText().toString().trim();
+        if (validation.validateConfirmPassword(regPassword, regCpassword).equals("!Password")) {
             userRegCPassword.setError("Password does not match");
             return false;
-        } else if (regCpassword.isEmpty()) {
+        } else if (validation.validateConfirmPassword(regPassword, regCpassword).equals("required")) {
             userRegCPassword.setError("Required");
             return false;
         } else {
@@ -138,12 +139,13 @@ public class UserRegistration extends AppCompatActivity {
     }
 
     private boolean validateAddress() {
-        String regAddress = userRegAddress.getEditText().getText().toString().trim();
-        if (regAddress.isEmpty()) {
+        regAddress = userRegAddress.getEditText().getText().toString().trim();
+        if (!validation.validateAddress(regAddress)) {
             userRegAddress.setError("Required");
             return false;
         } else {
             userRegAddress.setError(null);
+            userDataBundle.putString("address", regAddress);
             return true;
         }
     }

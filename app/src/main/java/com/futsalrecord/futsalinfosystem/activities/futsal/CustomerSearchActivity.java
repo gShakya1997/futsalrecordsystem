@@ -78,7 +78,7 @@ public class CustomerSearchActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(CustomerSearchActivity.this, CustomerDetailActivity.class);
+        Intent intent = new Intent(CustomerSearchActivity.this, FutsalCustomerDataActivity.class);
         startActivity(intent);
         finish();
     }
