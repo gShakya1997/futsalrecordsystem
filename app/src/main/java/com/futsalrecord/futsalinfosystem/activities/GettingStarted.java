@@ -83,7 +83,7 @@ public class GettingStarted extends AppCompatActivity {
         SensorEventListener lightListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                if (event.values[0] <= 1.0) { //1.0 = deep twilight
+                if (event.values[0] <= 1) { //1 = deep twilight
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);

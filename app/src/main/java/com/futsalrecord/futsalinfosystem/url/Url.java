@@ -1,8 +1,4 @@
 package com.futsalrecord.futsalinfosystem.url;
-
-import android.content.SharedPreferences;
-import android.widget.Toast;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

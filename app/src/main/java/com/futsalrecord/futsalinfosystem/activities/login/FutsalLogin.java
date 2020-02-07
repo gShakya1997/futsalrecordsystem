@@ -19,6 +19,7 @@ import com.futsalrecord.futsalinfosystem.activities.registration.FutsalRegistrat
 import com.futsalrecord.futsalinfosystem.bll.LoginBLL;
 import com.futsalrecord.futsalinfosystem.createChannel.CreateNotificationChannel;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
+import com.futsalrecord.futsalinfosystem.url.Url;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class FutsalLogin extends AppCompatActivity {

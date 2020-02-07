@@ -138,9 +138,7 @@ public class FutsalDashboard extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(FutsalDashboard.this, FutsalDashboard.class);
-        startActivity(intent);
-        finish();
+        logout();
     }
 
     private void lightSensorForDarkMode() {
@@ -150,7 +148,7 @@ public class FutsalDashboard extends AppCompatActivity {
         SensorEventListener lightListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                if (event.values[0] <= 1.08) { //1.08 = deep twilight
+                if (event.values[0] <= 1) { //1.08 = deep twilight
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -168,6 +166,7 @@ public class FutsalDashboard extends AppCompatActivity {
             Toast.makeText(this, "No sensor found", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void initialize() {
         cardFeedback = findViewById(R.id.cardFeedback);

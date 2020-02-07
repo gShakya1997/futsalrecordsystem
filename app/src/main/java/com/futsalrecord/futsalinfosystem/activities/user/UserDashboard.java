@@ -58,10 +58,19 @@ public class UserDashboard extends AppCompatActivity {
             case R.id.logout:
                 logout();
                 break;
+            case R.id.btnRefresh:
+                finish();
+                startActivity(getIntent());
             default:
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        logout();
     }
 
     private void logout() {
