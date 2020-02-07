@@ -22,6 +22,13 @@ public class LoginRegisterTest {
     private String futsalClosingTime;
     private String futsalPrice;
     private String futsalImage;
+    private String username;
+    private String address;
+    private String email;
+    private String phone;
+    private String password;
+    private String gender;
+    private String image;
     private RegistrationBLL registrationBLL = null;
     private LoginBLL loginBLL = null;
     private Validation validation = null;
@@ -31,7 +38,7 @@ public class LoginRegisterTest {
         registrationBLL = new RegistrationBLL();
         loginBLL = new LoginBLL();
         validation = new Validation();
-        futsalName = "Test1";
+        futsalName = "UnitTest2";
         futsalAddress = "KTM";
         futsalEmail = "y@gmail.cos";
         futsalPhone = "9860918273";
@@ -41,6 +48,13 @@ public class LoginRegisterTest {
         futsalClosingTime = "10:00 PM";
         futsalPrice = "150";
         futsalImage = "imageFile-1581014015039.jpeg";
+        username = "UnitTest2";
+        address = "Patan";
+        email = "test@gmail.com";
+        phone = "9818086354";
+        password = "test<3";
+        gender = "Female";
+        image = "imageFile-1581014015039.jpeg";
     }
 
     @Test
@@ -73,7 +87,7 @@ public class LoginRegisterTest {
 
     @Test
     public void testRegisterUser() {
-        boolean result = registrationBLL.registerUser("UnitTest1", "ktm", "test@gmail.com", "9860918274", "test<3", "male", "imageFile-1580922140717.jpg");
+        boolean result = registrationBLL.registerUser(username, address, email, phone, password, gender, image);
         assertEquals(true, result);
     }
 
@@ -104,5 +118,12 @@ public class LoginRegisterTest {
         futsalClosingTime = null;
         futsalPrice = null;
         futsalImage = null;
+        username = null;
+        address = null;
+        email = null;
+        phone = null;
+        password = null;
+        gender = null;
+        image = null;
     }
 }
