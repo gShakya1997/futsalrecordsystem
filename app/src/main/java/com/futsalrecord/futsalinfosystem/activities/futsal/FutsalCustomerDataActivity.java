@@ -37,7 +37,6 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
     private RecyclerView customerRecyclerView;
     private Button btnAddCustomer;
     private ImageButton imgBtnRefresh, imgBtnGoTo;
-    private EditText etSearchCustomer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +112,6 @@ public class FutsalCustomerDataActivity extends AppCompatActivity {
         btnAddCustomer = findViewById(R.id.btnAddCustomer);
         imgBtnRefresh = findViewById(R.id.imgBtnRefresh);
         imgBtnGoTo = findViewById(R.id.imgBtnGoTo);
-        etSearchCustomer = findViewById(R.id.etSearchCustomer);
     }
 
 }

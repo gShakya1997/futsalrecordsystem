@@ -21,7 +21,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class FutsalAboutUsActivity extends AppCompatActivity implements OnMapReadyCallback {
-    private GoogleMap officeMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,7 @@ public class FutsalAboutUsActivity extends AppCompatActivity implements OnMapRea
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        officeMap = googleMap;
+        GoogleMap officeMap = googleMap;
 
         CameraUpdate center, zoom;
         center = CameraUpdateFactory.newLatLng(new LatLng(27.706264, 85.30513));

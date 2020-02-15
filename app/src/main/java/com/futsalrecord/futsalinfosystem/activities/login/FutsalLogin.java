@@ -92,7 +92,6 @@ public class FutsalLogin extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("FutsalName", futsalname);
         editor.putString("FutsalPassword", futsalPassword);
-//        editor.putString("FutsalToken", Url.token);
         editor.apply();
     }
 

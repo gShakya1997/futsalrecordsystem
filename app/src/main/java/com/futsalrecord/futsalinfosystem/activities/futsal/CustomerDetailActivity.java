@@ -33,7 +33,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
     private TextView edcustomerID;
     private RadioGroup customerGender;
     private Button btnUpdateC;
-    private String gender;
     private NotificationManagerCompat notificationManagerCompat;
 
 
@@ -71,7 +70,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
         int selectGender = customerGender.getCheckedRadioButtonId();
         RadioButton radioButton = findViewById(selectGender);
-        gender = radioButton.getText().toString().trim();
+        String gender = radioButton.getText().toString().trim();
         CustomersUD customersUD = new CustomersUD(
                 edcustomerID.getText().toString(),
                 edCustomerFullname.getText().toString(),

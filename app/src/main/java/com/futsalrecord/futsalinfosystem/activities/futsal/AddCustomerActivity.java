@@ -35,7 +35,6 @@ public class AddCustomerActivity extends AppCompatActivity {
     private TextInputEditText edCustomerFullname, edCustomerEmail, edCustomerPhoneNo, edCustomerAddress;
     private RadioGroup rgCustomerGender;
     private Button btnAddC;
-    private String customerGender;
     private NotificationManagerCompat notificationManagerCompat;
 
 
@@ -77,7 +76,7 @@ public class AddCustomerActivity extends AppCompatActivity {
     private void addCustomers() {
         int selectGender = rgCustomerGender.getCheckedRadioButtonId();
         RadioButton radioButton = findViewById(selectGender);
-        customerGender = radioButton.getText().toString();
+        String customerGender = radioButton.getText().toString();
         FutsalAPI futsalAPI = Url.getInstance().create(FutsalAPI.class);
         Call<Void> futsalCall = futsalAPI.addCustomers(Url.token,
                 edCustomerFullname.getText().toString(),
