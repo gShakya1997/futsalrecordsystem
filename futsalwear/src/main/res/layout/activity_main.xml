@@ -12,21 +12,22 @@
 
 
     <EditText
-        android:id="@+id/et1"
+        android:id="@+id/etFutsalLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="enter a number" />
+        android:hint="Futsal Name" />
 
     <EditText
-        android:id="@+id/et2"
+        android:id="@+id/etFutsalPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="enter a number" />
+        android:hint="Futsal Password" />
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add"/>
+        android:layout_gravity="center"
+        android:text="Login"/>
 
 </LinearLayout>

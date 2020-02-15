@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import com.futsalrecord.futsalinfosystem.R;
+import com.futsalrecord.futsalinfosystem.activities.futsal.FutsalAboutUsActivity;
 import com.futsalrecord.futsalinfosystem.bll.LoginBLL;
 import com.futsalrecord.futsalinfosystem.strictMode.StrictModeClass;
 import com.futsalrecord.futsalinfosystem.url.Url;
