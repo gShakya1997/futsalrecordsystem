@@ -21,6 +21,12 @@ public class MainActivity extends WearableActivity {
         etFutsalLogin = findViewById(R.id.etFutsalLogin);
         etFutsalPassword = findViewById(R.id.etFutsalPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login();
+            }
+        });
 
         // Enables Always-on
         setAmbientEnabled();
@@ -30,10 +36,12 @@ public class MainActivity extends WearableActivity {
         futsalname = etFutsalLogin.getText().toString().trim();
         futsalPassword = etFutsalPassword.getText().toString().trim();
 
+
         LoginBLL loginBLL = new LoginBLL();
         StrictModeClass.StrictMode();
         if (loginBLL.checkFutsal(futsalname, futsalPassword)) {
             Intent intent = new Intent(this, FutsalDashboard.class);
+            intent.putExtra("futsalName",futsalname);
             startActivity(intent);
             finish();
         } else {
