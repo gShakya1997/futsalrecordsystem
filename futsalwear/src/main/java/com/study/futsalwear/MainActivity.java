@@ -1,5 +1,6 @@
 package com.study.futsalwear;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.view.View;
@@ -9,29 +10,35 @@ import android.widget.Toast;
 
 public class MainActivity extends WearableActivity {
 
-    private TextView et1, et2;
-    private Button btnAdd;
-    int num1, num2;
+    private TextView etFutsalLogin, etFutsalPassword;
+    private Button btnLogin;
+    private String futsalname, futsalPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        et1 = findViewById(R.id.et1);
-        et2 = findViewById(R.id.et2);
-        btnAdd = findViewById(R.id.btnAdd);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                num1 = Integer.parseInt(et1.getText().toString());
-                num2 = Integer.parseInt(et2.getText().toString());
-                int result = num1 + num2;
-                Toast.makeText(MainActivity.this, "" + result, Toast.LENGTH_SHORT).show();
-            }
-        });
+        etFutsalLogin = findViewById(R.id.etFutsalLogin);
+        etFutsalPassword = findViewById(R.id.etFutsalPassword);
+        btnLogin = findViewById(R.id.btnLogin);
 
         // Enables Always-on
         setAmbientEnabled();
+    }
+
+    private void login() {
+        futsalname = etFutsalLogin.getText().toString().trim();
+        futsalPassword = etFutsalPassword.getText().toString().trim();
+
+        LoginBLL loginBLL = new LoginBLL();
+        StrictModeClass.StrictMode();
+        if (loginBLL.checkFutsal(futsalname, futsalPassword)) {
+            Intent intent = new Intent(this, FutsalDashboard.class);
+            startActivity(intent);
+            finish();
+        } else {
+            etFutsalLogin.setError("Enter correct username");
+            etFutsalPassword.setError("Enter correct password");
+        }
     }
 }

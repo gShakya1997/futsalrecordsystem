@@ -11,7 +11,7 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
 
-public class LoginRegisterTest {
+public class LoginRegisterUnitTest {
     private String futsalName;
     private String futsalAddress;
     private String futsalEmail;
@@ -38,7 +38,7 @@ public class LoginRegisterTest {
         registrationBLL = new RegistrationBLL();
         loginBLL = new LoginBLL();
         validation = new Validation();
-        futsalName = "UnitTest2";
+        futsalName = "UnitTestFutsal";
         futsalAddress = "KTM";
         futsalEmail = "y@gmail.cos";
         futsalPhone = "9860918273";
@@ -48,7 +48,7 @@ public class LoginRegisterTest {
         futsalClosingTime = "10:00 PM";
         futsalPrice = "150";
         futsalImage = "imageFile-1581014015039.jpeg";
-        username = "UnitTest2";
+        username = "UnitTestUser";
         address = "Patan";
         email = "test@gmail.com";
         phone = "9818086354";
@@ -93,13 +93,13 @@ public class LoginRegisterTest {
 
     @Test
     public void testLogin() {
-        boolean result = loginBLL.checkFutsal("test123", "test<3");
+        boolean result = loginBLL.checkFutsal("Gunjan Futsal", "test<3");
         assertEquals(true, result);
     }
 
     @Test
     public void testLoginUser() {
-        boolean result = loginBLL.checkUser("test123", "test<3");
+        boolean result = loginBLL.checkUser("Gunjan Shakya", "test<3");
         assertEquals(true, result);
     }
 
