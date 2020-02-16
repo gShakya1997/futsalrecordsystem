@@ -38,7 +38,7 @@ public class LoginRegisterUnitTest {
         registrationBLL = new RegistrationBLL();
         loginBLL = new LoginBLL();
         validation = new Validation();
-        futsalName = "UnitTestFutsal";
+        futsalName = "UnitTestFutsal1";
         futsalAddress = "KTM";
         futsalEmail = "y@gmail.cos";
         futsalPhone = "9860918273";
@@ -48,7 +48,7 @@ public class LoginRegisterUnitTest {
         futsalClosingTime = "10:00 PM";
         futsalPrice = "150";
         futsalImage = "imageFile-1581014015039.jpeg";
-        username = "UnitTestUser";
+        username = "UnitTestUser1";
         address = "Patan";
         email = "test@gmail.com";
         phone = "9818086354";

@@ -26,7 +26,7 @@ public class RegistrationBLL {
             Response<RegisterResponse> registerResponse = registerResponseCall.execute();
             if (registerResponse.isSuccessful() &&
                     registerResponse.body().getStatus().equals("Registered Successfully!")){
-                Url.token += registerResponse.body().getToken();
+//                Url.token = registerResponse.body().getToken();
                 isSuccess = true;
             }
         } catch (IOException e){
@@ -44,7 +44,7 @@ public class RegistrationBLL {
             Response<RegisterResponse> registerResponse = registerResponseCall.execute();
             if (registerResponse.isSuccessful() &&
                     registerResponse.body().getStatus().equals("Registered Successfully!")){
-                Url.token += registerResponse.body().getToken();
+//                Url.tokenUser = registerResponse.body().getToken();
                 isSuccess = true;
             }
         } catch (IOException e){
